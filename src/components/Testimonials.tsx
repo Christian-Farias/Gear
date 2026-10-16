@@ -24,7 +24,7 @@ const Q = [
 const Testimonials: React.FC = () => {
   const [qi, setQi] = useState(0);
   const [animKey, setAnimKey] = useState(0);
-  const timerRef = useRef<NodeJS.Timeout | null>(null);
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const showQ = (n: number) => {
     setQi((n + Q.length) % Q.length);
