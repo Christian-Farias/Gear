@@ -59,7 +59,7 @@ const CTAContact: React.FC = () => {
   };
 
   return (
-    <section className="relative py-28 md:py-40 overflow-hidden bg-gradient-to-b from-[#080C16] via-[#0B101E] to-[#05070B] border-t border-white/[0.08]" id="contato">
+    <section className="sec relative overflow-hidden bg-gradient-to-b from-[#080C16] via-[#0B101E] to-[#05070B] border-t border-white/[0.08]" id="contato">
       {/* Orbital glow rings */}
       <div 
         className="absolute -right-20 -top-32 w-[55vw] max-w-[700px] aspect-square rounded-full border border-blue-500/20 pointer-events-none animate-pulse-slow"
@@ -110,7 +110,7 @@ const CTAContact: React.FC = () => {
                   key={scope}
                   type="button"
                   onClick={() => toggleScope(scope)}
-                  className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs mono transition-all ${
+                  className={`inline-flex items-center gap-2 px-4 py-2 min-h-[44px] rounded-full text-xs mono transition-all ${
                     isSelected
                       ? 'bg-blue-600 text-white border border-blue-400 shadow-[0_0_15px_rgba(37,99,235,0.4)]'
                       : 'bg-white/[0.04] text-zinc-300 hover:text-white border border-white/[0.08] hover:bg-white/[0.08]'
@@ -136,7 +136,7 @@ const CTAContact: React.FC = () => {
               <button
                 type="button"
                 onClick={copyEmail}
-                className="group inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.1] text-xs mono text-zinc-300 hover:text-white transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+                className="group inline-flex items-center gap-2 px-4 py-2 min-h-[44px] rounded-full bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.1] text-xs mono text-zinc-300 hover:text-white transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 touch-manipulation"
                 title="Copiar e-mail de contato"
               >
                 <Mail className="w-3.5 h-3.5 text-blue-400" />

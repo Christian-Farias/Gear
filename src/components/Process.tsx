@@ -105,7 +105,7 @@ const Process: React.FC = () => {
               style={{ width: `${((activeStep + 1) / steps.length) * 100}%` }}
             />
           </div>
-          <div className="grid grid-cols-4 gap-6 pt-3 mono text-[10px] text-zinc-500">
+          <div className="grid grid-cols-4 gap-6 pt-3 mono text-[10px] text-zinc-400">
             {steps.map((st, i) => (
               <span key={i} className={`transition-colors ${activeStep >= i ? 'text-blue-400 font-bold' : ''}`}>
                 Fase 0{i + 1} &bull; {st.timeframe}
@@ -119,21 +119,14 @@ const Process: React.FC = () => {
           Accessible: click AND hover activate steps (works on touch and keyboard).
           onMouseEnter is supplemental — never the only trigger.
         */}
-        <div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
-          role="tablist"
-          aria-label="Etapas do processo"
-        >
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {steps.map((step, idx) => {
             const isActive = activeStep === idx;
             return (
               <button
                 type="button"
                 key={step.number}
-                role="tab"
-                aria-selected={isActive}
-                aria-controls={`step-panel-${idx}`}
-                id={`step-tab-${idx}`}
+                aria-pressed={isActive}
                 onClick={() => setActiveStep(idx)}
                 onMouseEnter={() => setActiveStep(idx)}
                 onFocus={() => setActiveStep(idx)}
@@ -149,7 +142,7 @@ const Process: React.FC = () => {
                     {/* Step number: large mono, blue when active, muted otherwise */}
                     <span
                       className={`text-4xl font-bold font-mono tracking-tight transition-colors ${
-                        isActive ? 'text-blue-400' : 'text-zinc-600 group-hover:text-zinc-400'
+                        isActive ? 'text-blue-400' : 'text-zinc-500 group-hover:text-zinc-400'
                       }`}
                     >
                       {step.number}
@@ -168,16 +161,13 @@ const Process: React.FC = () => {
 
                   <div className="space-y-1.5">
                     {/* Badge: small mono label */}
-                    <span className="mono text-[10px] text-zinc-500 block uppercase tracking-wider font-medium">
+                    <span className="mono text-[10px] text-zinc-400 block uppercase tracking-wider font-medium">
                       {step.badge}
                     </span>
                     {/* Title: white, medium weight */}
-                    <h3
-                      className="text-xl font-semibold text-white tracking-tight"
-                      id={`step-panel-${idx}`}
-                    >
+                    <span className="block text-xl font-semibold text-white tracking-tight">
                       {step.title}
-                    </h3>
+                    </span>
                     {/* Summary: zinc-300 for comfortable contrast on dark */}
                     <p className="text-xs text-zinc-400 leading-relaxed">
                       {step.summary}
@@ -187,7 +177,7 @@ const Process: React.FC = () => {
 
                 {/* Deliverables — border-t separates from summary */}
                 <div className="pt-4 border-t border-white/[0.08] space-y-2">
-                  <span className="mono text-[10px] text-zinc-500 uppercase tracking-widest block font-medium">
+                  <span className="mono text-[10px] text-zinc-400 uppercase tracking-widest block font-medium">
                     Entregáveis:
                   </span>
                   <div className="space-y-1.5">
@@ -195,7 +185,7 @@ const Process: React.FC = () => {
                       <div key={dIdx} className="flex items-center gap-2 text-[11px] text-zinc-300">
                         <CheckCircle
                           className={`w-3 h-3 shrink-0 transition-colors ${
-                            isActive ? 'text-blue-400' : 'text-zinc-600'
+                            isActive ? 'text-blue-400' : 'text-zinc-500'
                           }`}
                         />
                         <span>{deliv}</span>

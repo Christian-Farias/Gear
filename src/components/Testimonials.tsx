@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { Star, Quote, ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface Testimonial {
@@ -47,20 +47,13 @@ const testimonials: Testimonial[] = [
 const Testimonials: React.FC = () => {
   const [currentIdx, setCurrentIdx] = useState(0);
   const [animating, setAnimating] = useState(false);
-  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
-  // Auto-advance paused on interaction — restarts after 10s idle
-  const resetInterval = () => {
-    if (intervalRef.current) clearInterval(intervalRef.current);
-    intervalRef.current = setInterval(() => changeSlide(currentIdx + 1), 8000);
-  };
-
+  // Manual-only carousel: no autoplay — the visitor controls the pace
   const changeSlide = (newIdx: number) => {
     if (animating) return;
     setAnimating(true);
     setCurrentIdx((newIdx + testimonials.length) % testimonials.length);
     setTimeout(() => setAnimating(false), 400);
-    resetInterval();
   };
 
   const active = testimonials[currentIdx];
@@ -95,7 +88,7 @@ const Testimonials: React.FC = () => {
           results GEAR delivers and will be replaced by verified client
           statements as they are collected and authorized.
         */}
-        <p className="mono text-xs text-zinc-500 mb-8 border border-white/[0.06] px-4 py-2 rounded-lg inline-flex items-center gap-2 bg-white/[0.02]">
+        <p className="mono text-xs text-zinc-400 mb-8 border border-white/[0.06] px-4 py-2 rounded-lg inline-flex items-center gap-2 bg-white/[0.02]">
           <span className="w-1.5 h-1.5 rounded-full bg-zinc-500 inline-block" />
           Depoimentos ilustrativos — substituídos por declarações verificadas conforme autorizadas pelos clientes.
         </p>
@@ -140,31 +133,36 @@ const Testimonials: React.FC = () => {
                   <span className="text-xs text-zinc-400 block">
                     {active.role} &bull; <strong className="text-zinc-300 font-medium">{active.company}</strong>
                   </span>
-                  <span className="mono text-[10px] text-zinc-500">{active.segment}</span>
+                  <span className="mono text-[10px] text-zinc-400">{active.segment}</span>
                 </div>
               </div>
 
               {/* Navigation */}
-              <div className="flex items-center gap-4">
-                <div className="flex items-center gap-2 mr-2">
+              <div className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1">
+                <div className="flex items-center gap-1">
                   {testimonials.map((_, dotIdx) => (
                     <button
                       key={dotIdx}
                       type="button"
                       onClick={() => changeSlide(dotIdx)}
-                      className={`h-1.5 rounded-full transition-all duration-300 ${
-                        currentIdx === dotIdx ? 'w-6 bg-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.6)]' : 'w-2 bg-white/20 hover:bg-white/40'
-                      }`}
+                      className="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
                       aria-label={`Ir para depoimento ${dotIdx + 1}`}
-                    />
+                      aria-current={currentIdx === dotIdx ? 'true' : undefined}
+                    >
+                      <span
+                        className={`h-1.5 rounded-full transition-all duration-300 ${
+                          currentIdx === dotIdx ? 'w-6 bg-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.6)]' : 'w-2 bg-white/20 hover:bg-white/40'
+                        }`}
+                      />
+                    </button>
                   ))}
                 </div>
 
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 shrink-0">
                   <button
                     type="button"
                     onClick={() => changeSlide(currentIdx - 1)}
-                    className="w-10 h-10 rounded-full border border-white/[0.12] bg-white/[0.04] text-white hover:bg-white/[0.1] hover:border-white/[0.2] transition-colors flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+                    className="w-11 h-11 rounded-full border border-white/[0.12] bg-white/[0.04] text-white hover:bg-white/[0.1] hover:border-white/[0.2] transition-colors flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
                     aria-label="Depoimento anterior"
                     data-cursor
                   >
@@ -173,7 +171,7 @@ const Testimonials: React.FC = () => {
                   <button
                     type="button"
                     onClick={() => changeSlide(currentIdx + 1)}
-                    className="w-10 h-10 rounded-full border border-white/[0.12] bg-white/[0.04] text-white hover:bg-white/[0.1] hover:border-white/[0.2] transition-colors flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+                    className="w-11 h-11 rounded-full border border-white/[0.12] bg-white/[0.04] text-white hover:bg-white/[0.1] hover:border-white/[0.2] transition-colors flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
                     aria-label="Próximo depoimento"
                     data-cursor
                   >
@@ -181,7 +179,7 @@ const Testimonials: React.FC = () => {
                   </button>
                 </div>
 
-                <span className="mono text-xs text-zinc-400 font-mono pl-2">
+                <span className="mono text-xs text-zinc-400 font-mono pl-2 shrink-0">
                   0{currentIdx + 1} / 0{testimonials.length}
                 </span>
               </div>

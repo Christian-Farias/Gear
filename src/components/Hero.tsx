@@ -295,7 +295,7 @@ const Hero: React.FC = () => {
           {/* Interactive Calibration Switch (Tension between Chaos and Precision) */}
           <div className="flex flex-wrap items-center gap-4 mt-6 md:mt-8">
             <button
-              className="mono group inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.1] hover:border-blue-400/40 backdrop-blur-md text-zinc-300 hover:text-white transition-all shadow-[0_4px_24px_rgba(0,0,0,0.6)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+              className="mono group inline-flex items-center gap-2.5 px-4 py-2 min-h-[44px] rounded-full bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.1] hover:border-blue-400/40 backdrop-blur-md text-zinc-300 hover:text-white transition-all shadow-[0_4px_24px_rgba(0,0,0,0.6)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 touch-manipulation"
               id="shuffle"
               data-cursor
               onClick={handleToggleCalibration}
@@ -346,7 +346,7 @@ const Hero: React.FC = () => {
             </div>
           </div>
 
-          <div className="action-col">
+          <div className="action-col order-first lg:order-none">
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-start lg:justify-end gap-3.5 sm:gap-4 w-full">
               <a
                 className="ghost mono inline-flex items-center justify-center gap-2 py-3.5 px-5 min-h-[44px] text-xs tracking-wider text-zinc-400 hover:text-white transition-colors border-b border-zinc-700 hover:border-white touch-manipulation order-2 sm:order-1 text-center"

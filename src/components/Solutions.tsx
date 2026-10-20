@@ -112,11 +112,11 @@ const Solutions: React.FC = () => {
                   t.done ? 'bg-blue-950/20 border-blue-500/30 text-white' : 'bg-white/[0.02] border-white/[0.05] text-zinc-400'
                 }`}
               >
-                <span className="truncate pr-2">{t.text}</span>
+                <span className="pr-2 text-left leading-snug">{t.text}</span>
                 {t.done ? (
                   <CheckSquare className="w-4 h-4 text-blue-400 shrink-0" />
                 ) : (
-                  <Square className="w-4 h-4 text-zinc-500 shrink-0" />
+                  <Square className="w-4 h-4 text-zinc-400 shrink-0" />
                 )}
               </button>
             ))}
@@ -266,23 +266,27 @@ const Solutions: React.FC = () => {
             </div>
           </div>
 
-          <div className="h-24 flex items-end gap-2 pt-2 px-1">
+          <div className="h-24 flex items-stretch gap-0.5 pt-2">
             {chartData.map((item, idx) => (
               <button
                 key={idx}
                 type="button"
                 onMouseEnter={() => setDashboardHoverDay(idx)}
-                className="flex-1 flex flex-col items-center gap-1 group focus-visible:outline-none"
+                onFocus={() => setDashboardHoverDay(idx)}
+                onClick={() => setDashboardHoverDay(idx)}
+                className="flex-1 h-full flex flex-col items-center justify-end gap-1 group focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-blue-400 rounded"
                 aria-label={`${item.day}: ${item.revenue}`}
               >
-                <div
-                  className={`w-full rounded-t transition-all duration-300 ${
-                    dashboardHoverDay === idx
-                      ? 'bg-gradient-to-t from-blue-600 to-cyan-400 shadow-[0_0_15px_rgba(56,189,248,0.7)] scale-y-105'
-                      : 'bg-white/10 group-hover:bg-blue-600/50'
-                  }`}
-                  style={{ height: `${item.val}%` }}
-                />
+                <div className="w-full flex-1 flex flex-col justify-end min-h-0">
+                  <div
+                    className={`w-full rounded-t transition-all duration-300 ${
+                      dashboardHoverDay === idx
+                        ? 'bg-gradient-to-t from-blue-600 to-cyan-400 shadow-[0_0_15px_rgba(56,189,248,0.7)]'
+                        : 'bg-white/10 group-hover:bg-blue-600/50'
+                    }`}
+                    style={{ height: `${item.val}%` }}
+                  />
+                </div>
                 <span className={`text-[9px] mono transition-colors ${dashboardHoverDay === idx ? 'text-white font-bold' : 'text-zinc-400'}`}>
                   {item.day}
                 </span>
@@ -314,14 +318,14 @@ const Solutions: React.FC = () => {
               <button
                 type="button"
                 onClick={() => setSiteMode('gear')}
-                className={`px-2 py-0.5 rounded transition-all ${siteMode === 'gear' ? 'bg-blue-600 text-white font-bold' : 'text-zinc-400'}`}
+                className={`px-2 py-1 min-h-[24px] rounded transition-all ${siteMode === 'gear' ? 'bg-blue-600 text-white font-bold' : 'text-zinc-400'}`}
               >
                 Com GEAR
               </button>
               <button
                 type="button"
                 onClick={() => setSiteMode('antigo')}
-                className={`px-2 py-0.5 rounded transition-all ${siteMode === 'antigo' ? 'bg-rose-600 text-white font-bold' : 'text-zinc-400'}`}
+                className={`px-2 py-1 min-h-[24px] rounded transition-all ${siteMode === 'antigo' ? 'bg-rose-600 text-white font-bold' : 'text-zinc-400'}`}
               >
                 Antes
               </button>
@@ -426,14 +430,14 @@ const Solutions: React.FC = () => {
             <button
               type="button"
               onClick={() => setAppTab('pedidos')}
-              className={`flex-1 py-1 rounded transition-all ${appTab === 'pedidos' ? 'bg-blue-600 text-white font-bold' : 'text-zinc-400'}`}
+              className={`flex-1 py-1 min-h-[24px] rounded transition-all ${appTab === 'pedidos' ? 'bg-blue-600 text-white font-bold' : 'text-zinc-400'}`}
             >
               Pedidos Ativos
             </button>
             <button
               type="button"
               onClick={() => setAppTab('estoque')}
-              className={`flex-1 py-1 rounded transition-all ${appTab === 'estoque' ? 'bg-blue-600 text-white font-bold' : 'text-zinc-400'}`}
+              className={`flex-1 py-1 min-h-[24px] rounded transition-all ${appTab === 'estoque' ? 'bg-blue-600 text-white font-bold' : 'text-zinc-400'}`}
             >
               Estoque Local
             </button>
@@ -522,11 +526,11 @@ const Solutions: React.FC = () => {
             </div>
 
             {/* State Toggle Buttons */}
-            <div className="flex items-center gap-2 p-1 rounded-xl bg-black/50 border border-white/[0.08] mono text-xs">
+            <div className="flex flex-wrap items-center justify-end gap-2 p-1 rounded-xl bg-black/50 border border-white/[0.08] mono text-xs">
               <button
                 type="button"
                 onClick={() => { setMatrixCalibrated(false); setCalibrationProgress(0); }}
-                className={`px-3 py-1.5 rounded-lg transition-all ${
+                className={`px-3.5 py-2 min-h-[44px] rounded-lg transition-all ${
                   !matrixCalibrated ? 'bg-amber-500/20 text-amber-400 border border-amber-500/40 font-bold' : 'text-zinc-400 hover:text-white'
                 }`}
               >
@@ -538,7 +542,7 @@ const Solutions: React.FC = () => {
               <button
                 type="button"
                 onClick={() => { setMatrixCalibrated(true); setCalibrationProgress(100); }}
-                className={`px-3 py-1.5 rounded-lg transition-all ${
+                className={`px-3.5 py-2 min-h-[44px] rounded-lg transition-all ${
                   matrixCalibrated ? 'bg-blue-600 text-white font-bold shadow-[0_0_15px_rgba(37,99,235,0.5)]' : 'text-zinc-400 hover:text-white'
                 }`}
               >
@@ -559,7 +563,7 @@ const Solutions: React.FC = () => {
               max="100"
               value={calibrationProgress}
               onChange={handleSliderChange}
-              className="flex-1 h-1.5 bg-zinc-800 rounded-lg appearance-none cursor-pointer accent-blue-500"
+              className="flex-1 h-11 min-w-0 appearance-none cursor-pointer bg-transparent accent-blue-500 [&::-webkit-slider-runnable-track]:h-1.5 [&::-webkit-slider-runnable-track]:rounded-lg [&::-webkit-slider-runnable-track]:bg-zinc-800 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:-mt-[7px] [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-blue-500 [&::-webkit-slider-thumb]:shadow-[0_0_8px_rgba(59,130,246,0.8)] [&::-moz-range-track]:h-1.5 [&::-moz-range-track]:rounded-lg [&::-moz-range-track]:bg-zinc-800 [&::-moz-range-thumb]:h-4 [&::-moz-range-thumb]:w-4 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:border-0 [&::-moz-range-thumb]:bg-blue-500"
               aria-label="Calibrador de sincronia operacional"
             />
             <span className="mono text-[10px] text-blue-400 hidden sm:inline">PRECISÃO GEAR (100%)</span>
@@ -587,7 +591,7 @@ const Solutions: React.FC = () => {
                   </p>
                 </div>
                 <div className="mono text-[10px] pt-2 border-t border-white/[0.06] flex items-center justify-between">
-                  <span className="text-zinc-500">LATÊNCIA</span>
+                  <span className="text-zinc-400">LATÊNCIA</span>
                   <span className={matrixCalibrated ? 'text-emerald-400' : 'text-amber-400'}>
                     {matrixCalibrated ? '12ms' : '3 a 5 dias'}
                   </span>
@@ -613,7 +617,7 @@ const Solutions: React.FC = () => {
                   </p>
                 </div>
                 <div className="mono text-[10px] pt-2 border-t border-white/[0.06] flex items-center justify-between">
-                  <span className="text-zinc-500">PRECISÃO</span>
+                  <span className="text-zinc-400">PRECISÃO</span>
                   <span className={matrixCalibrated ? 'text-emerald-400' : 'text-amber-400'}>
                     {matrixCalibrated ? '99.4%' : 'Taxa de erro ~12%'}
                   </span>
@@ -639,7 +643,7 @@ const Solutions: React.FC = () => {
                   </p>
                 </div>
                 <div className="mono text-[10px] pt-2 border-t border-white/[0.06] flex items-center justify-between">
-                  <span className="text-zinc-500">RETRABALHO</span>
+                  <span className="text-zinc-400">RETRABALHO</span>
                   <span className={matrixCalibrated ? 'text-emerald-400' : 'text-amber-400'}>
                     {matrixCalibrated ? 'Zero' : 'Frequente'}
                   </span>
@@ -665,7 +669,7 @@ const Solutions: React.FC = () => {
                   </p>
                 </div>
                 <div className="mono text-[10px] pt-2 border-t border-white/[0.06] flex items-center justify-between">
-                  <span className="text-zinc-500">STATUS</span>
+                  <span className="text-zinc-400">STATUS</span>
                   <span className={matrixCalibrated ? 'text-emerald-400 font-bold' : 'text-amber-400 font-bold'}>
                     {matrixCalibrated ? '● SINCRONIZADO' : '▲ GARGALO'}
                   </span>
@@ -697,7 +701,7 @@ const Solutions: React.FC = () => {
                     aria-expanded={isSelected}
                   >
                     <div className="flex items-baseline gap-4 md:gap-8">
-                      <span className={`mono text-xs md:text-sm transition-colors ${isSelected ? 'text-blue-400 font-bold' : 'text-zinc-500'}`}>
+                      <span className={`mono text-xs md:text-sm transition-colors ${isSelected ? 'text-blue-400 font-bold' : 'text-zinc-400'}`}>
                         {s.num}
                       </span>
                       <span className={`text-2xl sm:text-4xl md:text-5xl font-medium tracking-tight transition-transform duration-300 ${
@@ -715,10 +719,10 @@ const Solutions: React.FC = () => {
                   {/* Mobile expansion view */}
                   <div
                     className={`lg:hidden transition-all duration-500 overflow-hidden px-2 ${
-                      isMobileOpen ? 'max-h-[750px] opacity-100 pb-8' : 'max-h-0 opacity-0'
+                      isMobileOpen ? 'max-h-[1600px] opacity-100 pb-8' : 'max-h-0 opacity-0'
                     }`}
                   >
-                    <div className="p-5 rounded-2xl bg-white/[0.03] border border-white/[0.08] space-y-4">
+                    <div data-mock className="p-5 rounded-2xl bg-white/[0.03] border border-white/[0.08] space-y-4">
                       <p className="text-base text-zinc-300 font-normal leading-relaxed">
                         {s.subtitle}
                       </p>
@@ -755,7 +759,7 @@ const Solutions: React.FC = () => {
             </div>
 
             {/* Interactive Visual Canvas */}
-            <div className="min-h-[260px] p-4 rounded-xl bg-black/40 border border-dashed border-white/[0.12] flex items-center justify-center relative overflow-hidden group">
+            <div data-mock className="min-h-[260px] p-4 rounded-xl bg-black/40 border border-dashed border-white/[0.12] flex items-center justify-center relative overflow-hidden group">
               <div 
                 className="absolute inset-0 bg-radial-glow opacity-50 pointer-events-none"
                 aria-hidden="true" 

@@ -46,23 +46,23 @@ const Projects: React.FC = () => {
       accentGlow: 'from-cyan-500/10 via-transparent to-transparent',
       renderVisual: () => (
         <div className="w-full h-full flex flex-col justify-between p-5 bg-[#090D16] rounded-2xl border border-white/[0.08] shadow-2xl space-y-4">
-          <div className="flex items-center justify-between pb-3 border-b border-white/[0.08]">
-            <div className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse" />
-              <span className="mono text-xs text-white font-medium">Clínica Vida — Painel Consolidado</span>
+          <div className="flex items-center justify-between gap-2 pb-3 border-b border-white/[0.08]">
+            <div className="flex items-center gap-2 min-w-0 flex-1">
+              <span className="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse shrink-0" />
+              <span className="mono text-xs text-white font-medium truncate">Clínica Vida — Painel Consolidado</span>
             </div>
             <div className="flex items-center gap-1.5 p-1 rounded-lg bg-white/[0.04] border border-white/[0.06] mono text-[10px]">
               <button
                 type="button"
                 onClick={() => setActiveTabCase1('depois')}
-                className={`px-2 py-0.5 rounded transition-all ${activeTabCase1 === 'depois' ? 'bg-blue-600 text-white font-semibold' : 'text-zinc-400'}`}
+                className={`px-2 py-1 min-h-[24px] rounded transition-all ${activeTabCase1 === 'depois' ? 'bg-blue-600 text-white font-semibold' : 'text-zinc-400'}`}
               >
                 Automatizado
               </button>
               <button
                 type="button"
                 onClick={() => setActiveTabCase1('antes')}
-                className={`px-2 py-0.5 rounded transition-all ${activeTabCase1 === 'antes' ? 'bg-rose-600 text-white font-semibold' : 'text-zinc-400'}`}
+                className={`px-2 py-1 min-h-[24px] rounded transition-all ${activeTabCase1 === 'antes' ? 'bg-rose-600 text-white font-semibold' : 'text-zinc-400'}`}
               >
                 Antes (Manual)
               </button>
@@ -146,7 +146,7 @@ const Projects: React.FC = () => {
       accentGlow: 'from-emerald-500/10 via-transparent to-transparent',
       renderVisual: () => (
         <div className="w-full h-full flex items-center justify-center p-3">
-          <div className="w-64 rounded-3xl bg-[#080C14] border-2 border-white/[0.12] p-4 shadow-2xl flex flex-col gap-3 font-sans relative overflow-hidden">
+          <div className="w-full max-w-64 rounded-3xl bg-[#080C14] border-2 border-white/[0.12] p-4 shadow-2xl flex flex-col gap-3 font-sans relative">
             <div className="flex justify-between items-center text-[10px] mono text-zinc-400 border-b border-white/[0.08] pb-2">
               <span className="font-semibold text-white">GEAR Pay &amp; Caixa</span>
               <span className="text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded font-mono">Online</span>
@@ -291,7 +291,7 @@ const Projects: React.FC = () => {
                       <span className="mono text-xs text-blue-400 font-semibold uppercase tracking-wider">
                         Caso {c.num} — {c.segment}
                       </span>
-                      <span className="text-zinc-600">&bull;</span>
+                      <span className="text-zinc-500">&bull;</span>
                       <span className="mono text-xs text-zinc-400">
                         {c.category}
                       </span>
@@ -362,7 +362,7 @@ const Projects: React.FC = () => {
                 </div>
 
                 {/* Right: Rich Interactive Visual Representation */}
-                <div className="lg:col-span-5 flex flex-col justify-between min-h-[300px] lg:border-l lg:border-white/[0.08] lg:pl-8">
+                <div data-mock className="lg:col-span-5 flex flex-col justify-between min-h-[300px] lg:border-l lg:border-white/[0.08] lg:pl-8">
                   {c.renderVisual()}
                 </div>
               </div>

@@ -30,11 +30,11 @@ const Differentials: React.FC = () => {
   ];
 
   return (
-    <section className="relative py-20 md:py-32 overflow-hidden border-t border-white/[0.08] bg-[#05070B]" id="diferenciais">
+    <section className="sec relative overflow-hidden border-t border-white/[0.08] bg-[#05070B]" id="diferenciais">
       {/* Dynamic Animated Marquee Ribbon */}
       <div className="band bg-blue-600 text-white overflow-hidden py-5 md:py-6 -rotate-1 shadow-[0_10px_35px_rgba(37,99,235,0.4)] my-8">
-        <div className="mq flex whitespace-nowrap animate-marquee">
-          {[1, 2, 3].map((set) => (
+        <div className="mq flex whitespace-nowrap">
+          {[1, 2].map((set) => (
             <div key={set} className="flex items-center gap-8 px-4 text-2xl sm:text-4xl md:text-5xl font-semibold tracking-tight">
               <span>Atendimento que responde</span>
               <span className="serif italic font-normal text-blue-200">✦ prazo é compromisso</span>
@@ -65,7 +65,7 @@ const Differentials: React.FC = () => {
         </div>
 
         {/* Asymmetric Comparison Matrix */}
-        <div className="rounded-3xl p-6 sm:p-8 md:p-10 bg-[#0A0E17]/90 border border-white/[0.1] shadow-2xl overflow-x-auto">
+        <div className="rounded-3xl p-6 sm:p-8 md:p-10 bg-[#0A0E17]/90 border border-white/[0.1] shadow-2xl overflow-x-auto" tabIndex={0} role="region" aria-label="Tabela comparativa: GEAR versus SaaS de prateleira e agências">
           <div className="min-w-[640px]">
             <div className="grid grid-cols-12 pb-4 border-b border-white/[0.08] text-xs mono uppercase tracking-wider text-zinc-400 font-semibold">
               <div className="col-span-4">Critério de Engenharia</div>

@@ -95,7 +95,7 @@ const ProblemSection: React.FC = () => {
                         : 'bg-white/[0.02] border-white/[0.06] hover:bg-white/[0.04] hover:border-white/[0.12]'
                     }`}
                     data-cursor
-                    aria-selected={isSelected}
+                    aria-pressed={isSelected}
                   >
                     {/* Active Accent Indicator */}
                     <div 
@@ -107,18 +107,18 @@ const ProblemSection: React.FC = () => {
                     <div className="flex items-start justify-between gap-4 mb-2">
                       <div className="flex items-center gap-3">
                         <span className={`mono text-xs px-2 py-0.5 rounded font-bold ${
-                          isSelected ? 'bg-amber-500/20 text-amber-400 border border-amber-500/30' : 'bg-white/[0.04] text-zinc-500'
+                          isSelected ? 'bg-amber-500/20 text-amber-400 border border-amber-500/30' : 'bg-white/[0.04] text-zinc-400'
                         }`}>
                           {pt.code}
                         </span>
-                        <h3 className={`text-lg sm:text-xl font-medium tracking-tight ${
+                        <span className={`text-lg sm:text-xl font-medium tracking-tight ${
                           isSelected ? 'text-white' : 'text-zinc-300'
                         }`}>
                           {pt.title}
-                        </h3>
+                        </span>
                       </div>
                       <ArrowRight className={`w-4 h-4 transition-transform duration-300 shrink-0 ${
-                        isSelected ? 'text-amber-400 translate-x-1' : 'text-zinc-600 group-hover:translate-x-0.5'
+                        isSelected ? 'text-amber-400 translate-x-1' : 'text-zinc-500 group-hover:translate-x-0.5'
                       }`} />
                     </div>
 
@@ -160,7 +160,7 @@ const ProblemSection: React.FC = () => {
                   DIAGNÓSTICO PREVENTIVO: AUDITORIA SEM CUSTO
                 </span>
               </div>
-              <span className="mono text-[10px] sm:text-[11px] text-zinc-500">
+              <span className="mono text-[10px] sm:text-[11px] text-zinc-400">
                 100% CONFIDENCIAL
               </span>
             </div>

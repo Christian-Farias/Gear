@@ -27,20 +27,6 @@ const App: React.FC = () => {
 
     window.addEventListener('scroll', handleScroll, { passive: true });
 
-    // Smooth scroll reveals with IntersectionObserver
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) {
-            e.target.classList.add('in');
-            io.unobserve(e.target);
-          }
-        });
-      },
-      { threshold: 0.12, rootMargin: '0px 0px -5% 0px' }
-    );
-    document.querySelectorAll('.rv, .sec-h h2, .cta h2, article.case').forEach((el) => io.observe(el));
-
     // Custom fluid magnetic cursor on devices supporting hover
     if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
       let cx = window.innerWidth / 2;
@@ -98,14 +84,32 @@ const App: React.FC = () => {
         document.removeEventListener('mouseleave', handleMouseLeave);
         document.removeEventListener('mouseenter', handleMouseEnter);
         cancelAnimationFrame(animId);
-        io.disconnect();
       };
     }
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
-      io.disconnect();
     };
+  }, []);
+
+  // Decorative icon SVGs (lucide): hide from the accessibility tree unless named
+  useEffect(() => {
+    const gate = (svg: Element) => {
+      if (!svg.getAttribute('role') && !svg.getAttribute('aria-label') && !svg.getAttribute('aria-labelledby')) {
+        svg.setAttribute('aria-hidden', 'true');
+      }
+    };
+    document.querySelectorAll('svg').forEach(gate);
+    const obs = new MutationObserver((mutations) => {
+      for (const m of mutations) {
+        for (const node of m.addedNodes) {
+          if (node instanceof SVGSVGElement) gate(node);
+          else if (node instanceof Element) node.querySelectorAll('svg').forEach(gate);
+        }
+      }
+    });
+    obs.observe(document.body, { childList: true, subtree: true });
+    return () => obs.disconnect();
   }, []);
 
   return (
@@ -113,7 +117,7 @@ const App: React.FC = () => {
       {/* Top Reading Progress Bar */}
       <div 
         ref={progRef} 
-        className="fixed top-0 left-0 right-0 h-[2.5px] bg-gradient-to-r from-blue-600 via-sky-400 to-blue-500 origin-left scale-x-0 z-50 pointer-events-none transition-transform duration-75 ease-out shadow-[0_0_12px_rgba(37,99,235,0.8)]" 
+        className="fixed top-0 left-0 right-0 h-[2.5px] bg-gradient-to-r from-blue-600 via-sky-400 to-blue-500 origin-left scale-x-0 z-[60] pointer-events-none transition-transform duration-75 ease-out shadow-[0_0_12px_rgba(37,99,235,0.8)]" 
         id="prog" 
         aria-hidden="true" 
       />
@@ -130,6 +134,10 @@ const App: React.FC = () => {
           <div key={i} className="border-l border-white/[0.02] last:border-r" />
         ))}
       </div>
+
+      <a href="#top" className="skip-link">
+        Pular para o conteúdo
+      </a>
 
       <Header />
       <main id="top" className="relative z-10">

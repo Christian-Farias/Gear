@@ -22,7 +22,7 @@ const Footer: React.FC = () => {
 
           {/* Col 1: Logo & Mission */}
           <div className="lg:col-span-4 space-y-4">
-            <a href="#top" className="inline-flex items-center gap-3 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded p-1" aria-label="Voltar ao topo da página">
+            <a href="#top" className="inline-flex items-center gap-3 min-h-[44px] group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded p-1" aria-label="Voltar ao topo da página">
               <div className="w-8 h-8 transition-transform duration-300 group-hover:scale-110">
                 <svg viewBox="0 0 500 540" className="w-full h-full drop-shadow-[0_0_10px_rgba(45,99,255,0.4)]">
                   <use href="#logo-g" />
@@ -48,7 +48,7 @@ const Footer: React.FC = () => {
             <h4 className="mono text-xs text-zinc-400 uppercase tracking-widest font-semibold">
               Navegar
             </h4>
-            <ul className="space-y-2 text-sm text-zinc-300">
+            <ul className="text-sm text-zinc-300">
               {[
                 { href: '#problema', label: 'O Caos Operacional' },
                 { href: '#solucoes', label: 'Soluções & Motor' },
@@ -59,7 +59,7 @@ const Footer: React.FC = () => {
                 { href: '#contato', label: 'Iniciar Projeto' },
               ].map(({ href, label }) => (
                 <li key={href}>
-                  <a href={href} className="hover:text-blue-400 transition-colors">{label}</a>
+                  <a href={href} className="block py-3.5 hover:text-blue-400 transition-colors touch-manipulation">{label}</a>
                 </li>
               ))}
             </ul>
@@ -89,30 +89,30 @@ const Footer: React.FC = () => {
                   href={WHATSAPP_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 hover:text-emerald-400 transition-colors"
+                  className="inline-flex items-center gap-1.5 min-h-[44px] hover:text-emerald-400 transition-colors touch-manipulation"
                   aria-label="Conversar via WhatsApp"
                 >
                   <span>WhatsApp</span>
-                  <ArrowUpRight className="w-3 h-3 text-zinc-500" aria-hidden="true" />
+                  <ArrowUpRight className="w-3 h-3 text-zinc-400" aria-hidden="true" />
                 </a>
               </li>
               <li>
                 {/* Email — pending confirmation that this address is operational */}
                 <a
                   href="mailto:contato@gear.com.br"
-                  className="inline-flex items-center gap-1.5 hover:text-blue-400 transition-colors"
+                  className="inline-flex items-center gap-1.5 min-h-[44px] hover:text-blue-400 transition-colors touch-manipulation"
                   aria-label="Enviar e-mail para contato@gear.com.br"
                 >
                   <Mail className="w-3.5 h-3.5 text-zinc-400" aria-hidden="true" />
                   <span>contato@gear.com.br</span>
                 </a>
               </li>
-              <li className="pt-1 text-xs text-zinc-500 mono leading-relaxed">
+              <li className="pt-1 text-xs text-zinc-400 mono leading-relaxed">
                 São Paulo, SP &bull; Atendimento Remoto Nacional
               </li>
               {/* Social links — to be added when official profiles are confirmed */}
               <li>
-                <span className="mono text-[10px] text-zinc-600 italic">
+                <span className="mono text-[10px] text-zinc-500 italic">
                   Redes sociais em configuração
                 </span>
               </li>
@@ -121,7 +121,7 @@ const Footer: React.FC = () => {
         </div>
 
         {/* Legal & Credits Row */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 mono text-xs text-zinc-500">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 mono text-xs text-zinc-400">
           <span>&copy; {year} GEAR Tecnologia. Todos os direitos reservados.</span>
           <div className="flex items-center gap-2">
             <span>Desenvolvido no Brasil</span>
