@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   --ink: #0B0C0F;
   --ink2: #12141A;
@@ -412,8 +416,8 @@ header.sc {
 .fig {
   position: absolute;
   right: -4vw;
-  top: 10vh;
-  width: min(54vw, 760px);
+  top: 8vh;
+  width: min(52vw, 740px);
   z-index: 1;
   opacity: 0.95;
   pointer-events: none;
@@ -441,20 +445,21 @@ header.sc {
 .shuffle {
   position: absolute;
   right: var(--pad);
-  bottom: 140px;
-  z-index: 3;
-  color: var(--mute);
-  display: flex;
+  bottom: 160px;
+  z-index: 20;
+  display: inline-flex;
   gap: 8px;
   align-items: center;
-  padding: 8px 0;
-  border-bottom: 1px solid var(--line);
-  transition: 0.3s;
 }
 
-.shuffle:hover {
-  color: var(--paper);
-  border-color: var(--paper);
+@media (max-width: 980px) {
+  .shuffle {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    margin: 20px 0 0 var(--pad);
+    display: inline-flex;
+  }
 }
 
 .idx {
@@ -1473,9 +1478,9 @@ footer {
     width: 92vw;
     right: -20vw;
     top: 16vh;
-    opacity: 0.5;
+    opacity: 0.35;
   }
-  .idx, .shuffle, .fig-cap {
+  .idx, .fig-cap {
     display: none;
   }
   .sec-h .n, .sec-h h2, .sec-h p {
@@ -1483,9 +1488,6 @@ footer {
   }
   .sol-list {
     grid-column: 1 / -1;
-  }
-  .panel {
-    display: none;
   }
   .row-in {
     grid-template-columns: 40px 1fr;
@@ -1568,4 +1570,28 @@ footer {
   .ch {
     transform: none !important;
   }
+}
+
+/* Custom Sleek Dark Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #07090E;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(37, 99, 235, 0.6);
+}
+
+:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 3px;
 }

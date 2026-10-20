@@ -1,75 +1,175 @@
-import React, { useRef } from 'react';
-import { WHATSAPP_URL } from '../data/config';
+import React, { useRef, useState } from 'react';
+import { WHATSAPP_NUMBER } from '../data/config';
+import { ArrowUpRight, Mail, Clock, Check } from 'lucide-react';
 
 const CTAContact: React.FC = () => {
   const magRef = useRef<HTMLAnchorElement>(null);
+  const [copied, setCopied] = useState(false);
+  const [selectedScopes, setSelectedScopes] = useState<string[]>(['Software Sob Medida']);
+
+  const availableScopes = [
+    'Software Sob Medida',
+    'Automação de Processos',
+    'Inteligência Artificial',
+    'Dashboards / BI',
+    'Sites & Web Apps',
+  ];
+
+  const toggleScope = (scope: string) => {
+    setSelectedScopes(prev => 
+      prev.includes(scope) 
+        ? (prev.length > 1 ? prev.filter(s => s !== scope) : prev) 
+        : [...prev, scope]
+    );
+  };
+
+  // Generate customized WhatsApp URL based on selected scopes
+  const dynamicMessage = `Olá! Gostaria de conversar sobre um projeto com a GEAR envolvendo: ${selectedScopes.join(', ')}.`;
+  const dynamicWhatsAppUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(dynamicMessage)}`;
 
   const handleMouseMove = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    // Only apply magnetic effect on fine pointer devices (desktops)
+    if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+
     const mag = magRef.current;
     if (!mag) return;
     const r = mag.getBoundingClientRect();
-    mag.style.transform = `translate(${(e.clientX - r.left - r.width / 2) * 0.28}px, ${
-      (e.clientY - r.top - r.height / 2) * 0.28
-    }px)`;
+    const x = (e.clientX - r.left - r.width / 2) * 0.22;
+    const y = (e.clientY - r.top - r.height / 2) * 0.22;
+    mag.style.transform = `translate3d(${x}px, ${y}px, 0)`;
   };
 
   const handleMouseLeave = () => {
     const mag = magRef.current;
     if (!mag) return;
-    mag.style.transform = '';
-    mag.style.transition =
-      'transform .6s cubic-bezier(.2,.8,.2,1),background .4s,color .4s';
+    mag.style.transform = 'translate3d(0, 0, 0)';
+    mag.style.transition = 'transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s, color 0.3s';
   };
 
   const handleMouseEnter = () => {
     const mag = magRef.current;
     if (!mag) return;
-    mag.style.transition = 'background .4s,color .4s';
+    mag.style.transition = 'background-color 0.3s, color 0.3s';
+  };
+
+  const copyEmail = () => {
+    navigator.clipboard.writeText('contato@gear.com.br');
+    setCopied(true);
+    setTimeout(() => setCopied(false), 3000);
   };
 
   return (
-    <section className="cta" id="contato">
-      <div className="ring-bg"></div>
-      <div className="ring-bg r2"></div>
-      <div className="wrap">
-        <span className="mono" style={{ display: 'block', marginBottom: '34px', color: '#dfe8ff' }}>
-          (06) — Vamos conversar?
-        </span>
-        <h2>
-          <span className="mask">
-            <span>Vamos tirar</span>
+    <section className="cta relative py-28 md:py-44 overflow-hidden bg-gradient-to-b from-[#090D18] via-[#0D1528] to-[#070A11] border-t border-white/[0.1]" id="contato">
+      {/* Orbital glow rings */}
+      <div 
+        className="absolute -right-20 -top-32 w-[55vw] max-w-[700px] aspect-square rounded-full border border-blue-500/20 pointer-events-none animate-pulse-slow"
+        aria-hidden="true" 
+      />
+      <div 
+        className="absolute -right-10 -top-20 w-[40vw] max-w-[500px] aspect-square rounded-full border border-blue-400/10 pointer-events-none"
+        aria-hidden="true" 
+      />
+      <div 
+        className="absolute -right-40 -top-40 w-[70vw] max-w-[850px] aspect-square rounded-full bg-blue-600/15 blur-[150px] pointer-events-none -z-10"
+        aria-hidden="true" 
+      />
+
+      <div className="wrap relative z-10">
+        {/* Top telemetry badge */}
+        <div className="flex flex-wrap items-center justify-between gap-4 mb-8 pb-4 border-b border-white/[0.08]">
+          <span className="mono text-xs md:text-sm text-blue-400 font-semibold tracking-wider">
+            (07) — Vamos conversar?
           </span>
-          <span className="mask">
-            <span style={{ ['--d' as any]: '100ms' }}>isso da</span>
-          </span>
-          <span className="mask">
-            <span style={{ ['--d' as any]: '200ms' }}>
-              <em>planilha?</em>
-            </span>
-          </span>
+          <div className="flex items-center gap-2 text-xs mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-3 py-1 rounded-full">
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+            <span>Resposta técnica em até 1 dia útil</span>
+          </div>
+        </div>
+
+        {/* Mega Title with Editorial Serif */}
+        <h2 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-semibold text-white tracking-tight leading-[0.95] max-w-5xl">
+          <span>Vamos tirar</span><br />
+          <span>isso da <em className="serif italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-white">planilha?</em></span>
         </h2>
-        <div className="row2">
-          <p>
-            Conta o que está travando a sua operação. Respondemos em até 1 dia útil, com um caminho
-            possível, sem compromisso.
-          </p>
-          <a
-            className="mag"
-            id="mag"
-            data-cursor
-            href={WHATSAPP_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            ref={magRef}
-            onMouseMove={handleMouseMove}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-          >
-            <span>
-              Falar no<br />
-              WhatsApp ↗
-            </span>
-          </a>
+
+        {/* Interactive Scope Customizer Pills */}
+        <div className="mt-10 pt-6 border-t border-white/[0.08] space-y-3">
+          <span className="mono text-xs text-zinc-400 block uppercase tracking-wider">
+            1. Selecione o foco do seu projeto (opcional):
+          </span>
+          <div className="flex flex-wrap gap-2">
+            {availableScopes.map((scope) => {
+              const isSelected = selectedScopes.includes(scope);
+              return (
+                <button
+                  key={scope}
+                  type="button"
+                  onClick={() => toggleScope(scope)}
+                  className={`inline-flex items-center gap-2 px-3.5 py-2 rounded-full text-xs mono transition-all ${
+                    isSelected
+                      ? 'bg-blue-600 text-white border border-blue-400 shadow-[0_0_15px_rgba(37,99,235,0.4)]'
+                      : 'bg-white/[0.04] text-zinc-300 hover:text-white border border-white/[0.08] hover:bg-white/[0.08]'
+                  }`}
+                >
+                  {isSelected && <Check className="w-3.5 h-3.5 text-white" />}
+                  <span>{scope}</span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Action Row */}
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-12 mt-10 pt-6 border-t border-white/[0.08]">
+          <div className="space-y-6 max-w-lg">
+            <p className="text-lg sm:text-xl text-zinc-300 font-normal leading-relaxed">
+              Conte o que está travando a sua operação hoje. Nossa equipe técnica analisa seu fluxo e apresenta uma proposta de solução sob medida, sem compromisso e sem enrolação.
+            </p>
+
+            {/* Direct Contact Alternative Links */}
+            <div className="flex flex-wrap items-center gap-4 pt-2">
+              <button
+                type="button"
+                onClick={copyEmail}
+                className="group inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.1] text-xs mono text-zinc-300 hover:text-white transition-all"
+                title="Copiar e-mail de contato"
+              >
+                <Mail className="w-3.5 h-3.5 text-blue-400" />
+                <span>{copied ? 'E-mail copiado! (contato@gear.com.br)' : 'contato@gear.com.br'}</span>
+              </button>
+
+              <div className="flex items-center gap-2 text-xs mono text-zinc-400">
+                <Clock className="w-3.5 h-3.5 text-zinc-400" />
+                <span>Horário comercial (09h às 18h BRT)</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Magnetic Interactive Primary Button with Custom WhatsApp Message */}
+          <div className="flex justify-start lg:justify-end">
+            <a
+              className="mag group relative w-44 sm:w-52 md:w-60 aspect-square rounded-full bg-gradient-to-br from-blue-600 via-blue-500 to-indigo-700 text-white flex flex-col items-center justify-center text-center font-medium shadow-[0_0_50px_rgba(37,99,235,0.5)] hover:shadow-[0_0_80px_rgba(37,99,235,0.8)] border border-blue-300/40 transition-all duration-300 hover:scale-105 active:scale-95"
+              id="mag"
+              data-cursor
+              href={dynamicWhatsAppUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              ref={magRef}
+              onMouseMove={handleMouseMove}
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+              aria-label="Abrir conversa no WhatsApp com escopo selecionado"
+            >
+              <span className="text-base sm:text-lg md:text-xl tracking-tight leading-snug font-semibold">
+                Falar no<br />
+                WhatsApp
+              </span>
+              <ArrowUpRight className="w-6 h-6 mt-1 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+              <span className="mono text-[9px] uppercase tracking-wider text-blue-200 mt-1 block">
+                Canal Direto ↗
+              </span>
+            </a>
+          </div>
         </div>
       </div>
     </section>
