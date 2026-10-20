@@ -117,7 +117,7 @@ const App: React.FC = () => {
       {/* Top Reading Progress Bar */}
       <div 
         ref={progRef} 
-        className="fixed top-0 left-0 right-0 h-[2.5px] bg-gradient-to-r from-blue-600 via-sky-400 to-blue-500 origin-left scale-x-0 z-[60] pointer-events-none transition-transform duration-75 ease-out shadow-[0_0_12px_rgba(37,99,235,0.8)]" 
+        className="fixed top-0 left-0 right-0 h-[2.5px] bg-blue-500 origin-left scale-x-0 z-[60] pointer-events-none transition-transform duration-75 ease-out shadow-[0_0_12px_rgba(37,99,235,0.8)]" 
         id="prog" 
         aria-hidden="true" 
       />

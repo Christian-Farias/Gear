@@ -162,12 +162,12 @@ const Header: React.FC = () => {
   };
 
   const navLinks = [
-    { href: '#problema', label: 'O Caos', num: '02' },
-    { href: '#solucoes', label: 'Soluções', num: '03' },
-    { href: '#casos', label: 'Casos', num: '04' },
-    { href: '#processo', label: 'Método', num: '05' },
-    { href: '#diferenciais', label: 'Diferenciais', num: '06' },
-    { href: '#contato', label: 'Contato', num: '07' },
+    { href: '#problema', label: 'O Caos' },
+    { href: '#solucoes', label: 'Soluções' },
+    { href: '#casos', label: 'Casos' },
+    { href: '#processo', label: 'Método' },
+    { href: '#diferenciais', label: 'Diferenciais' },
+    { href: '#contato', label: 'Contato' },
   ];
 
   return (
@@ -248,7 +248,7 @@ const Header: React.FC = () => {
 
             {/* Primary Action Button */}
             <a
-              className="group relative inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3.5 py-2 sm:px-5 sm:py-2.5 min-h-[44px] rounded-full text-[11px] sm:text-[12px] mono text-white bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 transition-all duration-300 shadow-[0_0_20px_rgba(37,99,235,0.35)] hover:shadow-[0_0_28px_rgba(37,99,235,0.6)] hover:scale-[1.02] active:scale-[0.98] border border-blue-400/30 touch-manipulation"
+              className="group relative inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3.5 py-2 sm:px-5 sm:py-2.5 min-h-[44px] rounded-full text-xs sm:text-sm font-medium text-white bg-blue-600 hover:bg-blue-500 active:bg-blue-700 transition-all duration-300 shadow-[0_0_20px_rgba(37,99,235,0.35)] hover:shadow-[0_0_28px_rgba(37,99,235,0.6)] hover:scale-[1.02] active:scale-[0.98] border border-blue-400/30 touch-manipulation"
               data-cursor
               href={WHATSAPP_URL}
               target="_blank"
@@ -312,7 +312,7 @@ const Header: React.FC = () => {
                 <span className="text-2xl sm:text-3xl font-medium tracking-tight group-hover:translate-x-2 transition-transform duration-300">
                   {link.label}
                 </span>
-                <span className="mono text-xs text-zinc-400 font-mono">({link.num})</span>
+                <span className="text-zinc-500 group-hover:text-blue-400 group-hover:translate-x-1 transition-all text-xl font-light">→</span>
               </a>
             ))}
           </nav>

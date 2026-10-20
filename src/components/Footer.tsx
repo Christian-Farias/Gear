@@ -45,7 +45,7 @@ const Footer: React.FC = () => {
 
           {/* Col 2: Navigation Links */}
           <div className="lg:col-span-3 space-y-3">
-            <h4 className="mono text-xs text-zinc-400 uppercase tracking-widest font-semibold">
+            <h4 className="text-xs text-zinc-300 uppercase tracking-wider font-semibold">
               Navegar
             </h4>
             <ul className="text-sm text-zinc-300">
@@ -67,7 +67,7 @@ const Footer: React.FC = () => {
 
           {/* Col 3: Expertise */}
           <div className="lg:col-span-2 space-y-3">
-            <h4 className="mono text-xs text-zinc-400 uppercase tracking-widest font-semibold">
+            <h4 className="text-xs text-zinc-300 uppercase tracking-wider font-semibold">
               Expertise
             </h4>
             <ul className="space-y-2 text-sm text-zinc-400">
@@ -79,7 +79,7 @@ const Footer: React.FC = () => {
 
           {/* Col 4: Contact */}
           <div className="lg:col-span-3 space-y-3">
-            <h4 className="mono text-xs text-zinc-400 uppercase tracking-widest font-semibold">
+            <h4 className="text-xs text-zinc-300 uppercase tracking-wider font-semibold">
               Contato Direto
             </h4>
             <ul className="space-y-3 text-sm text-zinc-300">
@@ -133,7 +133,7 @@ const Footer: React.FC = () => {
 
       {/* Monumental Watermark — atmospheric depth, never dominating */}
       <div
-        className="text-[17vw] sm:text-[18vw] font-bold tracking-tighter text-center leading-none text-transparent bg-clip-text bg-gradient-to-b from-white/[0.03] to-transparent select-none mt-8 -mb-4 pointer-events-none"
+        className="text-[17vw] sm:text-[18vw] font-bold tracking-tighter text-center leading-none text-white/[0.025] select-none mt-8 -mb-4 pointer-events-none"
         aria-hidden="true"
       >
         GEAR

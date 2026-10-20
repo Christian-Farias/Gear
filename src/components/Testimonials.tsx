@@ -72,13 +72,13 @@ const Testimonials: React.FC = () => {
       <div className="wrap">
         {/* Section Header */}
         <div className="sec-h grid grid-cols-1 lg:grid-cols-12 gap-6 items-end mb-14 md:mb-20">
-          <div className="lg:col-span-3 text-xs md:text-sm mono text-blue-400 font-semibold tracking-wider">
+          <div className="lg:col-span-3 text-xs md:text-sm text-blue-400 font-semibold tracking-wide">
             VOZ DO CLIENTE // IMPACTO OPERACIONAL
           </div>
           <h2 className="lg:col-span-9 text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight leading-[1.02] text-white">
             <span>Quem opera com a GEAR,</span><br />
             <span>não volta para a{' '}
-              <em className="serif italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-white">planilha.</em>
+              <em className="serif italic font-normal text-blue-400">planilha.</em>
             </span>
           </h2>
         </div>
@@ -88,13 +88,13 @@ const Testimonials: React.FC = () => {
           results GEAR delivers and will be replaced by verified client
           statements as they are collected and authorized.
         */}
-        <p className="mono text-xs text-zinc-400 mb-8 border border-white/[0.06] px-4 py-2 rounded-lg inline-flex items-center gap-2 bg-white/[0.02]">
+        <p className="text-xs text-zinc-300 mb-8 border border-white/[0.08] px-4 py-2 rounded-lg inline-flex items-center gap-2 bg-white/[0.03]">
           <span className="w-1.5 h-1.5 rounded-full bg-zinc-500 inline-block" />
           Depoimentos ilustrativos — substituídos por declarações verificadas conforme autorizadas pelos clientes.
         </p>
 
         {/* Testimonial Card */}
-        <div className="relative p-8 sm:p-12 md:p-16 rounded-3xl bg-gradient-to-b from-[#0D121F] to-[#070A11] border border-white/[0.12] shadow-[0_25px_60px_-15px_rgba(0,0,0,0.8)] overflow-hidden">
+        <div className="relative p-8 sm:p-12 md:p-16 rounded-3xl bg-[#0B0F19] border border-white/[0.12] shadow-[0_25px_60px_-15px_rgba(0,0,0,0.8)] overflow-hidden">
           <Quote
             className="absolute top-6 right-8 w-28 h-28 text-white/[0.03] pointer-events-none -rotate-12"
             aria-hidden="true"

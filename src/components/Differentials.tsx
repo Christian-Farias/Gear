@@ -37,11 +37,11 @@ const Differentials: React.FC = () => {
           {[1, 2].map((set) => (
             <div key={set} className="flex items-center gap-8 px-4 text-2xl sm:text-4xl md:text-5xl font-semibold tracking-tight">
               <span>Atendimento que responde</span>
-              <span className="serif italic font-normal text-blue-200">✦ prazo é compromisso</span>
+              <span className="serif italic font-normal text-blue-200">&bull; prazo é compromisso</span>
               <span>Código que você consegue manter</span>
-              <span className="serif italic font-normal text-blue-200">✦ sem letras miúdas</span>
+              <span className="serif italic font-normal text-blue-200">&bull; sem letras miúdas</span>
               <span>Inteligência que gera lucro</span>
-              <span className="serif italic font-normal text-blue-200">✦ arquitetura sob medida</span>
+              <span className="serif italic font-normal text-blue-200">&bull; arquitetura sob medida</span>
             </div>
           ))}
         </div>
@@ -51,12 +51,12 @@ const Differentials: React.FC = () => {
         {/* Section Mini Heading */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-white/[0.08] mb-12">
           <div>
-            <span className="mono text-xs md:text-sm text-blue-400 font-semibold tracking-wider block mb-2">
+            <span className="text-xs md:text-sm text-blue-400 font-semibold tracking-wide block mb-2">
               CRITÉRIO COMPARATIVO // ATIVO PRÓPRIO VS ALUGUEL
             </span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-white tracking-tight">
               A diferença entre alugar um software e <br className="hidden sm:inline" />
-              <em className="serif italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-sky-200">construir um ativo do seu negócio.</em>
+              <em className="serif italic font-normal text-blue-400">construir um ativo do seu negócio.</em>
             </h2>
           </div>
           <p className="text-sm md:text-base text-zinc-400 max-w-md leading-relaxed">
@@ -65,7 +65,7 @@ const Differentials: React.FC = () => {
         </div>
 
         {/* Asymmetric Comparison Matrix */}
-        <div className="rounded-3xl p-6 sm:p-8 md:p-10 bg-[#0A0E17]/90 border border-white/[0.1] shadow-2xl overflow-x-auto focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400" style={{ touchAction: 'pan-y' }} tabIndex={0} role="region" aria-label="Tabela comparativa: GEAR versus SaaS de prateleira e agências">
+        <div data-ui className="rounded-3xl p-6 sm:p-8 md:p-10 bg-[#0A0E17]/90 border border-white/[0.1] shadow-2xl overflow-x-auto focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400" style={{ touchAction: 'pan-y' }} tabIndex={0} role="region" aria-label="Tabela comparativa: GEAR versus SaaS de prateleira e agências">
           <div className="min-w-[640px]">
             <div className="grid grid-cols-12 pb-4 border-b border-white/[0.08] text-xs mono uppercase tracking-wider text-zinc-400 font-semibold">
               <div className="col-span-4">Critério de Engenharia</div>
@@ -102,7 +102,7 @@ const Differentials: React.FC = () => {
         </div>
 
         {/* Operational Indicators Bar */}
-        <div className="mt-12 grid grid-cols-2 lg:grid-cols-4 gap-4 p-6 sm:p-8 rounded-2xl bg-gradient-to-r from-blue-950/20 via-white/[0.02] to-blue-950/20 border border-white/[0.08] text-center">
+        <div data-ui className="mt-12 grid grid-cols-2 lg:grid-cols-4 gap-4 p-6 sm:p-8 rounded-2xl bg-[#0A0E17] border border-white/[0.08] text-center">
           <div>
             <div className="text-3xl sm:text-4xl font-bold font-mono text-white tracking-tight">100%</div>
             <span className="text-xs text-zinc-400 mt-1 block">Entregas no Prazo Fechado</span>

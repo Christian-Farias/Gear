@@ -77,7 +77,7 @@ const CTAContact: React.FC = () => {
       <div className="wrap relative z-10">
         {/* Top telemetry badge */}
         <div className="flex flex-wrap items-center justify-between gap-4 mb-8 pb-4 border-b border-white/[0.08]">
-          <span className="mono text-xs md:text-sm text-blue-400 font-semibold tracking-wider">
+          <span className="text-xs md:text-sm text-blue-400 font-semibold tracking-wide">
             VAMOS CONVERSAR?
           </span>
           <div className="flex items-center gap-2 text-xs mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-3 py-1 rounded-full">
@@ -91,7 +91,7 @@ const CTAContact: React.FC = () => {
           <span className="block">Vamos tirar</span>
           <span className="block mt-1">
             isso da{' '}
-            <em className="serif italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-200 to-white pr-3 inline-block">
+            <em className="serif italic font-normal text-blue-400 pr-3 inline-block">
               planilha?
             </em>
           </span>
@@ -99,7 +99,7 @@ const CTAContact: React.FC = () => {
 
         {/* Interactive Scope Customizer Pills */}
         <div className="mt-8 pt-6 border-t border-white/[0.08] space-y-3">
-          <span className="mono text-xs text-zinc-400 block uppercase tracking-wider font-medium">
+          <span className="text-xs text-zinc-300 block font-medium">
             Selecione o foco do seu projeto:
           </span>
           <div className="flex flex-wrap gap-2.5">
@@ -153,7 +153,7 @@ const CTAContact: React.FC = () => {
           {/* Magnetic Interactive Primary Button with Custom WhatsApp Message */}
           <div className="flex justify-start lg:justify-end w-full sm:w-auto">
             <a
-              className="mag group relative w-full sm:w-52 md:w-60 min-h-[56px] sm:min-h-0 sm:aspect-square rounded-2xl sm:rounded-full bg-gradient-to-br from-blue-600 via-blue-500 to-indigo-700 text-white flex flex-row sm:flex-col items-center justify-between sm:justify-center text-left sm:text-center font-medium shadow-[0_0_35px_rgba(37,99,235,0.45)] sm:shadow-[0_0_50px_rgba(37,99,235,0.5)] hover:shadow-[0_0_80px_rgba(37,99,235,0.8)] border border-blue-300/40 transition-all duration-300 hover:scale-[1.02] sm:hover:scale-105 active:scale-95 py-4 px-6 sm:p-4 touch-manipulation focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
+              className="mag group relative w-full sm:w-52 md:w-60 min-h-[56px] sm:min-h-0 sm:aspect-square rounded-2xl sm:rounded-full bg-blue-600 hover:bg-blue-500 active:bg-blue-700 text-white flex flex-row sm:flex-col items-center justify-between sm:justify-center text-left sm:text-center font-medium shadow-[0_0_35px_rgba(37,99,235,0.45)] sm:shadow-[0_0_50px_rgba(37,99,235,0.5)] hover:shadow-[0_0_80px_rgba(37,99,235,0.8)] border border-blue-400/40 transition-all duration-300 hover:scale-[1.02] sm:hover:scale-105 active:scale-95 py-4 px-6 sm:p-4 touch-manipulation focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
               id="mag"
               data-cursor
               href={dynamicWhatsAppUrl}
@@ -170,7 +170,7 @@ const CTAContact: React.FC = () => {
                   <span className="sm:hidden">Falar no WhatsApp</span>
                   <span className="hidden sm:inline">Falar no<br />WhatsApp</span>
                 </span>
-                <span className="mono text-xs uppercase tracking-wider text-blue-200 mt-0.5 sm:mt-1 block">
+                <span className="text-xs tracking-wide text-blue-100 mt-0.5 sm:mt-1 block font-medium">
                   Canal Direto ↗
                 </span>
               </div>

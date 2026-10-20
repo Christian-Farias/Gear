@@ -51,7 +51,7 @@ const Process: React.FC = () => {
       summary: 'Entregas curtas e funcionais a cada semana. Você testa, opina e valida no ambiente de staging.',
       details: 'Nada de passar meses sem ver o projeto. Toda semana liberamos uma versão navegável para testes reais da sua equipe, refinando a usabilidade no calor da operação.',
       deliverables: ['Ambiente de Testes (Staging)', 'Relatórios Semanais de Progresso', 'Código Versionado no GitHub'],
-      icon: <Code2 className="w-5 h-5 text-indigo-400" />,
+      icon: <Code2 className="w-5 h-5 text-blue-400" />,
     },
     {
       number: '04',
@@ -76,12 +76,12 @@ const Process: React.FC = () => {
       <div className="wrap">
         {/* Section Header */}
         <div className="sec-h grid grid-cols-1 lg:grid-cols-12 gap-6 items-end mb-16 md:mb-20">
-          <div className="lg:col-span-3 text-xs md:text-sm mono text-blue-400 font-semibold tracking-wider">
+          <div className="lg:col-span-3 text-xs md:text-sm text-blue-400 font-semibold tracking-wide">
             MÉTODO &amp; ETAPAS
           </div>
           <h2 className="lg:col-span-9 text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight leading-[1.02] text-white">
             <span>Sem mistério.</span><br />
-            <span>Sem <em className="serif italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-white">surpresas.</em></span>
+            <span>Sem <em className="serif italic font-normal text-blue-400">surpresas.</em></span>
           </h2>
         </div>
 
@@ -101,7 +101,7 @@ const Process: React.FC = () => {
         <div className="hidden lg:block relative mb-8" aria-hidden="true">
           <div className="h-px w-full bg-white/[0.08] rounded-full overflow-hidden">
             <div
-              className="h-full bg-gradient-to-r from-blue-600 via-cyan-400 to-blue-500 rounded-full transition-all duration-700"
+              className="h-full bg-blue-500 rounded-full transition-all duration-700"
               style={{ width: `${((activeStep + 1) / steps.length) * 100}%` }}
             />
           </div>

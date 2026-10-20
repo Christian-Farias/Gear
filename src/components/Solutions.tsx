@@ -378,11 +378,11 @@ const Solutions: React.FC = () => {
       example: 'Conecta o ERP antigo ao e-commerce moderno e ao CRM dos vendedores, sem ninguém redigitar pedidos.',
       techs: ['Arquitetura Modular', 'Postgres', 'GraphQL', 'OAuth2', 'Microservices'],
       renderVisual: () => (
-        <div className="w-full max-w-sm rounded-xl bg-[#090D15] border border-white/[0.08] p-4 shadow-2xl flex flex-col gap-2.5 font-sans">
+        <div data-ui className="w-full max-w-sm rounded-xl bg-[#090D15] border border-white/[0.08] p-4 shadow-2xl flex flex-col gap-2.5 font-sans">
           <div className="flex items-center justify-between pb-2 border-b border-white/[0.08]">
             <div className="flex items-center gap-2">
-              <Layers className="w-4 h-4 text-indigo-400" />
-              <span className="mono text-[11px] text-zinc-200">Sincronizador Multissistema</span>
+              <Layers className="w-4 h-4 text-blue-400" />
+              <span className="mono text-xs text-zinc-200">Sincronizador Multissistema</span>
             </div>
             <span className="text-[10px] mono text-blue-400">Ping: 14ms</span>
           </div>
@@ -493,13 +493,13 @@ const Solutions: React.FC = () => {
       <div className="wrap">
         {/* Section Header */}
         <div className="sec-h grid grid-cols-1 lg:grid-cols-12 gap-6 items-end mb-16 md:mb-20">
-          <div className="lg:col-span-3 text-xs md:text-sm mono text-blue-400 font-semibold tracking-wider">
+          <div className="lg:col-span-3 text-xs md:text-sm text-blue-400 font-semibold tracking-wide">
             ENGENHARIA SOB MEDIDA
           </div>
           <div className="lg:col-span-9 space-y-4">
             <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight leading-[1.02] text-white">
               <span>Sete jeitos de tirar</span><br />
-              <span>peso das <em className="serif italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-white">suas costas.</em></span>
+              <span>peso das <em className="serif italic font-normal text-blue-400">suas costas.</em></span>
             </h2>
             <p className="text-base sm:text-lg text-zinc-400 max-w-2xl leading-relaxed">
               Três forças combinadas — software proprietário, IA aplicada e pipelines de automação — convertem pontos fragmentados em uma esteira contínua de alta produtividade.
@@ -794,7 +794,7 @@ const Solutions: React.FC = () => {
               {current.techs.map((tech) => (
                 <span
                   key={tech}
-                  className="mono text-[10px] text-zinc-400 bg-white/[0.03] border border-white/[0.06] px-2.5 py-1 rounded-md"
+                  className="mono text-xs text-zinc-300 bg-white/[0.05] px-2.5 py-1 rounded-md"
                 >
                   {tech}
                 </span>

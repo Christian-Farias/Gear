@@ -406,9 +406,9 @@ section {
 }
 
 .mq span:after {
-  content: "✦";
+  content: "·";
   font-family: var(--display);
-  font-size: 0.5em;
+  font-size: 0.8em;
   margin-left: 0.5em;
   vertical-align: middle;
   color: var(--ink);

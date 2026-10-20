@@ -254,12 +254,12 @@ const Projects: React.FC = () => {
       <div className="wrap">
         {/* Section Header */}
         <div className="sec-h grid grid-cols-1 lg:grid-cols-12 gap-6 items-end mb-14 md:mb-20">
-          <div className="lg:col-span-3 text-xs md:text-sm mono text-blue-400 font-semibold tracking-wider">
+          <div className="lg:col-span-3 text-xs md:text-sm text-blue-400 font-semibold tracking-wide">
             CASOS DE ESTUDO REAIS
           </div>
           <h2 className="lg:col-span-9 text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight leading-[1.02] text-white">
             <span>Resultado é o que</span><br />
-            <span>fica no <em className="serif italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-white">caixa.</em></span>
+            <span>fica no <em className="serif italic font-normal text-blue-400">caixa.</em></span>
           </h2>
         </div>
 
@@ -362,7 +362,7 @@ const Projects: React.FC = () => {
                 </div>
 
                 {/* Right: Rich Interactive Visual Representation */}
-                <div data-mock className="lg:col-span-5 flex flex-col justify-between min-h-[300px] lg:border-l lg:border-white/[0.08] lg:pl-8">
+                <div data-ui data-mock className="lg:col-span-5 flex flex-col justify-between min-h-[300px] lg:border-l lg:border-white/[0.08] lg:pl-8">
                   {c.renderVisual()}
                 </div>
               </div>

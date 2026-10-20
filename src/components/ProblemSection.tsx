@@ -61,14 +61,14 @@ const ProblemSection: React.FC = () => {
       <div className="wrap relative z-10">
         {/* Scene Header */}
         <div className="sec-h grid grid-cols-1 lg:grid-cols-12 gap-6 items-end mb-16 md:mb-24">
-          <div className="lg:col-span-3 text-xs md:text-sm mono text-amber-500/90 font-semibold tracking-wider flex items-center gap-2">
+          <div className="lg:col-span-3 text-xs md:text-sm text-amber-500 font-semibold tracking-wide flex items-center gap-2">
             <span>O CUSTO DO TRABALHO MANUAL</span>
           </div>
 
           <div className="lg:col-span-9 space-y-4">
             <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight text-white leading-[1.02]">
               <span>A fricção invisível que</span><br />
-              <span>consome sua <em className="serif italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-300 to-white">margem de lucro.</em></span>
+              <span>consome sua <em className="serif italic font-normal text-[#FF6A3D]">margem de lucro.</em></span>
             </h2>
             <p className="text-base sm:text-lg text-zinc-400 max-w-2xl leading-relaxed font-normal">
               O maior desperdício de uma empresa não é o que ela gasta em tecnologia. É o tempo que sua equipe qualificada perde remendando tarefas mecânicas que um software sob medida executaria em milissegundos.

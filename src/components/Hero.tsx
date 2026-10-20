@@ -315,7 +315,7 @@ const Hero: React.FC = () => {
         </div>
       </div>
 
-      {/* Hero Foot — Architectural Positioning & Seamless Transition */}
+      {/* Hero Foot — Architectural Positioning & Fluid Transition */}
       <div className="wrap relative z-10 mt-8 md:mt-12">
         <div className="hero-foot border-t border-white/[0.08]">
           <div className="lead-col">
