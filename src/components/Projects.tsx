@@ -255,7 +255,7 @@ const Projects: React.FC = () => {
         {/* Section Header */}
         <div className="sec-h grid grid-cols-1 lg:grid-cols-12 gap-6 items-end mb-14 md:mb-20">
           <div className="lg:col-span-3 text-xs md:text-sm mono text-blue-400 font-semibold tracking-wider">
-            (04/06) // ARQUITETURAS COMPROVADAS
+            CASOS DE ESTUDO REAIS
           </div>
           <h2 className="lg:col-span-9 text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight leading-[1.02] text-white">
             <span>Resultado é o que</span><br />

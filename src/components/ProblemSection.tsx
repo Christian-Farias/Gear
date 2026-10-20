@@ -62,7 +62,7 @@ const ProblemSection: React.FC = () => {
         {/* Scene Header */}
         <div className="sec-h grid grid-cols-1 lg:grid-cols-12 gap-6 items-end mb-16 md:mb-24">
           <div className="lg:col-span-3 text-xs md:text-sm mono text-amber-500/90 font-semibold tracking-wider flex items-center gap-2">
-            <span>(02/06) // ANATOMIA DO PROBLEMA</span>
+            <span>O CUSTO DO TRABALHO MANUAL</span>
           </div>
 
           <div className="lg:col-span-9 space-y-4">
@@ -184,15 +184,6 @@ const ProblemSection: React.FC = () => {
               </p>
             </div>
           </div>
-        </div>
-
-        {/* Conduit to Scene 3: The Transformation & Signature Calibration Matrix */}
-        <div className="mt-16 pt-8 border-t border-white/[0.06] flex flex-wrap items-center justify-between gap-4 mono text-xs text-zinc-500">
-          <div className="flex items-center gap-2 text-blue-400">
-            <span className="w-1.5 h-1.5 rounded-full bg-blue-400" />
-            <span>TRANSIÇÃO // DA FRICÇÃO AO MOTOR DE PRECISÃO</span>
-          </div>
-          <span className="hidden sm:inline">CENA 03: A MATRIZ DE CALIBRAÇÃO &amp; AS SOLUÇÕES GEAR ↓</span>
         </div>
       </div>
     </section>

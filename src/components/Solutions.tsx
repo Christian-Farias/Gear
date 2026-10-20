@@ -490,7 +490,7 @@ const Solutions: React.FC = () => {
         {/* Section Header */}
         <div className="sec-h grid grid-cols-1 lg:grid-cols-12 gap-6 items-end mb-16 md:mb-20">
           <div className="lg:col-span-3 text-xs md:text-sm mono text-blue-400 font-semibold tracking-wider">
-            (03/06) // A TRANSFORMAÇÃO: O MOTOR GEAR
+            ENGENHARIA SOB MEDIDA
           </div>
           <div className="lg:col-span-9 space-y-4">
             <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight leading-[1.02] text-white">
@@ -504,8 +504,7 @@ const Solutions: React.FC = () => {
         </div>
 
         {/* 
-          SIGNATURE INTERACTION: A MATRIZ DE CALIBRAÇÃO (CHAOS → PRECISION)
-          An interactive, visceral representation of operational chaos vs automated precision
+          CALIBRATION MATRIX SIMULATOR
         */}
         <div className="mb-20 p-6 sm:p-8 md:p-10 rounded-3xl bg-[#080C16] border border-white/[0.1] shadow-2xl relative overflow-hidden">
           {/* Background Grid Telemetry */}
@@ -514,10 +513,10 @@ const Solutions: React.FC = () => {
               <Sliders className="w-5 h-5 text-blue-400" />
               <div>
                 <span className="mono text-xs font-semibold text-white block">
-                  INTERAÇÃO ASSINATURA // MATRIZ DE CALIBRAÇÃO OPERACIONAL
+                  SIMULADOR DE FLUXO // DA DISPERSÃO À SINCRONIA
                 </span>
                 <span className="mono text-[11px] text-zinc-400">
-                  Experimente o engate: compare o fluxo fragmentado com a esteira alinhada pela GEAR
+                  Compare a operação fragmentada em planilhas com a esteira alinhada pela GEAR
                 </span>
               </div>
             </div>

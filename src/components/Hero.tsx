@@ -139,14 +139,6 @@ const Hero: React.FC = () => {
         aria-hidden="true"
       />
 
-      {/* Architectural Crosshair Datum Marks (Studio print aesthetic) */}
-      <div className="absolute top-28 left-6 text-white/20 font-mono text-[10px] select-none pointer-events-none hidden lg:block" aria-hidden="true">
-        + [DATUM: 00.1 / LAT -23.5505]
-      </div>
-      <div className="absolute top-28 right-6 text-white/20 font-mono text-[10px] select-none pointer-events-none hidden lg:block" aria-hidden="true">
-        [SYS.STATE: 100% OPERATIONAL] +
-      </div>
-
       {/* 3D Kinetic Architectural Polygon Emblem */}
       <div className="fig" id="fig" ref={figRef} aria-hidden="true">
         <svg 
@@ -223,26 +215,19 @@ const Hero: React.FC = () => {
         </svg>
       </div>
 
-      {/* Vertical Telemetry Index Ribbon */}
-      <div className="idx mono tracking-widest hidden xl:block opacity-40 hover:opacity-80 transition-opacity">
-        ENG · IA · AUTOMAÇÃO · DASHBOARDS · WEB · SAAS // [2026]
-      </div>
-
       {/* Main Hero Viewport Block */}
       <div className="wrap relative z-10">
         <div className="hero-wrap">
           {/* Metadata Top Bar */}
           <div className="meta mono flex flex-wrap items-center justify-between gap-3 text-xs md:text-sm text-zinc-400 mb-8 md:mb-12 pb-3 border-b border-white/[0.08]">
             <div className="flex items-center gap-2.5">
-              <span className="text-blue-400 font-semibold">(01/06)</span>
-              <span className="text-zinc-300 font-medium tracking-wide">ESTÚDIO DE ENGENHARIA DE SOFTWARE &amp; AUTOMAÇÃO</span>
+              <span className="text-zinc-300 font-medium tracking-wide">SOFTWARE SOB MEDIDA · IA APLICADA · AUTOMAÇÃO</span>
             </div>
             <div className="flex items-center gap-3">
-              <span className="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-[10px] tracking-wider uppercase text-zinc-300 font-mono">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-[11px] tracking-wider uppercase text-zinc-300 font-mono">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                SOB MEDIDA // SEM TEMPLATES
+                Projetos Exclusivos
               </span>
-              <span className="text-zinc-500 text-[11px]">CENA 01 — O IMPACTO</span>
             </div>
           </div>
 
@@ -389,15 +374,6 @@ const Hero: React.FC = () => {
               <span>DIAGNÓSTICO TÉCNICO INICIAL SEM COMPROMISSO</span>
             </div>
           </div>
-        </div>
-
-        {/* Seamless Section Transition Conduit */}
-        <div className="pt-6 pb-2 flex items-center justify-between text-zinc-500 mono text-[10px] border-t border-white/[0.04] mt-4">
-          <div className="flex items-center gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-ping" />
-            <span>TRANSIÇÃO // CENA 01 → CENA 02</span>
-          </div>
-          <span className="hidden sm:inline">ROLANDO PARA ANATOMIA DO PROBLEMA ↓</span>
         </div>
       </div>
     </section>

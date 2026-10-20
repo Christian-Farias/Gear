@@ -78,7 +78,7 @@ const CTAContact: React.FC = () => {
         {/* Top telemetry badge */}
         <div className="flex flex-wrap items-center justify-between gap-4 mb-8 pb-4 border-b border-white/[0.08]">
           <span className="mono text-xs md:text-sm text-blue-400 font-semibold tracking-wider">
-            (06/06) // TERMINAL DE BRIEFING
+            VAMOS CONVERSAR?
           </span>
           <div className="flex items-center gap-2 text-xs mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-3 py-1 rounded-full">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
