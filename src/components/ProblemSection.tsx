@@ -125,27 +125,49 @@ const ProblemSection: React.FC = () => {
                     <p className="text-xs sm:text-sm text-zinc-400 line-clamp-2 leading-relaxed pl-1">
                       {pt.symptom}
                     </p>
+
+                    {/* Mobile Inline Diagnostic Details (visible on mobile < lg) */}
+                    {isSelected && (
+                      <div className="lg:hidden mt-4 pt-4 border-t border-amber-500/20 space-y-3 animate-fade-in text-left">
+                        <div className="p-3 rounded-xl bg-black/40 border border-white/[0.05]">
+                          <span className="mono text-[10px] text-amber-400 uppercase tracking-wider block font-semibold mb-1">
+                            Impacto Direto:
+                          </span>
+                          <p className="text-xs text-zinc-300 leading-relaxed">
+                            {pt.impact}
+                          </p>
+                        </div>
+                        <div className="p-2.5 rounded-xl bg-amber-950/30 border border-amber-500/20">
+                          <span className="mono text-[10px] text-amber-400 block font-semibold">
+                            Custo Oculto da Inação:
+                          </span>
+                          <p className="text-[11px] text-amber-200/90 leading-relaxed mt-0.5">
+                            {pt.cost}
+                          </p>
+                        </div>
+                      </div>
+                    )}
                   </button>
                 );
               })}
             </div>
 
             {/* Diagnostic Metric Banner */}
-            <div className="p-6 rounded-2xl bg-gradient-to-r from-white/[0.03] to-transparent border border-white/[0.06] flex flex-wrap items-center justify-between gap-4">
+            <div className="p-5 sm:p-6 rounded-2xl bg-gradient-to-r from-white/[0.03] to-transparent border border-white/[0.06] flex flex-wrap items-center justify-between gap-3">
               <div className="flex items-center gap-3">
                 <ShieldAlert className="w-5 h-5 text-amber-400 shrink-0" />
-                <span className="mono text-xs text-zinc-300">
-                  DIAGNÓSTICO PREVENTIVO: AUDITORIA DE PROCESSOS SEM CUSTO
+                <span className="mono text-[11px] sm:text-xs text-zinc-300">
+                  DIAGNÓSTICO PREVENTIVO: AUDITORIA SEM CUSTO
                 </span>
               </div>
-              <span className="mono text-[11px] text-zinc-400">
+              <span className="mono text-[10px] sm:text-[11px] text-zinc-500">
                 100% CONFIDENCIAL
               </span>
             </div>
           </div>
 
-          {/* Right Column: Tactical Diagnostic Terminal */}
-          <div className="lg:col-span-5 p-7 rounded-2xl bg-[#0B0F19] border border-white/[0.1] shadow-2xl flex flex-col justify-between space-y-6">
+          {/* Right Column: Tactical Diagnostic Terminal (Desktop Only) */}
+          <div className="hidden lg:flex lg:col-span-5 p-7 rounded-2xl bg-[#0B0F19] border border-white/[0.1] shadow-2xl flex-col justify-between space-y-6">
             <div className="space-y-4">
               <div className="flex items-center justify-between pb-4 border-b border-white/[0.08] mono text-xs">
                 <span className="text-amber-400 font-mono font-medium flex items-center gap-2">

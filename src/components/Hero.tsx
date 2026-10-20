@@ -125,7 +125,7 @@ const Hero: React.FC = () => {
 
   return (
     <section 
-      className="hero relative min-h-[100svh] pt-28 md:pt-36 pb-14 flex flex-col justify-between overflow-hidden bg-[#05070B]" 
+      className="hero relative min-h-auto md:min-h-[100svh] pt-24 sm:pt-28 md:pt-36 pb-10 sm:pb-12 md:pb-14 flex flex-col justify-between overflow-hidden bg-[#05070B]" 
       id="hero"
       aria-label="Abertura GEAR — Engenharia de Software e Automação"
     >
@@ -347,30 +347,30 @@ const Hero: React.FC = () => {
           </div>
 
           <div className="action-col">
-            <div className="flex flex-wrap items-center justify-start lg:justify-end gap-4 w-full">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-start lg:justify-end gap-3.5 sm:gap-4 w-full">
               <a
-                className="ghost mono inline-flex items-center gap-2 py-3 px-4 text-xs tracking-wider text-zinc-400 hover:text-white transition-colors border-b border-zinc-700 hover:border-white"
+                className="ghost mono inline-flex items-center justify-center gap-2 py-3.5 px-5 min-h-[44px] text-xs tracking-wider text-zinc-400 hover:text-white transition-colors border-b border-zinc-700 hover:border-white touch-manipulation order-2 sm:order-1 text-center"
                 href="#problema"
                 data-cursor
               >
-                <span>Investigar o caos</span>
+                <span>Investigar o caos operacional</span>
                 <ArrowDown className="w-3.5 h-3.5 animate-bounce" />
               </a>
 
               <a
-                className="group relative inline-flex items-center gap-3 px-7 py-4 rounded-full bg-blue-600 hover:bg-blue-500 text-white font-medium text-sm md:text-base transition-all duration-300 shadow-[0_0_35px_rgba(37,99,235,0.45)] hover:shadow-[0_0_50px_rgba(37,99,235,0.7)] hover:scale-[1.02] active:scale-[0.98] border border-blue-400/40"
+                className="group relative inline-flex items-center justify-center gap-3 px-6 py-4 min-h-[50px] rounded-full bg-blue-600 hover:bg-blue-500 active:bg-blue-700 text-white font-medium text-sm md:text-base transition-all duration-300 shadow-[0_0_35px_rgba(37,99,235,0.45)] hover:shadow-[0_0_50px_rgba(37,99,235,0.7)] hover:scale-[1.02] active:scale-[0.98] border border-blue-400/40 touch-manipulation order-1 sm:order-2 text-center"
                 data-cursor
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <span>Expor meu gargalo operacional</span>
-                <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+                <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 shrink-0" />
               </a>
             </div>
 
-            <div className="mono text-[11px] text-zinc-400 flex items-center justify-start lg:justify-end gap-2 w-full">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+            <div className="mono text-[11px] text-zinc-400 flex items-center justify-center sm:justify-start lg:justify-end gap-2 w-full text-center sm:text-left">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shrink-0" />
               <span>DIAGNÓSTICO TÉCNICO INICIAL SEM COMPROMISSO</span>
             </div>
           </div>

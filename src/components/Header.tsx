@@ -154,7 +154,7 @@ const Header: React.FC = () => {
 
             {/* Primary Action Button */}
             <a
-              className="group relative inline-flex items-center gap-2 px-4 py-2 sm:px-5 sm:py-2.5 rounded-full text-[12px] mono text-white bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 transition-all duration-300 shadow-[0_0_20px_rgba(37,99,235,0.35)] hover:shadow-[0_0_28px_rgba(37,99,235,0.6)] hover:scale-[1.02] active:scale-[0.98] border border-blue-400/30"
+              className="group relative inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3.5 py-2 sm:px-5 sm:py-2.5 min-h-[44px] rounded-full text-[11px] sm:text-[12px] mono text-white bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 transition-all duration-300 shadow-[0_0_20px_rgba(37,99,235,0.35)] hover:shadow-[0_0_28px_rgba(37,99,235,0.6)] hover:scale-[1.02] active:scale-[0.98] border border-blue-400/30 touch-manipulation"
               data-cursor
               href={WHATSAPP_URL}
               target="_blank"
@@ -165,23 +165,23 @@ const Header: React.FC = () => {
               <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </a>
 
-            {/* Mobile Menu Toggle Button */}
+            {/* Mobile Menu Toggle Button with Minimum 44px Touch Target */}
             <button
               type="button"
-              className="lg:hidden p-2 rounded-full border border-white/[0.12] bg-white/[0.04] text-zinc-300 hover:text-white hover:bg-white/[0.08] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+              className="lg:hidden min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full border border-white/[0.12] bg-white/[0.04] text-zinc-300 hover:text-white hover:bg-white/[0.08] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 active:scale-95 touch-manipulation"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-expanded={mobileMenuOpen}
-              aria-label={mobileMenuOpen ? 'Fechar menu' : 'Abrir menu de navegação'}
+              aria-label={mobileMenuOpen ? 'Fechar menu de navegação' : 'Abrir menu de navegação'}
             >
-              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              {mobileMenuOpen ? <X className="w-5 h-5 text-white" /> : <Menu className="w-5 h-5 text-white" />}
             </button>
           </div>
         </div>
       </header>
 
-      {/* Mobile Menu Drawer Overlay */}
+      {/* Mobile Menu Drawer Overlay with Safe Scroll and Ergonomic Targets */}
       <div
-        className={`fixed inset-0 z-40 bg-[#07090E]/95 backdrop-blur-2xl transition-all duration-500 lg:hidden flex flex-col justify-between p-6 pt-24 ${
+        className={`fixed inset-0 z-40 bg-[#05070B]/98 backdrop-blur-2xl transition-all duration-300 lg:hidden flex flex-col justify-between p-6 pt-24 pb-12 overflow-y-auto max-h-[100dvh] overscroll-contain ${
           mobileMenuOpen ? 'opacity-100 pointer-events-auto translate-y-0' : 'opacity-0 pointer-events-none -translate-y-4'
         }`}
         role="dialog"
@@ -191,21 +191,21 @@ const Header: React.FC = () => {
       >
         <div className="flex flex-col gap-6">
           <div className="flex items-center justify-between pb-4 border-b border-white/10">
-            <span className="mono text-[11px] text-zinc-500 uppercase tracking-widest">Navegação</span>
+            <span className="mono text-[11px] text-zinc-400 uppercase tracking-widest font-semibold">Navegação</span>
             <div className="flex items-center gap-2 text-emerald-400 text-[11px] mono">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
               <span>{clockStr}</span>
             </div>
           </div>
 
-          <nav className="flex flex-col gap-3">
+          <nav className="flex flex-col gap-1">
             {navLinks.map((link, idx) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="group flex items-baseline justify-between py-3 border-b border-white/[0.06] text-white hover:text-blue-400 transition-colors"
-                style={{ transitionDelay: `${idx * 40}ms` }}
+                className="group flex items-center justify-between py-3.5 min-h-[52px] border-b border-white/[0.06] text-white hover:text-blue-400 active:text-blue-300 transition-colors touch-manipulation"
+                style={{ transitionDelay: `${idx * 30}ms` }}
               >
                 <span className="text-2xl sm:text-3xl font-medium tracking-tight group-hover:translate-x-2 transition-transform duration-300">
                   {link.label}
@@ -216,7 +216,7 @@ const Header: React.FC = () => {
           </nav>
         </div>
 
-        <div className="flex flex-col gap-4 pt-6 border-t border-white/10">
+        <div className="flex flex-col gap-4 pt-6 border-t border-white/10 mt-6">
           <p className="text-xs text-zinc-400 leading-relaxed">
             Software sob medida, IA e automação sem enrolação para o seu negócio crescer.
           </p>
@@ -225,7 +225,7 @@ const Header: React.FC = () => {
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => setMobileMenuOpen(false)}
-            className="w-full flex items-center justify-center gap-2 py-3.5 px-6 rounded-full bg-blue-600 hover:bg-blue-500 text-white font-medium text-sm transition-all shadow-[0_0_25px_rgba(37,99,235,0.4)]"
+            className="w-full min-h-[50px] flex items-center justify-center gap-2 py-4 px-6 rounded-full bg-blue-600 hover:bg-blue-500 active:bg-blue-700 text-white font-medium text-sm transition-all shadow-[0_0_25px_rgba(37,99,235,0.4)] touch-manipulation"
           >
             <span>Iniciar conversa via WhatsApp</span>
             <ArrowUpRight className="w-4 h-4" />
