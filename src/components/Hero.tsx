@@ -1,6 +1,14 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { WHATSAPP_URL } from '../data/config';
-import { ArrowDown, ArrowUpRight, RefreshCw, CheckCircle2 } from 'lucide-react';
+import { ArrowDown, ArrowUpRight, Sliders, CheckCircle2 } from 'lucide-react';
+
+// Static hero words — defined at module level so they exist on first render
+// The kinetic scatter animation enhances presentation; content is never animation-dependent
+const STATIC_WORDS = [
+  { text: 'Menos', line: 0 },
+  { text: 'tarefas', line: 0 },
+  { text: 'manuais.', line: 1, isManual: true },
+];
 
 interface WordChar {
   c: string;
@@ -10,39 +18,40 @@ interface WordChar {
   i: number;
 }
 
+interface AnimatedWord {
+  text: string;
+  line: number;
+  isManual?: boolean;
+  chars: WordChar[];
+}
+
+function buildWords(): AnimatedWord[] {
+  let globalIdx = 0;
+  return STATIC_WORDS.map((w) => {
+    const k = w.isManual ? 1.5 : 1;
+    const chars: WordChar[] = w.text.split('').map((char) => ({
+      c: char,
+      x: ((Math.random() * 2 - 1) * 80 * k).toFixed(0) + 'px',
+      y: ((Math.random() * 2 - 1) * 60 * k).toFixed(0) + 'px',
+      r: ((Math.random() * 2 - 1) * 24 * k).toFixed(0) + 'deg',
+      i: globalIdx++,
+    }));
+    return { ...w, chars };
+  });
+}
+
 const Hero: React.FC = () => {
   const [ordered, setOrdered] = useState(false);
-  const [words, setWords] = useState<{ text: string; manual: boolean; chars: WordChar[] }[]>([]);
+  const [words, setWords] = useState<AnimatedWord[]>(() => buildWords());
   const figRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const rawWords = [
-      { text: 'Menos', manual: false },
-      { text: 'tarefas', manual: false },
-      { text: 'manuais.', manual: true },
-    ];
-
-    let globalIdx = 0;
-    const generated = rawWords.map((w) => {
-      const k = w.manual ? 1.5 : 1;
-      const chars: WordChar[] = w.text.split('').map((char) => ({
-        c: char,
-        x: ((Math.random() * 2 - 1) * 80 * k).toFixed(0) + 'px',
-        y: ((Math.random() * 2 - 1) * 60 * k).toFixed(0) + 'px',
-        r: ((Math.random() * 2 - 1) * 24 * k).toFixed(0) + 'deg',
-        i: globalIdx++,
-      }));
-      return { text: w.text, manual: w.manual, chars };
-    });
-
-    setWords(generated);
-
-    // Initial organizing animation after 600ms
+    // Automatically trigger alignment into ordered precision state
     const timer = setTimeout(() => {
       setOrdered(true);
-    }, 600);
+    }, 650);
 
-    // Smooth mouse parallax with lerp for figure layers (desktop only)
+    // Smooth mouse parallax for geometric elements
     let targetX = 0;
     let targetY = 0;
     let currentX = 0;
@@ -52,19 +61,19 @@ const Hero: React.FC = () => {
     const hasFinePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
     const handleMouseMove = (e: MouseEvent) => {
-      targetX = e.clientX / window.innerWidth - 0.5;
-      targetY = e.clientY / window.innerHeight - 0.5;
+      targetX = (e.clientX / window.innerWidth - 0.5) * 2;
+      targetY = (e.clientY / window.innerHeight - 0.5) * 2;
     };
 
     const updateParallax = () => {
-      currentX += (targetX - currentX) * 0.08;
-      currentY += (targetY - currentY) * 0.08;
+      currentX += (targetX - currentX) * 0.06;
+      currentY += (targetY - currentY) * 0.06;
 
       if (figRef.current) {
         const layers = figRef.current.querySelectorAll<SVGGElement>('g[data-d]');
         layers.forEach((g) => {
           const d = parseFloat(g.dataset.d || '0');
-          g.style.transform = `translate3d(${currentX * d * -1.8}px, ${currentY * d * -1.8}px, 0)`;
+          g.style.transform = `translate3d(${currentX * d * -1.4}px, ${currentY * d * -1.4}px, 0)`;
         });
       }
       rafId = requestAnimationFrame(updateParallax);
@@ -74,7 +83,7 @@ const Hero: React.FC = () => {
     const handleScroll = () => {
       if (!figRef.current) return;
       const scrollY = window.scrollY;
-      figRef.current.style.transform = `translate3d(0, ${scrollY * 0.14}px, 0) rotate(${scrollY * 0.006}deg)`;
+      figRef.current.style.transform = `translate3d(0, ${scrollY * 0.12}px, 0)`;
     };
 
     if (hasFinePointer) {
@@ -91,11 +100,11 @@ const Hero: React.FC = () => {
     };
   }, []);
 
-  const handleShuffleClick = () => {
+  const handleToggleCalibration = () => {
     if (ordered) {
       setWords((prev) =>
         prev.map((w) => {
-          const k = w.manual ? 1.6 : 1;
+          const k = w.isManual ? 1.6 : 1;
           return {
             ...w,
             chars: w.chars.map((char) => ({
@@ -111,52 +120,66 @@ const Hero: React.FC = () => {
     setOrdered(!ordered);
   };
 
+  const line0 = words.filter((w) => w.line === 0);
+  const line1 = words.filter((w) => w.line === 1);
+
   return (
-    <section className="hero relative min-h-[100svh] pt-28 md:pt-36 pb-12 flex flex-col justify-between overflow-hidden" id="hero">
-      {/* Ambient background volumetric glow */}
+    <section 
+      className="hero relative min-h-[100svh] pt-28 md:pt-36 pb-14 flex flex-col justify-between overflow-hidden bg-[#05070B]" 
+      id="hero"
+      aria-label="Abertura GEAR — Engenharia de Software e Automação"
+    >
+      {/* Precision Chiaroscuro Lighting (Architectural, directional, no generic glowing blobs) */}
       <div 
-        className="absolute top-1/4 -right-[15vw] w-[65vw] max-w-[850px] aspect-square rounded-full bg-gradient-to-br from-blue-600/20 via-blue-500/10 to-transparent blur-[130px] pointer-events-none -z-10 animate-pulse-slow"
+        className="absolute top-0 right-1/4 w-[50vw] max-w-[800px] h-[600px] bg-[radial-gradient(ellipse_at_top,rgba(37,99,235,0.12),transparent_70%)] pointer-events-none -z-10"
         aria-hidden="true"
       />
       <div 
-        className="absolute bottom-10 left-[-10vw] w-[45vw] max-w-[600px] aspect-square rounded-full bg-gradient-to-tr from-cyan-500/10 via-transparent to-transparent blur-[100px] pointer-events-none -z-10"
+        className="absolute bottom-0 left-10 w-[35vw] max-w-[500px] h-[400px] bg-[radial-gradient(ellipse_at_bottom,rgba(15,23,42,0.8),transparent_70%)] pointer-events-none -z-10"
         aria-hidden="true"
       />
 
-      {/* 3D Polygon Emblem Sculpture with HUD Telemetry */}
+      {/* Architectural Crosshair Datum Marks (Studio print aesthetic) */}
+      <div className="absolute top-28 left-6 text-white/20 font-mono text-[10px] select-none pointer-events-none hidden lg:block" aria-hidden="true">
+        + [DATUM: 00.1 / LAT -23.5505]
+      </div>
+      <div className="absolute top-28 right-6 text-white/20 font-mono text-[10px] select-none pointer-events-none hidden lg:block" aria-hidden="true">
+        [SYS.STATE: 100% OPERATIONAL] +
+      </div>
+
+      {/* 3D Kinetic Architectural Polygon Emblem */}
       <div className="fig" id="fig" ref={figRef} aria-hidden="true">
-        <svg viewBox="-40 -40 580 620" className="w-full h-auto overflow-visible drop-shadow-[0_20px_50px_rgba(37,99,235,0.25)]">
+        <svg 
+          viewBox="-40 -40 580 620" 
+          className="w-full h-auto overflow-visible drop-shadow-[0_25px_60px_rgba(0,0,0,0.8)]"
+        >
           <defs>
             <linearGradient id="heroLayerA" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stopColor="#3B82F6" />
-              <stop offset="100%" stopColor="#1D4ED8" />
+              <stop offset="0%" stopColor="#2563EB" stopOpacity="0.9" />
+              <stop offset="100%" stopColor="#0F172A" stopOpacity="0.95" />
             </linearGradient>
             <linearGradient id="heroLayerB" x1="0" y1="1" x2="1" y2="0">
-              <stop offset="0%" stopColor="#1E40AF" />
-              <stop offset="100%" stopColor="#2563EB" />
+              <stop offset="0%" stopColor="#1D4ED8" stopOpacity="0.85" />
+              <stop offset="100%" stopColor="#1E293B" stopOpacity="0.9" />
             </linearGradient>
             <linearGradient id="heroLayerC" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#60A5FA" />
-              <stop offset="100%" stopColor="#3B82F6" />
+              <stop offset="0%" stopColor="#3B82F6" stopOpacity="0.8" />
+              <stop offset="100%" stopColor="#1D4ED8" stopOpacity="0.95" />
             </linearGradient>
             <linearGradient id="heroLayerD" x1="1" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#93C5FD" />
-              <stop offset="100%" stopColor="#2563EB" />
+              <stop offset="0%" stopColor="#60A5FA" stopOpacity="0.9" />
+              <stop offset="100%" stopColor="#2563EB" stopOpacity="0.9" />
             </linearGradient>
-            <filter id="heroGlow" x="-20%" y="-20%" width="140%" height="140%">
-              <feGaussianBlur stdDeviation="8" result="blur" />
-              <feComposite in="SourceGraphic" in2="blur" operator="over" />
-            </filter>
           </defs>
 
-          {/* Wireframe shadow echo */}
+          {/* Wireframe shadow blueprint echo */}
           <g
             data-d="-8"
             fill="none"
-            stroke="rgba(241,239,234,0.18)"
-            strokeWidth="1.2"
-            strokeDasharray="4 4"
-            transform="translate(28 26)"
+            stroke="rgba(236,234,228,0.12)"
+            strokeWidth="1"
+            strokeDasharray="3 3"
+            transform="translate(24 22)"
           >
             <polygon points="10,165 285,5 390,55 110,215" />
             <polygon points="5,170 110,215 110,350 5,410" />
@@ -164,18 +187,18 @@ const Hero: React.FC = () => {
             <polygon points="205,280 340,196 485,196 500,210 500,390 485,402 245,538 145,487 235,432 390,340 395,325 395,295 370,280 270,335 205,295" />
           </g>
 
-          {/* Main 3D multi-layered faceted geometric shards */}
+          {/* Precision Architectural Facets */}
           <g data-d="12" className="transition-transform duration-300 ease-out">
             <polygon fill="url(#heroLayerA)" points="10,165 285,5 390,55 110,215" />
-            <polygon fill="none" stroke="rgba(255,255,255,0.4)" strokeWidth="0.75" points="10,165 285,5 390,55 110,215" />
+            <polygon fill="none" stroke="rgba(255,255,255,0.3)" strokeWidth="0.8" points="10,165 285,5 390,55 110,215" />
           </g>
           <g data-d="24" className="transition-transform duration-300 ease-out">
             <polygon fill="url(#heroLayerB)" points="5,170 110,215 110,350 5,410" />
-            <polygon fill="none" stroke="rgba(255,255,255,0.25)" strokeWidth="0.75" points="5,170 110,215 110,350 5,410" />
+            <polygon fill="none" stroke="rgba(255,255,255,0.2)" strokeWidth="0.8" points="5,170 110,215 110,350 5,410" />
           </g>
           <g data-d="36" className="transition-transform duration-300 ease-out">
             <polygon fill="url(#heroLayerC)" points="5,410 110,355 240,432 145,487" />
-            <polygon fill="none" stroke="rgba(255,255,255,0.4)" strokeWidth="0.75" points="5,410 110,355 240,432 145,487" />
+            <polygon fill="none" stroke="rgba(255,255,255,0.35)" strokeWidth="0.8" points="5,410 110,355 240,432 145,487" />
           </g>
           <g data-d="18" className="transition-transform duration-300 ease-out">
             <polygon
@@ -184,49 +207,58 @@ const Hero: React.FC = () => {
             />
             <polygon
               fill="none"
-              stroke="rgba(255,255,255,0.5)"
-              strokeWidth="0.75"
+              stroke="rgba(255,255,255,0.4)"
+              strokeWidth="0.8"
               points="205,280 340,196 485,196 500,210 500,390 485,402 245,538 145,487 235,432 390,340 395,325 395,295 370,280 270,335 205,295"
             />
           </g>
 
-          {/* Architectural engineering registration marks */}
-          <g stroke="rgba(241,239,234,0.4)" strokeWidth="1.2">
-            <path d="M-30 -30h24M-30 -30v24M530 -30h-24M530 -30v24M-30 570h24M-30 570v-24M530 570h-24M530 570v-24" />
+          {/* Technical Alignment Crosshairs */}
+          <g stroke="rgba(236,234,228,0.35)" strokeWidth="1">
+            <path d="M-30 -30h20M-30 -30v20M530 -30h-20M530 -30v20M-30 570h20M-30 570v-20M530 570h-20M530 570v-20" />
+            <circle cx="205" cy="280" r="3" fill="#2563EB" />
+            <circle cx="110" cy="215" r="3" fill="#60A5FA" />
+            <circle cx="240" cy="432" r="3" fill="#3B82F6" />
           </g>
         </svg>
       </div>
 
-      {/* Vertical engineering telemetry index */}
-      <div className="idx mono tracking-widest hidden xl:block opacity-60 hover:opacity-100 transition-opacity">
-        ENG · IA · AUTOMAÇÃO · DASHBOARDS · WEB · SAAS
+      {/* Vertical Telemetry Index Ribbon */}
+      <div className="idx mono tracking-widest hidden xl:block opacity-40 hover:opacity-80 transition-opacity">
+        ENG · IA · AUTOMAÇÃO · DASHBOARDS · WEB · SAAS // [2026]
       </div>
 
-      {/* Main Hero Container */}
+      {/* Main Hero Viewport Block */}
       <div className="wrap relative z-10">
         <div className="hero-wrap">
-          {/* Metadata bar */}
-          <div className="meta mono flex flex-wrap items-center justify-between gap-3 text-xs md:text-sm text-zinc-400 mb-6 md:mb-10 pb-3 border-b border-white/[0.08]">
-            <div className="flex items-center gap-2">
-              <span className="text-blue-400 font-semibold">(01)</span>
-              <span>— Estúdio de software, IA &amp; automação</span>
+          {/* Metadata Top Bar */}
+          <div className="meta mono flex flex-wrap items-center justify-between gap-3 text-xs md:text-sm text-zinc-400 mb-8 md:mb-12 pb-3 border-b border-white/[0.08]">
+            <div className="flex items-center gap-2.5">
+              <span className="text-blue-400 font-semibold">(01/06)</span>
+              <span className="text-zinc-300 font-medium tracking-wide">ESTÚDIO DE ENGENHARIA DE SOFTWARE &amp; AUTOMAÇÃO</span>
             </div>
             <div className="flex items-center gap-3">
-              <span className="hidden sm:inline-block px-2.5 py-0.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-[10px] tracking-wider uppercase text-zinc-300">
-                SOB MEDIDA
+              <span className="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-[10px] tracking-wider uppercase text-zinc-300 font-mono">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                SOB MEDIDA // SEM TEMPLATES
               </span>
-              <span className="text-zinc-500">Fig. 01 — o caos, organizado</span>
+              <span className="text-zinc-500 text-[11px]">CENA 01 — O IMPACTO</span>
             </div>
           </div>
 
-          {/* Mega Headline with Kinetic Scatter Animation */}
+          {/*
+            Monumental Title with Kinetic Precision Calibration:
+            - Full title in HTML on first render for 100% SEO and accessibility
+            - Interactive kinetic calibration allows user to experience the tension of Chaos vs Order
+          */}
           <h1
             className={`mega ${ordered ? 'ordered' : ''}`}
             id="mega"
-            aria-label="Menos tarefas manuais."
+            aria-label="Menos tarefas manuais. Mais ritmo operacional."
           >
+            {/* Line 1: "Menos tarefas" */}
             <span className="line">
-              {words.slice(0, 2).map((w, wIdx) => (
+              {line0.map((w, wIdx) => (
                 <span key={wIdx} className="w" aria-hidden="true">
                   {w.chars.map((ch) => (
                     <span
@@ -246,9 +278,10 @@ const Hero: React.FC = () => {
               ))}
             </span>
 
+            {/* Line 2: "manuais." */}
             <span className="line">
-              {words.slice(2).map((w, wIdx) => (
-                <span key={wIdx} className="w manual relative" aria-hidden="true">
+              {line1.map((w, wIdx) => (
+                <span key={wIdx} className={`w${w.isManual ? ' manual' : ''} relative`} aria-hidden="true">
                   {w.chars.map((ch) => (
                     <span
                       key={ch.i}
@@ -268,89 +301,96 @@ const Hero: React.FC = () => {
             </span>
           </h1>
 
-          {/* Hero subheadline — light-weight sans, reads as quiet counterpoint to the h1 */}
-          <div className="mega2">
+          {/* Subheadline with Light Architectural Counterpoint */}
+          <div className="mega2 font-light">
             Mais inteligência<br />
-            para crescer.
+            para sua operação.
           </div>
 
-          {/* Interactive Chaos/Order Tactile Controller (Integrated in layout) */}
+          {/* Interactive Calibration Switch (Tension between Chaos and Precision) */}
           <div className="flex flex-wrap items-center gap-4 mt-6 md:mt-8">
             <button
-              className="mono group inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/[0.06] hover:bg-white/[0.12] border border-white/[0.12] hover:border-blue-400/50 backdrop-blur-md text-zinc-300 hover:text-white transition-all shadow-[0_4px_20px_rgba(0,0,0,0.5)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+              className="mono group inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.1] hover:border-blue-400/40 backdrop-blur-md text-zinc-300 hover:text-white transition-all shadow-[0_4px_24px_rgba(0,0,0,0.6)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
               id="shuffle"
               data-cursor
-              onClick={handleShuffleClick}
-              aria-label={ordered ? 'Desorganizar caracteres' : 'Organizar caracteres'}
+              onClick={handleToggleCalibration}
+              aria-label={ordered ? 'Desorganizar fluxo (simular caos)' : 'Calibrar fluxo (organizar precisão)'}
             >
-              <RefreshCw className={`w-3.5 h-3.5 text-blue-400 transition-transform duration-500 ${ordered ? 'rotate-180' : 'rotate-0'}`} />
-              <span id="shtxt" className="text-[11px] uppercase tracking-wider font-medium">
-                {ordered ? 'Simular o caos' : 'Organizar o fluxo'}
+              <Sliders className="w-3.5 h-3.5 text-blue-400 transition-transform duration-300 group-hover:scale-110" />
+              <span className="text-[11px] uppercase tracking-wider font-medium">
+                {ordered ? 'Simular entropia manual' : 'Calibrar fluxo contínuo'}
               </span>
-              <span className="hidden sm:inline-block w-1.5 h-1.5 rounded-full bg-blue-400 animate-ping" />
+              <span className={`w-1.5 h-1.5 rounded-full ${ordered ? 'bg-emerald-400' : 'bg-amber-400 animate-ping'}`} />
             </button>
 
             <span className="mono text-[11px] text-zinc-400">
-              {ordered ? '● 0 tarefas manuais bloqueando a operação' : '○ 18 tarefas fragmentadas em planilhas'}
+              {ordered ? '● Matriz sincronizada: sem gargalos humanos' : '○ Entropia operacional: planilhas e retrabalho manual'}
             </span>
           </div>
         </div>
       </div>
 
-      {/* Hero Foot with Narrative & High-Converting CTAs */}
-      <div className="wrap relative z-10 mt-8 md:mt-12">
-        <div className="hero-foot pt-6 border-t border-white/[0.08]">
-          <div className="space-y-3">
-            {/* Line 1 — main value proposition */}
-            <p className="text-base sm:text-lg text-zinc-200 font-medium leading-snug max-w-lg">
-              Software sob medida, IA e automações.
+      {/* Hero Foot — Architectural Positioning & Seamless Transition */}
+      <div className="wrap relative z-10 mt-10 md:mt-14">
+        <div className="hero-foot pt-8 border-t border-white/[0.08]">
+          <div className="space-y-4">
+            <p className="text-base sm:text-lg text-zinc-200 font-medium leading-relaxed max-w-xl">
+              Projetamos software sob medida, modelos de IA aplicada e arquiteturas de automação para empresas que cansaram da lentidão operacional.
             </p>
-            {/* Line 2 — complement */}
-            <p className="text-sm sm:text-base text-zinc-400 font-normal leading-relaxed max-w-lg">
-              Substitua planilhas frágeis por{' '}
+            <p className="text-sm sm:text-base text-zinc-400 font-normal leading-relaxed max-w-xl">
+              Substitua remendos manuais por{' '}
               <span className="text-blue-300 font-medium">
-                processos autônomos, precisos e escaláveis.
+                sistemas autônomos, precisos e escaláveis.
               </span>
             </p>
 
-            {/* Technical Proof Pills */}
-            <div className="flex flex-wrap items-center gap-2 pt-1">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-white/[0.03] border border-white/[0.06] text-[11px] mono text-zinc-400">
+            {/* Technical Proof Badges */}
+            <div className="flex flex-wrap items-center gap-2 pt-2">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-white/[0.03] border border-white/[0.07] text-[11px] mono text-zinc-300">
                 <CheckCircle2 className="w-3 h-3 text-blue-400" />
-                Sem mensalidades abusivas
+                Propriedade 100% da sua empresa
               </span>
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-white/[0.03] border border-white/[0.06] text-[11px] mono text-zinc-400">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-white/[0.03] border border-white/[0.07] text-[11px] mono text-zinc-300">
                 <CheckCircle2 className="w-3 h-3 text-blue-400" />
-                Código 100% de sua propriedade
+                Sem mensalidades de prateleira
               </span>
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-white/[0.03] border border-white/[0.06] text-[11px] mono text-zinc-400">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-white/[0.03] border border-white/[0.07] text-[11px] mono text-zinc-300">
                 <CheckCircle2 className="w-3 h-3 text-blue-400" />
-                Entrega em sprints contínuos
+                Entrega contínua em sprints
               </span>
             </div>
           </div>
 
-          <div className="ctas flex flex-wrap items-center gap-4 mt-6 lg:mt-0">
+          <div className="ctas flex flex-wrap items-center gap-5 mt-6 lg:mt-0">
             <a
               className="ghost mono inline-flex items-center gap-2 py-3 px-4 text-xs tracking-wider text-zinc-400 hover:text-white transition-colors border-b border-zinc-700 hover:border-white"
-              href="#casos"
+              href="#problema"
               data-cursor
             >
-              <span>Ver casos reais</span>
+              <span>Investigar o caos</span>
               <ArrowDown className="w-3.5 h-3.5 animate-bounce" />
             </a>
 
             <a
-              className="group relative inline-flex items-center gap-3 px-6 py-4 rounded-full bg-blue-600 hover:bg-blue-500 text-white font-medium text-sm md:text-base transition-all duration-300 shadow-[0_0_30px_rgba(37,99,235,0.45)] hover:shadow-[0_0_45px_rgba(37,99,235,0.7)] hover:scale-[1.02] active:scale-[0.98] border border-blue-400/40"
+              className="group relative inline-flex items-center gap-3 px-7 py-4 rounded-full bg-blue-600 hover:bg-blue-500 text-white font-medium text-sm md:text-base transition-all duration-300 shadow-[0_0_35px_rgba(37,99,235,0.45)] hover:shadow-[0_0_50px_rgba(37,99,235,0.7)] hover:scale-[1.02] active:scale-[0.98] border border-blue-400/40"
               data-cursor
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
             >
-              <span>Contar meu gargalo operacional</span>
+              <span>Expor meu gargalo operacional</span>
               <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
             </a>
           </div>
+        </div>
+
+        {/* Seamless Section Transition Conduit */}
+        <div className="pt-8 flex items-center justify-between text-zinc-500 mono text-[10px] border-t border-white/[0.04] mt-6">
+          <div className="flex items-center gap-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-ping" />
+            <span>TRANSIÇÃO // CENA 01 → CENA 02</span>
+          </div>
+          <span className="hidden sm:inline">ROLANDO PARA ANATOMIA DO PROBLEMA ↓</span>
         </div>
       </div>
     </section>

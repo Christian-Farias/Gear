@@ -250,14 +250,14 @@ const Projects: React.FC = () => {
   ];
 
   return (
-    <section className="sec cases relative py-24 md:py-36 border-t border-white/[0.06]" id="casos">
+    <section className="sec cases relative py-24 md:py-36 border-t border-white/[0.08] bg-[#05070B]" id="casos">
       <div className="wrap">
         {/* Section Header */}
         <div className="sec-h grid grid-cols-1 lg:grid-cols-12 gap-6 items-end mb-14 md:mb-20">
           <div className="lg:col-span-3 text-xs md:text-sm mono text-blue-400 font-semibold tracking-wider">
-            (03) — Estudos de caso
+            (04/06) // ARQUITETURAS COMPROVADAS
           </div>
-          <h2 className="lg:col-span-9 text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight leading-[1.02]">
+          <h2 className="lg:col-span-9 text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight leading-[1.02] text-white">
             <span>Resultado é o que</span><br />
             <span>fica no <em className="serif italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-white">caixa.</em></span>
           </h2>

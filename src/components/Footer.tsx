@@ -1,18 +1,25 @@
 import React from 'react';
 import { WHATSAPP_URL } from '../data/config';
-import { ArrowUpRight, Github, Linkedin, Instagram, Mail } from 'lucide-react';
+import { ArrowUpRight, Mail } from 'lucide-react';
+
+// TODO: Replace WHATSAPP_URL in src/data/config.ts with the real GEAR number
+// TODO: Confirm contact@gear.com.br is operational before publishing
+// TODO: Add real social profile URLs when available
 
 const Footer: React.FC = () => {
+  const year = new Date().getFullYear();
+
   return (
     <footer className="relative bg-[#05070B] pt-20 pb-10 overflow-hidden border-t border-white/[0.08]" role="contentinfo">
       {/* Background illumination */}
-      <div 
-        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[60vw] max-w-[750px] h-[250px] bg-gradient-to-t from-blue-600/10 to-transparent blur-[120px] pointer-events-none -z-10" 
-        aria-hidden="true" 
+      <div
+        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[60vw] max-w-[750px] h-[250px] bg-gradient-to-t from-blue-600/10 to-transparent blur-[120px] pointer-events-none -z-10"
+        aria-hidden="true"
       />
 
       <div className="wrap relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-14 border-b border-white/[0.08]">
+
           {/* Col 1: Logo & Mission */}
           <div className="lg:col-span-4 space-y-4">
             <a href="#top" className="inline-flex items-center gap-3 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded p-1" aria-label="Voltar ao topo da página">
@@ -32,7 +39,7 @@ const Footer: React.FC = () => {
 
             <div className="flex items-center gap-2 pt-2 text-xs mono text-emerald-400">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-              <span>Sistemas &amp; Serviços 100% Operacionais</span>
+              <span>Disponível para novos projetos</span>
             </div>
           </div>
 
@@ -42,118 +49,90 @@ const Footer: React.FC = () => {
               Navegar
             </h4>
             <ul className="space-y-2 text-sm text-zinc-300">
-              <li>
-                <a href="#solucoes" className="hover:text-blue-400 transition-colors">Soluções</a>
-              </li>
-              <li>
-                <a href="#casos" className="hover:text-blue-400 transition-colors">Casos de Estudo</a>
-              </li>
-              <li>
-                <a href="#processo" className="hover:text-blue-400 transition-colors">Nosso Processo</a>
-              </li>
-              <li>
-                <a href="#diferenciais" className="hover:text-blue-400 transition-colors">Diferenciais</a>
-              </li>
-              <li>
-                <a href="#depoimentos" className="hover:text-blue-400 transition-colors">Depoimentos</a>
-              </li>
-              <li>
-                <a href="#contato" className="hover:text-blue-400 transition-colors">Iniciar Projeto</a>
-              </li>
+              {[
+                { href: '#problema', label: 'O Caos Operacional' },
+                { href: '#solucoes', label: 'Soluções & Motor' },
+                { href: '#casos', label: 'Casos de Estudo' },
+                { href: '#processo', label: 'Nosso Processo' },
+                { href: '#diferenciais', label: 'Diferenciais' },
+                { href: '#depoimentos', label: 'Clientes' },
+                { href: '#contato', label: 'Iniciar Projeto' },
+              ].map(({ href, label }) => (
+                <li key={href}>
+                  <a href={href} className="hover:text-blue-400 transition-colors">{label}</a>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Col 3: Social & Communities */}
+          {/* Col 3: Expertise */}
           <div className="lg:col-span-2 space-y-3">
             <h4 className="mono text-xs text-zinc-400 uppercase tracking-widest font-semibold">
-              Presença
+              Expertise
             </h4>
-            <ul className="space-y-2 text-sm text-zinc-300">
-              <li>
-                <a 
-                  href="https://linkedin.com" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="inline-flex items-center gap-1.5 hover:text-blue-400 transition-colors"
-                >
-                  <Linkedin className="w-3.5 h-3.5" />
-                  <span>LinkedIn</span>
-                  <ArrowUpRight className="w-3 h-3 text-zinc-500" />
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="https://instagram.com" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="inline-flex items-center gap-1.5 hover:text-blue-400 transition-colors"
-                >
-                  <Instagram className="w-3.5 h-3.5" />
-                  <span>Instagram</span>
-                  <ArrowUpRight className="w-3 h-3 text-zinc-500" />
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="https://github.com" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="inline-flex items-center gap-1.5 hover:text-blue-400 transition-colors"
-                >
-                  <Github className="w-3.5 h-3.5" />
-                  <span>GitHub</span>
-                  <ArrowUpRight className="w-3 h-3 text-zinc-500" />
-                </a>
-              </li>
+            <ul className="space-y-2 text-sm text-zinc-400">
+              {['Software Sob Medida', 'IA & Automação', 'Dashboards & BI', 'Sites & Web Apps', 'Integrações de API'].map((item) => (
+                <li key={item} className="text-xs leading-relaxed">{item}</li>
+              ))}
             </ul>
           </div>
 
-          {/* Col 4: Contact & Location */}
+          {/* Col 4: Contact */}
           <div className="lg:col-span-3 space-y-3">
             <h4 className="mono text-xs text-zinc-400 uppercase tracking-widest font-semibold">
               Contato Direto
             </h4>
-            <ul className="space-y-2 text-sm text-zinc-300">
+            <ul className="space-y-3 text-sm text-zinc-300">
               <li>
-                <a 
-                  href={WHATSAPP_URL} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
+                {/* WhatsApp — pending real number in config.ts */}
+                <a
+                  href={WHATSAPP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 hover:text-emerald-400 transition-colors"
+                  aria-label="Conversar via WhatsApp"
                 >
-                  <span>WhatsApp Oficial</span>
-                  <ArrowUpRight className="w-3 h-3 text-zinc-500" />
+                  <span>WhatsApp</span>
+                  <ArrowUpRight className="w-3 h-3 text-zinc-500" aria-hidden="true" />
                 </a>
               </li>
               <li>
-                <a 
-                  href="mailto:contato@gear.com.br" 
+                {/* Email — pending confirmation that this address is operational */}
+                <a
+                  href="mailto:contato@gear.com.br"
                   className="inline-flex items-center gap-1.5 hover:text-blue-400 transition-colors"
+                  aria-label="Enviar e-mail para contato@gear.com.br"
                 >
-                  <Mail className="w-3.5 h-3.5 text-zinc-400" />
+                  <Mail className="w-3.5 h-3.5 text-zinc-400" aria-hidden="true" />
                   <span>contato@gear.com.br</span>
                 </a>
               </li>
-              <li className="pt-2 text-xs text-zinc-400 mono leading-relaxed">
+              <li className="pt-1 text-xs text-zinc-500 mono leading-relaxed">
                 São Paulo, SP &bull; Atendimento Remoto Nacional
+              </li>
+              {/* Social links — to be added when official profiles are confirmed */}
+              <li>
+                <span className="mono text-[10px] text-zinc-600 italic">
+                  Redes sociais em configuração
+                </span>
               </li>
             </ul>
           </div>
         </div>
 
         {/* Legal & Credits Row */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 mono text-xs text-zinc-400">
-          <span>&copy; {new Date().getFullYear()} GEAR Tecnologia Ltda. Todos os direitos reservados.</span>
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 mono text-xs text-zinc-500">
+          <span>&copy; {year} GEAR Tecnologia. Todos os direitos reservados.</span>
           <div className="flex items-center gap-2">
-            <span>Desenvolvido com excelência no Brasil</span>
+            <span>Desenvolvido no Brasil</span>
             <span>&bull;</span>
-            <span className="text-blue-400">Sistemas Sob Medida</span>
+            <span className="text-blue-500">Sistemas Sob Medida</span>
           </div>
         </div>
       </div>
 
-      {/* Monumental Watermark Typography (Calibrated scale & opacity so it never dominates) */}
-      <div 
+      {/* Monumental Watermark — atmospheric depth, never dominating */}
+      <div
         className="text-[17vw] sm:text-[18vw] font-bold tracking-tighter text-center leading-none text-transparent bg-clip-text bg-gradient-to-b from-white/[0.03] to-transparent select-none mt-8 -mb-4 pointer-events-none"
         aria-hidden="true"
       >

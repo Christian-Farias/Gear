@@ -11,7 +11,10 @@ import {
   Database,
   Sparkles,
   CheckSquare,
-  Square
+  Square,
+  Sliders,
+  Unlink,
+  Link2
 } from 'lucide-react';
 
 interface SolutionItem {
@@ -27,6 +30,10 @@ interface SolutionItem {
 }
 
 const Solutions: React.FC = () => {
+  // Signature Interaction State: The Chaos-to-Precision Calibration Matrix
+  const [matrixCalibrated, setMatrixCalibrated] = useState<boolean>(true);
+  const [calibrationProgress, setCalibrationProgress] = useState<number>(100);
+
   const [activeIdx, setActiveIdx] = useState(0);
   const [openMobileIdx, setOpenMobileIdx] = useState<number | null>(0);
   
@@ -54,6 +61,12 @@ const Solutions: React.FC = () => {
       setAiPromptResponse('NF #4928 validada: Fornecedor Metalúrgica Horizonte · Valor R$ 38.400 · 0 inconformidades tributárias.');
       setAiTesting(false);
     }, 600);
+  };
+
+  const handleSliderChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const val = Number(e.target.value);
+    setCalibrationProgress(val);
+    setMatrixCalibrated(val > 50);
   };
 
   const chartData = [
@@ -193,7 +206,6 @@ const Solutions: React.FC = () => {
             </span>
           </div>
 
-          {/* Connected SVG circuit nodes */}
           <div className="relative py-2">
             <div className="grid grid-cols-3 gap-2 text-center text-[10px] mono relative z-10">
               <div className="p-2.5 rounded-xl bg-white/[0.04] border border-white/[0.08] flex flex-col items-center gap-1">
@@ -254,7 +266,6 @@ const Solutions: React.FC = () => {
             </div>
           </div>
 
-          {/* Interactive Bar Chart Mockup with Hover Details */}
           <div className="h-24 flex items-end gap-2 pt-2 px-1">
             {chartData.map((item, idx) => (
               <button
@@ -292,7 +303,6 @@ const Solutions: React.FC = () => {
       techs: ['React / Vite', 'Next.js', 'Core Web Vitals', 'Tailwind', 'Edge CDN'],
       renderVisual: () => (
         <div className="w-full max-w-sm rounded-xl bg-[#090D15] border border-white/[0.08] overflow-hidden shadow-2xl flex flex-col font-sans">
-          {/* Browser Top bar with Toggle */}
           <div className="flex items-center justify-between px-3 py-2 bg-white/[0.04] border-b border-white/[0.08]">
             <div className="flex items-center gap-1.5">
               <div className="w-2.5 h-2.5 rounded-full bg-rose-500/80" />
@@ -404,7 +414,6 @@ const Solutions: React.FC = () => {
       techs: ['React Native', 'PWA', 'Offline-First', 'Push Notifications'],
       renderVisual: () => (
         <div className="w-full max-w-sm rounded-2xl bg-[#090D15] border border-white/[0.1] p-3 shadow-2xl flex flex-col gap-2 font-sans mx-auto">
-          {/* Mobile Phone Mockup Frame */}
           <div className="flex items-center justify-between px-2 pt-1 pb-2 border-b border-white/[0.06]">
             <span className="text-[10px] mono text-zinc-400">09:41</span>
             <div className="flex items-center gap-1.5">
@@ -454,7 +463,7 @@ const Solutions: React.FC = () => {
               Biometria Ativa
             </div>
             <div className="p-1.5 rounded-lg bg-white/[0.04] border border-white/[0.06] text-zinc-300">
-              Modo Avião OK
+              Modo Offline OK
             </div>
           </div>
         </div>
@@ -470,23 +479,201 @@ const Solutions: React.FC = () => {
   };
 
   return (
-    <section className="sec relative py-24 md:py-36 overflow-hidden border-t border-white/[0.06]" id="solucoes">
-      {/* Background illumination */}
+    <section className="sec relative py-28 md:py-36 overflow-hidden border-t border-white/[0.08] bg-[#05070B]" id="solucoes">
+      {/* Precision Chiaroscuro Atmospheric Illumination */}
       <div 
-        className="absolute top-1/2 left-1/4 w-[40vw] max-w-[500px] aspect-square rounded-full bg-blue-600/10 blur-[130px] pointer-events-none -z-10" 
+        className="absolute top-1/4 right-0 w-[45vw] max-w-[650px] h-[550px] bg-[radial-gradient(ellipse_at_top_right,rgba(37,99,235,0.1),transparent_70%)] pointer-events-none -z-10" 
         aria-hidden="true" 
       />
 
       <div className="wrap">
         {/* Section Header */}
-        <div className="sec-h grid grid-cols-1 lg:grid-cols-12 gap-6 items-end mb-12 md:mb-20">
+        <div className="sec-h grid grid-cols-1 lg:grid-cols-12 gap-6 items-end mb-16 md:mb-20">
           <div className="lg:col-span-3 text-xs md:text-sm mono text-blue-400 font-semibold tracking-wider">
-            (02) — O que construímos
+            (03/06) // A TRANSFORMAÇÃO: O MOTOR GEAR
           </div>
-          <h2 className="lg:col-span-9 text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight leading-[1.02]">
-            <span>Sete jeitos de tirar</span><br />
-            <span>peso das <em className="serif italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-white">suas costas.</em></span>
-          </h2>
+          <div className="lg:col-span-9 space-y-4">
+            <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight leading-[1.02] text-white">
+              <span>Sete jeitos de tirar</span><br />
+              <span>peso das <em className="serif italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-white">suas costas.</em></span>
+            </h2>
+            <p className="text-base sm:text-lg text-zinc-400 max-w-2xl leading-relaxed">
+              Três forças combinadas — software proprietário, IA aplicada e pipelines de automação — convertem pontos fragmentados em uma esteira contínua de alta produtividade.
+            </p>
+          </div>
+        </div>
+
+        {/* 
+          SIGNATURE INTERACTION: A MATRIZ DE CALIBRAÇÃO (CHAOS → PRECISION)
+          An interactive, visceral representation of operational chaos vs automated precision
+        */}
+        <div className="mb-20 p-6 sm:p-8 md:p-10 rounded-3xl bg-[#080C16] border border-white/[0.1] shadow-2xl relative overflow-hidden">
+          {/* Background Grid Telemetry */}
+          <div className="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-white/[0.08]">
+            <div className="flex items-center gap-3">
+              <Sliders className="w-5 h-5 text-blue-400" />
+              <div>
+                <span className="mono text-xs font-semibold text-white block">
+                  INTERAÇÃO ASSINATURA // MATRIZ DE CALIBRAÇÃO OPERACIONAL
+                </span>
+                <span className="mono text-[11px] text-zinc-400">
+                  Experimente o engate: compare o fluxo fragmentado com a esteira alinhada pela GEAR
+                </span>
+              </div>
+            </div>
+
+            {/* State Toggle Buttons */}
+            <div className="flex items-center gap-2 p-1 rounded-xl bg-black/50 border border-white/[0.08] mono text-xs">
+              <button
+                type="button"
+                onClick={() => { setMatrixCalibrated(false); setCalibrationProgress(0); }}
+                className={`px-3 py-1.5 rounded-lg transition-all ${
+                  !matrixCalibrated ? 'bg-amber-500/20 text-amber-400 border border-amber-500/40 font-bold' : 'text-zinc-400 hover:text-white'
+                }`}
+              >
+                <span className="flex items-center gap-1.5">
+                  <Unlink className="w-3.5 h-3.5" />
+                  01. Caos Fragmentado
+                </span>
+              </button>
+              <button
+                type="button"
+                onClick={() => { setMatrixCalibrated(true); setCalibrationProgress(100); }}
+                className={`px-3 py-1.5 rounded-lg transition-all ${
+                  matrixCalibrated ? 'bg-blue-600 text-white font-bold shadow-[0_0_15px_rgba(37,99,235,0.5)]' : 'text-zinc-400 hover:text-white'
+                }`}
+              >
+                <span className="flex items-center gap-1.5">
+                  <Link2 className="w-3.5 h-3.5" />
+                  02. Sincronia GEAR
+                </span>
+              </button>
+            </div>
+          </div>
+
+          {/* Slider Scrub Control */}
+          <div className="py-4 flex items-center gap-4">
+            <span className="mono text-[10px] text-zinc-400 hidden sm:inline">ENTROPIA (0%)</span>
+            <input
+              type="range"
+              min="0"
+              max="100"
+              value={calibrationProgress}
+              onChange={handleSliderChange}
+              className="flex-1 h-1.5 bg-zinc-800 rounded-lg appearance-none cursor-pointer accent-blue-500"
+              aria-label="Calibrador de sincronia operacional"
+            />
+            <span className="mono text-[10px] text-blue-400 hidden sm:inline">PRECISÃO GEAR (100%)</span>
+          </div>
+
+          {/* Interactive Flow Canvas */}
+          <div className="pt-6 pb-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 relative">
+              {/* Node 1: Ingestão de Dados */}
+              <div 
+                className={`p-5 rounded-2xl border transition-all duration-700 ease-out flex flex-col justify-between min-h-[150px] relative ${
+                  matrixCalibrated 
+                    ? 'bg-blue-950/20 border-blue-500/30 transform-none' 
+                    : 'bg-white/[0.02] border-amber-500/30 rotate-[-2.5deg] translate-y-1'
+                }`}
+              >
+                <div className="flex items-center justify-between">
+                  <span className="mono text-[10px] text-zinc-400">NÓ 01 // CAPTURA</span>
+                  <Database className={`w-4 h-4 ${matrixCalibrated ? 'text-blue-400' : 'text-amber-400'}`} />
+                </div>
+                <div>
+                  <h4 className="text-sm font-semibold text-white">Fontes de Dados</h4>
+                  <p className="text-xs text-zinc-400 mt-1">
+                    {matrixCalibrated ? 'APIs, Webhooks & ERP sincronizados' : 'Planilhas dispersas & digitação manual'}
+                  </p>
+                </div>
+                <div className="mono text-[10px] pt-2 border-t border-white/[0.06] flex items-center justify-between">
+                  <span className="text-zinc-500">LATÊNCIA</span>
+                  <span className={matrixCalibrated ? 'text-emerald-400' : 'text-amber-400'}>
+                    {matrixCalibrated ? '12ms' : '3 a 5 dias'}
+                  </span>
+                </div>
+              </div>
+
+              {/* Node 2: IA & Processamento */}
+              <div 
+                className={`p-5 rounded-2xl border transition-all duration-700 ease-out flex flex-col justify-between min-h-[150px] relative ${
+                  matrixCalibrated 
+                    ? 'bg-blue-950/20 border-blue-500/30 transform-none' 
+                    : 'bg-white/[0.02] border-amber-500/30 rotate-[3deg] -translate-y-2'
+                }`}
+              >
+                <div className="flex items-center justify-between">
+                  <span className="mono text-[10px] text-zinc-400">NÓ 02 // INTELIGÊNCIA</span>
+                  <Brain className={`w-4 h-4 ${matrixCalibrated ? 'text-sky-400' : 'text-amber-400'}`} />
+                </div>
+                <div>
+                  <h4 className="text-sm font-semibold text-white">Triagem Cognitiva</h4>
+                  <p className="text-xs text-zinc-400 mt-1">
+                    {matrixCalibrated ? 'Agente LLM extrai e valida regras' : 'Operador humano lendo PDFs um a um'}
+                  </p>
+                </div>
+                <div className="mono text-[10px] pt-2 border-t border-white/[0.06] flex items-center justify-between">
+                  <span className="text-zinc-500">PRECISÃO</span>
+                  <span className={matrixCalibrated ? 'text-emerald-400' : 'text-amber-400'}>
+                    {matrixCalibrated ? '99.4%' : 'Taxa de erro ~12%'}
+                  </span>
+                </div>
+              </div>
+
+              {/* Node 3: Regras & Conciliação */}
+              <div 
+                className={`p-5 rounded-2xl border transition-all duration-700 ease-out flex flex-col justify-between min-h-[150px] relative ${
+                  matrixCalibrated 
+                    ? 'bg-blue-950/20 border-blue-500/30 transform-none' 
+                    : 'bg-white/[0.02] border-amber-500/30 rotate-[-1.5deg] translate-y-2'
+                }`}
+              >
+                <div className="flex items-center justify-between">
+                  <span className="mono text-[10px] text-zinc-400">NÓ 03 // MOTOR</span>
+                  <Cpu className={`w-4 h-4 ${matrixCalibrated ? 'text-blue-400' : 'text-amber-400'}`} />
+                </div>
+                <div>
+                  <h4 className="text-sm font-semibold text-white">Regras de Negócio</h4>
+                  <p className="text-xs text-zinc-400 mt-1">
+                    {matrixCalibrated ? 'Validação instantânea no backend' : 'Cálculos em células de Excel soltas'}
+                  </p>
+                </div>
+                <div className="mono text-[10px] pt-2 border-t border-white/[0.06] flex items-center justify-between">
+                  <span className="text-zinc-500">RETRABALHO</span>
+                  <span className={matrixCalibrated ? 'text-emerald-400' : 'text-amber-400'}>
+                    {matrixCalibrated ? 'Zero' : 'Frequente'}
+                  </span>
+                </div>
+              </div>
+
+              {/* Node 4: Ação & Entrega */}
+              <div 
+                className={`p-5 rounded-2xl border transition-all duration-700 ease-out flex flex-col justify-between min-h-[150px] relative ${
+                  matrixCalibrated 
+                    ? 'bg-blue-950/20 border-blue-500/30 transform-none' 
+                    : 'bg-white/[0.02] border-amber-500/30 rotate-[2deg] -translate-y-1'
+                }`}
+              >
+                <div className="flex items-center justify-between">
+                  <span className="mono text-[10px] text-zinc-400">NÓ 04 // RESULTADO</span>
+                  <Zap className={`w-4 h-4 ${matrixCalibrated ? 'text-emerald-400' : 'text-amber-400'}`} />
+                </div>
+                <div>
+                  <h4 className="text-sm font-semibold text-white">Disparo &amp; Entrega</h4>
+                  <p className="text-xs text-zinc-400 mt-1">
+                    {matrixCalibrated ? 'NF emitida, WhatsApp enviado, ERP atualizado' : 'Pedidos aguardando e-mail manual'}
+                  </p>
+                </div>
+                <div className="mono text-[10px] pt-2 border-t border-white/[0.06] flex items-center justify-between">
+                  <span className="text-zinc-500">STATUS</span>
+                  <span className={matrixCalibrated ? 'text-emerald-400 font-bold' : 'text-amber-400 font-bold'}>
+                    {matrixCalibrated ? '● SINCRONIZADO' : '▲ GARGALO'}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Desktop Split / Mobile Interactive Accordion */}
@@ -526,7 +713,7 @@ const Solutions: React.FC = () => {
                     </span>
                   </button>
 
-                  {/* Mobile expansion view (renders visual and details directly on mobile) */}
+                  {/* Mobile expansion view */}
                   <div
                     className={`lg:hidden transition-all duration-500 overflow-hidden px-2 ${
                       isMobileOpen ? 'max-h-[750px] opacity-100 pb-8' : 'max-h-0 opacity-0'
@@ -545,7 +732,6 @@ const Solutions: React.FC = () => {
                         {s.example}
                       </div>
 
-                      {/* Render Visual Component on Mobile */}
                       <div className="pt-2">
                         {s.renderVisual()}
                       </div>

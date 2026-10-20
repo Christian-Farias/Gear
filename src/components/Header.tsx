@@ -13,7 +13,7 @@ const Header: React.FC = () => {
       setIsScrolled(window.scrollY > 30);
 
       // Track active section for navigation indicator
-      const sections = ['solucoes', 'casos', 'processo', 'diferenciais', 'depoimentos', 'contato'];
+      const sections = ['problema', 'solucoes', 'casos', 'processo', 'diferenciais', 'depoimentos', 'contato'];
       const scrollPos = window.scrollY + 200;
 
       for (const id of sections) {
@@ -40,7 +40,7 @@ const Header: React.FC = () => {
     };
 
     updateClock();
-    const timer = setInterval(updateClock, 10000);
+    const timer = setInterval(updateClock, 1000);
     window.addEventListener('scroll', handleScroll, { passive: true });
 
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -70,11 +70,11 @@ const Header: React.FC = () => {
   }, [mobileMenuOpen]);
 
   const navLinks = [
-    { href: '#solucoes', label: 'Soluções', num: '02' },
-    { href: '#casos', label: 'Casos', num: '03' },
-    { href: '#processo', label: 'Processo', num: '04' },
-    { href: '#diferenciais', label: 'Diferenciais', num: '05' },
-    { href: '#depoimentos', label: 'Clientes', num: '06' },
+    { href: '#problema', label: 'O Caos', num: '02' },
+    { href: '#solucoes', label: 'Soluções', num: '03' },
+    { href: '#casos', label: 'Casos', num: '04' },
+    { href: '#processo', label: 'Método', num: '05' },
+    { href: '#diferenciais', label: 'Diferenciais', num: '06' },
     { href: '#contato', label: 'Contato', num: '07' },
   ];
 
@@ -84,7 +84,7 @@ const Header: React.FC = () => {
         id="hd"
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled
-            ? 'bg-[#07090E]/85 backdrop-blur-xl border-b border-white/[0.08] shadow-[0_10px_30px_-10px_rgba(0,0,0,0.8)] py-3.5'
+            ? 'bg-[#05070B]/90 backdrop-blur-xl border-b border-white/[0.08] shadow-[0_10px_30px_-10px_rgba(0,0,0,0.8)] py-3.5'
             : 'bg-transparent border-b border-transparent py-5 md:py-6'
         }`}
       >
@@ -184,6 +184,9 @@ const Header: React.FC = () => {
         className={`fixed inset-0 z-40 bg-[#07090E]/95 backdrop-blur-2xl transition-all duration-500 lg:hidden flex flex-col justify-between p-6 pt-24 ${
           mobileMenuOpen ? 'opacity-100 pointer-events-auto translate-y-0' : 'opacity-0 pointer-events-none -translate-y-4'
         }`}
+        role="dialog"
+        aria-modal="true"
+        aria-label="Menu de navegação"
         aria-hidden={!mobileMenuOpen}
       >
         <div className="flex flex-col gap-6">

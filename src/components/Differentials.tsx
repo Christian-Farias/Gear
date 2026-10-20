@@ -30,7 +30,7 @@ const Differentials: React.FC = () => {
   ];
 
   return (
-    <section className="relative py-20 md:py-32 overflow-hidden border-t border-white/[0.06]" id="diferenciais">
+    <section className="relative py-20 md:py-32 overflow-hidden border-t border-white/[0.08] bg-[#05070B]" id="diferenciais">
       {/* Dynamic Animated Marquee Ribbon */}
       <div className="band bg-blue-600 text-white overflow-hidden py-5 md:py-6 -rotate-1 shadow-[0_10px_35px_rgba(37,99,235,0.4)] my-8">
         <div className="mq flex whitespace-nowrap animate-marquee">
@@ -52,7 +52,7 @@ const Differentials: React.FC = () => {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-white/[0.08] mb-12">
           <div>
             <span className="mono text-xs md:text-sm text-blue-400 font-semibold tracking-wider block mb-2">
-              (05) — Por que a GEAR é diferente
+              CRITÉRIO COMPARATIVO // ATIVO PRÓPRIO VS ALUGUEL
             </span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-white tracking-tight">
               A diferença entre alugar um software e <br className="hidden sm:inline" />

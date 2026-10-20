@@ -3,23 +3,23 @@
 @tailwind utilities;
 
 :root {
-  --ink: #0B0C0F;
-  --ink2: #12141A;
-  --ink3: #1A1D26;
+  --ink: #05070B;
+  --ink2: #0C1017;
+  --ink3: #131824;
   --paper: #ECEAE4;
   --paper2: #DDDAD1;
   --on-paper: #14151A;
-  --blue: #2D63FF;
-  --blue-hi: #6C93FF;
+  --blue: #2563EB;
+  --blue-hi: #60A5FA;
   --sig: #FF6A3D;
   --mute: #8B90A0;
-  --line: rgba(236, 234, 228, 0.13);
-  --line-p: rgba(20, 21, 26, 0.16);
+  --line: rgba(236, 234, 228, 0.08);
+  --line-p: rgba(20, 21, 26, 0.12);
   --display: 'Inter Tight', system-ui, sans-serif;
   --serif: 'Instrument Serif', Georgia, serif;
   --mono: 'JetBrains Mono', ui-monospace, monospace;
   --pad: clamp(20px, 4vw, 56px);
-  --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 * {
@@ -1583,16 +1583,36 @@ footer {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  /* Stop all animations and shorten all transitions globally */
   * {
     animation: none !important;
     transition-duration: 0.01ms !important;
   }
+  /* Ensure scroll-reveal elements are immediately visible */
   .rv, .mask > span {
-    opacity: 1;
-    transform: none;
+    opacity: 1 !important;
+    transform: none !important;
   }
+  /* Kinetic scatter: always show characters in ordered position */
   .ch {
     transform: none !important;
+    opacity: 1 !important;
+  }
+  /* Marquee: freeze in place */
+  .mq {
+    animation: none !important;
+    overflow: visible;
+  }
+  /* Parallax figure: stay still */
+  .fig {
+    transform: none !important;
+  }
+  /* Pulse animations off */
+  .animate-pulse-slow,
+  .animate-ping,
+  .animate-bounce,
+  .animate-pulse {
+    animation: none !important;
   }
 }
 

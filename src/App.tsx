@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
+import ProblemSection from './components/ProblemSection';
 import Solutions from './components/Solutions';
 import Projects from './components/Projects';
 import Process from './components/Process';
@@ -108,7 +109,7 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <div className="relative min-h-screen bg-[#07090E] text-[#ECEAE4] selection:bg-blue-600 selection:text-white antialiased font-sans">
+    <div className="relative min-h-screen bg-[#05070B] text-[#ECEAE4] selection:bg-blue-600 selection:text-white antialiased font-sans">
       {/* Top Reading Progress Bar */}
       <div 
         ref={progRef} 
@@ -133,6 +134,7 @@ const App: React.FC = () => {
       <Header />
       <main id="top" className="relative z-10">
         <Hero />
+        <ProblemSection />
         <Solutions />
         <Projects />
         <Process />

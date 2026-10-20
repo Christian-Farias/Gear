@@ -59,7 +59,7 @@ const CTAContact: React.FC = () => {
   };
 
   return (
-    <section className="relative py-28 md:py-40 overflow-hidden bg-gradient-to-b from-[#080C16] via-[#0D152A] to-[#06080E] border-t border-white/[0.08]" id="contato">
+    <section className="relative py-28 md:py-40 overflow-hidden bg-gradient-to-b from-[#080C16] via-[#0B101E] to-[#05070B] border-t border-white/[0.08]" id="contato">
       {/* Orbital glow rings */}
       <div 
         className="absolute -right-20 -top-32 w-[55vw] max-w-[700px] aspect-square rounded-full border border-blue-500/20 pointer-events-none animate-pulse-slow"
@@ -78,7 +78,7 @@ const CTAContact: React.FC = () => {
         {/* Top telemetry badge */}
         <div className="flex flex-wrap items-center justify-between gap-4 mb-8 pb-4 border-b border-white/[0.08]">
           <span className="mono text-xs md:text-sm text-blue-400 font-semibold tracking-wider">
-            (07) — Vamos conversar?
+            (06/06) // TERMINAL DE BRIEFING
           </span>
           <div className="flex items-center gap-2 text-xs mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-3 py-1 rounded-full">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
