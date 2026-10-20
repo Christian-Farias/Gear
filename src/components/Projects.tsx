@@ -55,14 +55,14 @@ const Projects: React.FC = () => {
               <button
                 type="button"
                 onClick={() => setActiveTabCase1('depois')}
-                className={`px-3 py-2 min-h-[44px] rounded-lg transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 touch-manipulation ${activeTabCase1 === 'depois' ? 'bg-blue-600 text-white font-semibold shadow-md' : 'text-zinc-400 hover:text-white'}`}
+                className={`px-3 py-2 min-h-[44px] rounded-lg transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 touch-manipulation ${activeTabCase1 === 'depois' ? 'bg-blue-600 text-white font-semibold shadow-md' : 'text-zinc-400 hover:text-white'}`}
               >
                 Automatizado
               </button>
               <button
                 type="button"
                 onClick={() => setActiveTabCase1('antes')}
-                className={`px-3 py-2 min-h-[44px] rounded-lg transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-400 touch-manipulation ${activeTabCase1 === 'antes' ? 'bg-rose-600 text-white font-semibold shadow-md' : 'text-zinc-400 hover:text-white'}`}
+                className={`px-3 py-2 min-h-[44px] rounded-lg transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-400 touch-manipulation ${activeTabCase1 === 'antes' ? 'bg-rose-600 text-white font-semibold shadow-md' : 'text-zinc-400 hover:text-white'}`}
               >
                 Antes (Manual)
               </button>
@@ -268,7 +268,7 @@ const Projects: React.FC = () => {
           {cases.map((c, idx) => (
             <article
               key={c.id}
-              className={`relative lg:sticky rounded-3xl p-6 sm:p-8 md:p-12 border border-white/[0.12] ${c.accentBorder} bg-[#0A0D15]/95 backdrop-blur-xl shadow-[0_25px_60px_-15px_rgba(0,0,0,0.8)] transition-all duration-300 overflow-hidden group`}
+              className={`relative lg:sticky rounded-3xl p-6 sm:p-8 md:p-12 border border-white/[0.12] ${c.accentBorder} bg-[#0A0D15]/95 backdrop-blur-xl shadow-[0_25px_60px_-15px_rgba(0,0,0,0.8)] transition-[border-color,box-shadow] duration-300 overflow-hidden group`}
               style={{
                 top: `calc(100px + ${idx * 26}px)`,
               }}

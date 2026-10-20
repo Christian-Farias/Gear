@@ -426,9 +426,11 @@ section {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  * {
-    animation: none !important;
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
   .ch {
     transform: none !important;
@@ -436,8 +438,15 @@ section {
   }
   .mq {
     animation: none !important;
+    transform: none !important;
   }
   .fig {
+    transform: none !important;
+  }
+  .cur {
+    display: none !important;
+  }
+  .mag {
     transform: none !important;
   }
 }

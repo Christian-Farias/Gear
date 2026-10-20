@@ -114,7 +114,7 @@ const Testimonials: React.FC = () => {
             </div>
 
             {/* Main Quote */}
-            <div className={`transition-all duration-500 ${animating ? 'opacity-0 translate-y-2' : 'opacity-100 translate-y-0'}`}>
+            <div className={`transition-[opacity,transform] duration-500 ${animating ? 'opacity-0 translate-y-2' : 'opacity-100 translate-y-0'}`}>
               <blockquote className="text-xl sm:text-2xl md:text-3xl text-white font-normal leading-relaxed tracking-tight">
                 "{active.quote}"
               </blockquote>
@@ -123,7 +123,7 @@ const Testimonials: React.FC = () => {
             {/* Author & Controls */}
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 pt-6 border-t border-white/[0.08]">
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-gradient-to-tr from-blue-700 to-blue-500 text-white font-mono font-bold text-base flex items-center justify-center shadow-[0_0_15px_rgba(37,99,235,0.4)] border border-blue-400/30">
+                <div className="w-12 h-12 rounded-full bg-blue-600 text-white font-mono font-bold text-base flex items-center justify-center shadow-[0_0_15px_rgba(37,99,235,0.4)] border border-blue-400/30">
                   {active.initials}
                 </div>
                 <div>
@@ -150,7 +150,7 @@ const Testimonials: React.FC = () => {
                       aria-current={currentIdx === dotIdx ? 'true' : undefined}
                     >
                       <span
-                        className={`h-1.5 rounded-full transition-all duration-300 ${
+                        className={`h-1.5 rounded-full transition-[width,background-color] duration-300 ${
                           currentIdx === dotIdx ? 'w-6 bg-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.6)]' : 'w-2 bg-white/20 hover:bg-white/40'
                         }`}
                       />

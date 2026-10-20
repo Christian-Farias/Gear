@@ -108,7 +108,7 @@ const Solutions: React.FC = () => {
                 key={t.id}
                 type="button"
                 onClick={() => toggleTask(t.id)}
-                className={`w-full flex items-center justify-between p-3 min-h-[44px] rounded-lg border text-xs text-left transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 touch-manipulation ${
+                className={`w-full flex items-center justify-between p-3 min-h-[44px] rounded-lg border text-xs text-left transition-[border-color,background-color] duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 touch-manipulation ${
                   t.done ? 'bg-blue-950/20 border-blue-500/30 text-white' : 'bg-white/[0.02] border-white/[0.05] text-zinc-400 hover:text-white'
                 }`}
               >
@@ -176,7 +176,7 @@ const Solutions: React.FC = () => {
             type="button"
             onClick={runAiSimulation}
             disabled={aiTesting}
-            className="w-full py-2.5 px-3 min-h-[44px] rounded-lg bg-blue-600 hover:bg-blue-500 active:bg-blue-700 disabled:opacity-50 text-white text-xs font-semibold transition-all flex items-center justify-center gap-1.5 shadow-[0_0_15px_rgba(37,99,235,0.4)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 touch-manipulation"
+            className="w-full py-2.5 px-3 min-h-[44px] rounded-lg bg-blue-600 hover:bg-blue-500 active:bg-blue-700 disabled:opacity-50 text-white text-xs font-semibold transition-[background-color,transform] duration-200 flex items-center justify-center gap-1.5 shadow-[0_0_15px_rgba(37,99,235,0.4)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 touch-manipulation"
           >
             <Sparkles className="w-3.5 h-3.5 text-sky-300" />
             <span>{aiTesting ? 'Executando Inferência...' : 'Disparar Teste de IA'}</span>
@@ -279,7 +279,7 @@ const Solutions: React.FC = () => {
               >
                 <div className="w-full flex-1 flex flex-col justify-end min-h-0">
                   <div
-                    className={`w-full rounded-t transition-all duration-300 ${
+                    className={`w-full rounded-t transition-[height] duration-300 ${
                       dashboardHoverDay === idx
                         ? 'bg-gradient-to-t from-blue-600 to-cyan-400 shadow-[0_0_15px_rgba(56,189,248,0.7)]'
                         : 'bg-white/10 group-hover:bg-blue-600/50'
@@ -318,14 +318,14 @@ const Solutions: React.FC = () => {
               <button
                 type="button"
                 onClick={() => setSiteMode('gear')}
-                className={`px-3 py-2 min-h-[44px] rounded-lg font-semibold transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 touch-manipulation ${siteMode === 'gear' ? 'bg-blue-600 text-white shadow-md' : 'text-zinc-400 hover:text-white'}`}
+                className={`px-3 py-2 min-h-[44px] rounded-lg font-semibold transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 touch-manipulation ${siteMode === 'gear' ? 'bg-blue-600 text-white shadow-md' : 'text-zinc-400 hover:text-white'}`}
               >
                 Com GEAR
               </button>
               <button
                 type="button"
                 onClick={() => setSiteMode('antigo')}
-                className={`px-3 py-2 min-h-[44px] rounded-lg font-semibold transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-400 touch-manipulation ${siteMode === 'antigo' ? 'bg-rose-600 text-white shadow-md' : 'text-zinc-400 hover:text-white'}`}
+                className={`px-3 py-2 min-h-[44px] rounded-lg font-semibold transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-400 touch-manipulation ${siteMode === 'antigo' ? 'bg-rose-600 text-white shadow-md' : 'text-zinc-400 hover:text-white'}`}
               >
                 Antes
               </button>
@@ -430,14 +430,14 @@ const Solutions: React.FC = () => {
             <button
               type="button"
               onClick={() => setAppTab('pedidos')}
-              className={`flex-1 py-1 min-h-[24px] rounded transition-all ${appTab === 'pedidos' ? 'bg-blue-600 text-white font-bold' : 'text-zinc-400'}`}
+              className={`flex-1 py-2 px-3 min-h-[44px] rounded-lg transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 touch-manipulation ${appTab === 'pedidos' ? 'bg-blue-600 text-white font-bold' : 'text-zinc-400 hover:text-white'}`}
             >
               Pedidos Ativos
             </button>
             <button
               type="button"
               onClick={() => setAppTab('estoque')}
-              className={`flex-1 py-1 min-h-[24px] rounded transition-all ${appTab === 'estoque' ? 'bg-blue-600 text-white font-bold' : 'text-zinc-400'}`}
+              className={`flex-1 py-2 px-3 min-h-[44px] rounded-lg transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 touch-manipulation ${appTab === 'estoque' ? 'bg-blue-600 text-white font-bold' : 'text-zinc-400 hover:text-white'}`}
             >
               Estoque Local
             </button>
@@ -530,7 +530,7 @@ const Solutions: React.FC = () => {
               <button
                 type="button"
                 onClick={() => { setMatrixCalibrated(false); setCalibrationProgress(0); }}
-                className={`px-3.5 py-2 min-h-[44px] rounded-lg transition-all ${
+                className={`px-3.5 py-2 min-h-[44px] rounded-lg transition-colors duration-200 ${
                   !matrixCalibrated ? 'bg-amber-500/20 text-amber-400 border border-amber-500/40 font-bold' : 'text-zinc-400 hover:text-white'
                 }`}
               >
@@ -542,7 +542,7 @@ const Solutions: React.FC = () => {
               <button
                 type="button"
                 onClick={() => { setMatrixCalibrated(true); setCalibrationProgress(100); }}
-                className={`px-3.5 py-2 min-h-[44px] rounded-lg transition-all ${
+                className={`px-3.5 py-2 min-h-[44px] rounded-lg transition-colors duration-200 ${
                   matrixCalibrated ? 'bg-blue-600 text-white font-bold shadow-[0_0_15px_rgba(37,99,235,0.5)]' : 'text-zinc-400 hover:text-white'
                 }`}
               >
@@ -574,7 +574,7 @@ const Solutions: React.FC = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 relative">
               {/* Node 1: Ingestão de Dados */}
               <div 
-                className={`p-5 rounded-2xl border transition-all duration-700 ease-out flex flex-col justify-between min-h-[150px] relative ${
+                className={`p-5 rounded-2xl border transition-[transform,background-color,border-color] duration-700 ease-out flex flex-col justify-between min-h-[150px] relative ${
                   matrixCalibrated 
                     ? 'bg-blue-950/20 border-blue-500/30 transform-none' 
                     : 'bg-white/[0.02] border-amber-500/30 rotate-[-2.5deg] translate-y-1'
@@ -600,7 +600,7 @@ const Solutions: React.FC = () => {
 
               {/* Node 2: IA & Processamento */}
               <div 
-                className={`p-5 rounded-2xl border transition-all duration-700 ease-out flex flex-col justify-between min-h-[150px] relative ${
+                className={`p-5 rounded-2xl border transition-[transform,background-color,border-color] duration-700 ease-out flex flex-col justify-between min-h-[150px] relative ${
                   matrixCalibrated 
                     ? 'bg-blue-950/20 border-blue-500/30 transform-none' 
                     : 'bg-white/[0.02] border-amber-500/30 rotate-[3deg] -translate-y-2'
@@ -626,7 +626,7 @@ const Solutions: React.FC = () => {
 
               {/* Node 3: Regras & Conciliação */}
               <div 
-                className={`p-5 rounded-2xl border transition-all duration-700 ease-out flex flex-col justify-between min-h-[150px] relative ${
+                className={`p-5 rounded-2xl border transition-[transform,background-color,border-color] duration-700 ease-out flex flex-col justify-between min-h-[150px] relative ${
                   matrixCalibrated 
                     ? 'bg-blue-950/20 border-blue-500/30 transform-none' 
                     : 'bg-white/[0.02] border-amber-500/30 rotate-[-1.5deg] translate-y-2'
@@ -652,7 +652,7 @@ const Solutions: React.FC = () => {
 
               {/* Node 4: Ação & Entrega */}
               <div 
-                className={`p-5 rounded-2xl border transition-all duration-700 ease-out flex flex-col justify-between min-h-[150px] relative ${
+                className={`p-5 rounded-2xl border transition-[transform,background-color,border-color] duration-700 ease-out flex flex-col justify-between min-h-[150px] relative ${
                   matrixCalibrated 
                     ? 'bg-blue-950/20 border-blue-500/30 transform-none' 
                     : 'bg-white/[0.02] border-amber-500/30 rotate-[2deg] -translate-y-1'
@@ -691,7 +691,7 @@ const Solutions: React.FC = () => {
                 <div key={s.id} className="transition-colors">
                   <button
                     type="button"
-                    className={`w-full text-left py-6 md:py-8 flex items-baseline justify-between gap-4 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-lg px-2 group ${
+                    className={`w-full text-left py-6 md:py-8 flex items-baseline justify-between gap-4 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-lg px-2 group ${
                       isSelected ? 'text-white' : 'text-zinc-400 hover:text-zinc-200'
                     }`}
                     data-cursor
@@ -718,7 +718,7 @@ const Solutions: React.FC = () => {
 
                   {/* Mobile expansion view */}
                   <div
-                    className={`lg:hidden transition-all duration-500 overflow-hidden px-2 ${
+                    className={`lg:hidden transition-[max-height,opacity] duration-500 overflow-hidden px-2 ${
                       isMobileOpen ? 'max-h-[1600px] opacity-100 pb-8' : 'max-h-0 opacity-0'
                     }`}
                   >
@@ -747,7 +747,7 @@ const Solutions: React.FC = () => {
 
           {/* Desktop Sticky Visual Panel */}
           <aside
-            className="hidden lg:flex lg:col-span-5 sticky top-28 p-7 rounded-2xl bg-gradient-to-b from-[#0C111C] to-[#070A10] border border-white/[0.12] shadow-[0_20px_50px_rgba(0,0,0,0.8)] flex-col gap-6 transition-all duration-500"
+            className="hidden lg:flex lg:col-span-5 sticky top-28 p-7 rounded-2xl bg-gradient-to-b from-[#0C111C] to-[#070A10] border border-white/[0.12] shadow-[0_20px_50px_rgba(0,0,0,0.8)] flex-col gap-6 transition-[border-color,box-shadow] duration-500"
             aria-live="polite"
           >
             {/* Header Telemetry */}
@@ -764,7 +764,7 @@ const Solutions: React.FC = () => {
                 className="absolute inset-0 bg-radial-glow opacity-50 pointer-events-none"
                 aria-hidden="true" 
               />
-              <div className="relative z-10 w-full transition-all duration-300 animate-fade-in key={current.id}">
+              <div className="relative z-10 w-full transition-opacity duration-300 animate-fade-in key={current.id}">
                 {current.renderVisual()}
               </div>
             </div>

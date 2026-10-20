@@ -89,7 +89,7 @@ const ProblemSection: React.FC = () => {
                     type="button"
                     onClick={() => setSelectedPoint(idx)}
                     onMouseEnter={() => setSelectedPoint(idx)}
-                    className={`w-full text-left p-6 rounded-2xl border transition-all duration-300 relative group overflow-hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 touch-manipulation ${
+                    className={`w-full text-left p-6 rounded-2xl border transition-[border-color,background-color] duration-300 relative group overflow-hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 touch-manipulation ${
                       isSelected
                         ? 'bg-[#0D121F] border-amber-500/40 shadow-[0_10px_35px_rgba(0,0,0,0.7)]'
                         : 'bg-white/[0.02] border-white/[0.06] hover:bg-white/[0.04] hover:border-white/[0.12]'

@@ -295,7 +295,7 @@ const Hero: React.FC = () => {
           {/* Interactive Calibration Switch (Tension between Chaos and Precision) */}
           <div className="flex flex-wrap items-center gap-4 mt-6 md:mt-8">
             <button
-              className="mono group inline-flex items-center gap-2.5 px-4 py-2 min-h-[44px] rounded-full bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.1] hover:border-blue-400/40 backdrop-blur-md text-zinc-300 hover:text-white transition-all shadow-[0_4px_24px_rgba(0,0,0,0.6)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 touch-manipulation"
+              className="mono group inline-flex items-center gap-2.5 px-4 py-2 min-h-[44px] rounded-full bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.1] hover:border-blue-400/40 backdrop-blur-md text-zinc-300 hover:text-white transition-colors duration-200 shadow-[0_4px_24px_rgba(0,0,0,0.6)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 touch-manipulation"
               id="shuffle"
               data-cursor
               onClick={handleToggleCalibration}
@@ -358,7 +358,7 @@ const Hero: React.FC = () => {
               </a>
 
               <a
-                className="group relative inline-flex items-center justify-center gap-3 px-6 py-4 min-h-[50px] rounded-full bg-blue-600 hover:bg-blue-500 active:bg-blue-700 text-white font-medium text-sm md:text-base transition-all duration-300 shadow-[0_0_35px_rgba(37,99,235,0.45)] hover:shadow-[0_0_50px_rgba(37,99,235,0.7)] hover:scale-[1.02] active:scale-[0.98] border border-blue-400/40 touch-manipulation order-1 sm:order-2 text-center"
+                className="group relative inline-flex items-center justify-center gap-3 px-6 py-4 min-h-[50px] rounded-full bg-blue-600 hover:bg-blue-500 active:bg-blue-700 text-white font-medium text-sm md:text-base transition-[transform,background-color] duration-300 shadow-[0_0_35px_rgba(37,99,235,0.45)] hover:shadow-[0_0_50px_rgba(37,99,235,0.7)] hover:scale-[1.02] active:scale-[0.98] border border-blue-400/40 touch-manipulation order-1 sm:order-2 text-center"
                 data-cursor
                 href={WHATSAPP_URL}
                 target="_blank"

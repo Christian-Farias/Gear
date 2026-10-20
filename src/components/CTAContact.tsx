@@ -110,7 +110,7 @@ const CTAContact: React.FC = () => {
                   key={scope}
                   type="button"
                   onClick={() => toggleScope(scope)}
-                  className={`inline-flex items-center gap-2 px-4 py-2 min-h-[44px] rounded-full text-xs mono transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 touch-manipulation ${
+                  className={`inline-flex items-center gap-2 px-4 py-2 min-h-[44px] rounded-full text-xs mono transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 touch-manipulation ${
                     isSelected
                       ? 'bg-blue-600 text-white border border-blue-400 shadow-[0_0_15px_rgba(37,99,235,0.4)]'
                       : 'bg-white/[0.04] text-zinc-300 hover:text-white border border-white/[0.08] hover:bg-white/[0.08]'
@@ -136,7 +136,7 @@ const CTAContact: React.FC = () => {
               <button
                 type="button"
                 onClick={copyEmail}
-                className="group inline-flex items-center gap-2 px-4 py-2 min-h-[44px] rounded-full bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.1] text-xs mono text-zinc-300 hover:text-white transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 touch-manipulation"
+                className="group inline-flex items-center gap-2 px-4 py-2 min-h-[44px] rounded-full bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.1] text-xs mono text-zinc-300 hover:text-white transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 touch-manipulation"
                 title="Copiar e-mail de contato"
               >
                 <Mail className="w-3.5 h-3.5 text-blue-400" />
@@ -153,7 +153,7 @@ const CTAContact: React.FC = () => {
           {/* Magnetic Interactive Primary Button with Custom WhatsApp Message */}
           <div className="flex justify-start lg:justify-end w-full sm:w-auto">
             <a
-              className="mag group relative w-full sm:w-52 md:w-60 min-h-[56px] sm:min-h-0 sm:aspect-square rounded-2xl sm:rounded-full bg-blue-600 hover:bg-blue-500 active:bg-blue-700 text-white flex flex-row sm:flex-col items-center justify-between sm:justify-center text-left sm:text-center font-medium shadow-[0_0_35px_rgba(37,99,235,0.45)] sm:shadow-[0_0_50px_rgba(37,99,235,0.5)] hover:shadow-[0_0_80px_rgba(37,99,235,0.8)] border border-blue-400/40 transition-all duration-300 hover:scale-[1.02] sm:hover:scale-105 active:scale-95 py-4 px-6 sm:p-4 touch-manipulation focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
+              className="mag group relative w-full sm:w-52 md:w-60 min-h-[56px] sm:min-h-0 sm:aspect-square rounded-2xl sm:rounded-full bg-blue-600 hover:bg-blue-500 active:bg-blue-700 text-white flex flex-row sm:flex-col items-center justify-between sm:justify-center text-left sm:text-center font-medium shadow-[0_0_35px_rgba(37,99,235,0.45)] sm:shadow-[0_0_50px_rgba(37,99,235,0.5)] hover:shadow-[0_0_80px_rgba(37,99,235,0.8)] border border-blue-400/40 transition-[transform,background-color] duration-300 hover:scale-[1.02] sm:hover:scale-105 active:scale-95 py-4 px-6 sm:p-4 touch-manipulation focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
               id="mag"
               data-cursor
               href={dynamicWhatsAppUrl}

@@ -174,7 +174,7 @@ const Header: React.FC = () => {
     <>
       <header
         id="hd"
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-500 ${
           isScrolled
             ? 'bg-[#05070B]/90 backdrop-blur-xl border-b border-white/[0.08] shadow-[0_10px_30px_-10px_rgba(0,0,0,0.8)] py-3.5'
             : 'bg-transparent border-b border-transparent py-5 md:py-6'
@@ -216,7 +216,7 @@ const Header: React.FC = () => {
                   href={link.href}
                   data-cursor
                   aria-current={isActive ? 'true' : undefined}
-                  className={`mono text-[11px] px-3.5 py-1.5 min-h-[44px] flex items-center rounded-full transition-all duration-300 relative ${
+                  className={`mono text-[11px] px-3.5 py-1.5 min-h-[44px] flex items-center rounded-full transition-colors duration-300 relative ${
                     isActive
                       ? 'text-white bg-blue-600/30 border border-blue-500/40 shadow-[0_0_15px_rgba(45,99,255,0.3)]'
                       : 'text-zinc-400 hover:text-white hover:bg-white/[0.05]'
@@ -248,7 +248,7 @@ const Header: React.FC = () => {
 
             {/* Primary Action Button */}
             <a
-              className="group relative inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3.5 py-2 sm:px-5 sm:py-2.5 min-h-[44px] rounded-full text-xs sm:text-sm font-medium text-white bg-blue-600 hover:bg-blue-500 active:bg-blue-700 transition-all duration-300 shadow-[0_0_20px_rgba(37,99,235,0.35)] hover:shadow-[0_0_28px_rgba(37,99,235,0.6)] hover:scale-[1.02] active:scale-[0.98] border border-blue-400/30 touch-manipulation"
+              className="group relative inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3.5 py-2 sm:px-5 sm:py-2.5 min-h-[44px] rounded-full text-xs sm:text-sm font-medium text-white bg-blue-600 hover:bg-blue-500 active:bg-blue-700 transition-[transform,background-color] duration-300 shadow-[0_0_20px_rgba(37,99,235,0.35)] hover:shadow-[0_0_28px_rgba(37,99,235,0.6)] hover:scale-[1.02] active:scale-[0.98] border border-blue-400/30 touch-manipulation"
               data-cursor
               href={WHATSAPP_URL}
               target="_blank"
@@ -312,7 +312,7 @@ const Header: React.FC = () => {
                 <span className="text-2xl sm:text-3xl font-medium tracking-tight group-hover:translate-x-2 transition-transform duration-300">
                   {link.label}
                 </span>
-                <span className="text-zinc-500 group-hover:text-blue-400 group-hover:translate-x-1 transition-all text-xl font-light">→</span>
+                <span className="text-zinc-500 group-hover:text-blue-400 group-hover:translate-x-1 transition-transform text-xl font-light">→</span>
               </a>
             ))}
           </nav>
@@ -327,7 +327,7 @@ const Header: React.FC = () => {
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => closeMenu()}
-            className="w-full min-h-[50px] flex items-center justify-center gap-2 py-4 px-6 rounded-full bg-blue-600 hover:bg-blue-500 active:bg-blue-700 text-white font-medium text-sm transition-all shadow-[0_0_25px_rgba(37,99,235,0.4)] touch-manipulation"
+            className="w-full min-h-[50px] flex items-center justify-center gap-2 py-4 px-6 rounded-full bg-blue-600 hover:bg-blue-500 active:bg-blue-700 text-white font-medium text-sm transition-colors shadow-[0_0_25px_rgba(37,99,235,0.4)] touch-manipulation"
           >
             <span>Iniciar conversa via WhatsApp</span>
             <ArrowUpRight className="w-4 h-4" />

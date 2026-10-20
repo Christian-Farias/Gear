@@ -101,7 +101,7 @@ const Process: React.FC = () => {
         <div className="hidden lg:block relative mb-8" aria-hidden="true">
           <div className="h-px w-full bg-white/[0.08] rounded-full overflow-hidden">
             <div
-              className="h-full bg-blue-500 rounded-full transition-all duration-700"
+              className="h-full bg-blue-500 rounded-full transition-[width] duration-700"
               style={{ width: `${((activeStep + 1) / steps.length) * 100}%` }}
             />
           </div>
@@ -130,7 +130,7 @@ const Process: React.FC = () => {
                 onClick={() => setActiveStep(idx)}
                 onMouseEnter={() => setActiveStep(idx)}
                 onFocus={() => setActiveStep(idx)}
-                className={`group text-left relative p-6 sm:p-7 rounded-2xl border transition-all duration-500 flex flex-col justify-between gap-6 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 ${
+                className={`group text-left relative p-6 sm:p-7 rounded-2xl border transition-[transform,background-color,border-color] duration-500 flex flex-col justify-between gap-6 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 ${
                   isActive
                     ? 'bg-[#0E131F] border-blue-500/50 shadow-[0_15px_40px_-10px_rgba(37,99,235,0.35)] -translate-y-1'
                     : 'bg-white/[0.02] border-white/[0.08] hover:border-white/[0.2] hover:bg-white/[0.04]'
