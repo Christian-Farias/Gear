@@ -89,7 +89,7 @@ const ProblemSection: React.FC = () => {
                     type="button"
                     onClick={() => setSelectedPoint(idx)}
                     onMouseEnter={() => setSelectedPoint(idx)}
-                    className={`w-full text-left p-6 rounded-2xl border transition-all duration-300 relative group overflow-hidden ${
+                    className={`w-full text-left p-6 rounded-2xl border transition-all duration-300 relative group overflow-hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 touch-manipulation ${
                       isSelected
                         ? 'bg-[#0D121F] border-amber-500/40 shadow-[0_10px_35px_rgba(0,0,0,0.7)]'
                         : 'bg-white/[0.02] border-white/[0.06] hover:bg-white/[0.04] hover:border-white/[0.12]'
@@ -130,18 +130,18 @@ const ProblemSection: React.FC = () => {
                     {isSelected && (
                       <div className="lg:hidden mt-4 pt-4 border-t border-amber-500/20 space-y-3 animate-fade-in text-left">
                         <div className="p-3 rounded-xl bg-black/40 border border-white/[0.05]">
-                          <span className="mono text-[10px] text-amber-400 uppercase tracking-wider block font-semibold mb-1">
+                          <span className="mono text-xs text-amber-400 uppercase tracking-wider block font-semibold mb-1">
                             Impacto Direto:
                           </span>
-                          <p className="text-xs text-zinc-300 leading-relaxed">
+                          <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed">
                             {pt.impact}
                           </p>
                         </div>
                         <div className="p-2.5 rounded-xl bg-amber-950/30 border border-amber-500/20">
-                          <span className="mono text-[10px] text-amber-400 block font-semibold">
+                          <span className="mono text-xs text-amber-400 block font-semibold">
                             Custo Oculto da Inação:
                           </span>
-                          <p className="text-[11px] text-amber-200/90 leading-relaxed mt-0.5">
+                          <p className="text-xs text-amber-200 leading-relaxed mt-0.5">
                             {pt.cost}
                           </p>
                         </div>
@@ -178,7 +178,7 @@ const ProblemSection: React.FC = () => {
               </div>
 
               <div>
-                <span className="mono text-[10px] text-zinc-400 uppercase tracking-wider block mb-1.5 font-semibold">
+                <span className="mono text-xs text-zinc-300 uppercase tracking-wider block mb-1.5 font-semibold">
                   Sintoma Operacional Real:
                 </span>
                 <p className="text-sm text-zinc-200 leading-relaxed font-normal bg-black/40 p-4 rounded-xl border border-white/[0.05]">
@@ -187,7 +187,7 @@ const ProblemSection: React.FC = () => {
               </div>
 
               <div>
-                <span className="mono text-[10px] text-zinc-400 uppercase tracking-wider block mb-1.5 font-semibold">
+                <span className="mono text-xs text-zinc-300 uppercase tracking-wider block mb-1.5 font-semibold">
                   Impacto nos Resultados:
                 </span>
                 <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed">
@@ -198,7 +198,7 @@ const ProblemSection: React.FC = () => {
 
             {/* Quantified Cost Box */}
             <div className="p-4 rounded-xl bg-amber-950/20 border border-amber-500/20 space-y-1.5">
-              <span className="mono text-[10px] text-amber-400 uppercase tracking-wider block font-semibold">
+              <span className="mono text-xs text-amber-400 uppercase tracking-wider block font-semibold">
                 Custo Oculto da Inação:
               </span>
               <p className="text-xs text-amber-200/90 leading-relaxed">

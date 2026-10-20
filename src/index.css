@@ -177,6 +177,7 @@ body:before {
 /* hero — full-viewport composition only on >=md; mobile flows naturally */
 @media (min-width: 768px) {
   .hero {
+    min-height: 100vh; /* taste-skill-ignore fallback */
     min-height: 100svh;
     padding-top: 120px;
     justify-content: space-between;
@@ -321,8 +322,14 @@ body:before {
   top: 8vh;
   width: min(52vw, 740px);
   z-index: 1;
-  opacity: 0.95;
+  opacity: 0.45;
   pointer-events: none;
+}
+
+@media (min-width: 768px) {
+  .fig {
+    opacity: 0.95;
+  }
 }
 
 .fig svg {

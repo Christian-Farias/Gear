@@ -197,7 +197,7 @@ const Header: React.FC = () => {
               <span className="font-bold tracking-[0.28em] text-[15px] md:text-[17px] text-white">
                 GEAR
               </span>
-              <span className="mono text-[8px] text-zinc-400 tracking-wider hidden sm:block">
+              <span className="mono text-[10px] text-zinc-400 tracking-widest hidden sm:block">
                 STUDIO &bull; BR
               </span>
             </div>

@@ -94,22 +94,22 @@ const Solutions: React.FC = () => {
           <div className="flex items-center justify-between pb-2.5 border-b border-white/[0.08]">
             <div className="flex items-center gap-2">
               <span className="w-2.5 h-2.5 rounded-full bg-blue-500 animate-pulse" />
-              <span className="mono text-[11px] text-zinc-300 font-semibold">GEAR ERP Core</span>
+              <span className="mono text-xs text-zinc-200 font-semibold">GEAR ERP Core</span>
             </div>
-            <span className="text-[10px] mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">
+            <span className="text-xs mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20 font-medium">
               {softwareTasks.filter(t => t.done).length} de {softwareTasks.length} tarefas prontas
             </span>
           </div>
 
           <div className="space-y-1.5">
-            <span className="text-[10px] mono text-zinc-400 block px-1">Clique para alternar regras do fluxo:</span>
+            <span className="text-xs mono text-zinc-400 block px-1">Clique para alternar regras do fluxo:</span>
             {softwareTasks.map(t => (
               <button
                 key={t.id}
                 type="button"
                 onClick={() => toggleTask(t.id)}
-                className={`w-full flex items-center justify-between p-2.5 rounded-lg border text-xs text-left transition-all ${
-                  t.done ? 'bg-blue-950/20 border-blue-500/30 text-white' : 'bg-white/[0.02] border-white/[0.05] text-zinc-400'
+                className={`w-full flex items-center justify-between p-3 min-h-[44px] rounded-lg border text-xs text-left transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 touch-manipulation ${
+                  t.done ? 'bg-blue-950/20 border-blue-500/30 text-white' : 'bg-white/[0.02] border-white/[0.05] text-zinc-400 hover:text-white'
                 }`}
               >
                 <span className="pr-2 text-left leading-snug">{t.text}</span>
@@ -123,8 +123,8 @@ const Solutions: React.FC = () => {
           </div>
 
           <div className="p-2.5 rounded-lg bg-white/[0.03] border border-white/[0.05] flex justify-between items-center text-xs">
-            <span className="text-zinc-400 text-[11px]">Status da Integração:</span>
-            <span className="text-emerald-400 font-mono font-medium flex items-center gap-1 text-[11px]">
+            <span className="text-zinc-400 text-xs">Status da Integração:</span>
+            <span className="text-emerald-400 font-mono font-medium flex items-center gap-1 text-xs">
               <Activity className="w-3.5 h-3.5" /> Sincronizado
             </span>
           </div>
@@ -145,16 +145,16 @@ const Solutions: React.FC = () => {
           <div className="flex items-center justify-between pb-2 border-b border-white/[0.08]">
             <div className="flex items-center gap-2">
               <Brain className="w-4 h-4 text-sky-400" />
-              <span className="mono text-[11px] text-zinc-200">Agente Cognitivo GEAR</span>
+              <span className="mono text-xs text-zinc-200">Agente Cognitivo GEAR</span>
             </div>
-            <span className="text-[10px] mono text-sky-400 bg-sky-500/10 px-2 py-0.5 rounded-full border border-sky-500/20">
+            <span className="text-xs mono text-sky-400 bg-sky-500/10 px-2 py-0.5 rounded-full border border-sky-500/20 font-medium">
               Confiança: 99.4%
             </span>
           </div>
 
           <div className="space-y-2 text-xs">
             <div className="p-2.5 rounded-lg bg-white/[0.04] text-zinc-300 border border-white/[0.05] leading-relaxed">
-              <span className="text-[10px] mono text-zinc-400 block mb-0.5">Documento em Análise:</span>
+              <span className="text-xs mono text-zinc-400 block mb-0.5">Documento em Análise:</span>
               “Nota Fiscal #4928 — Metalúrgica Horizonte (PDF de 4 páginas)”
             </div>
 
@@ -176,7 +176,7 @@ const Solutions: React.FC = () => {
             type="button"
             onClick={runAiSimulation}
             disabled={aiTesting}
-            className="w-full py-2 px-3 rounded-lg bg-blue-600 hover:bg-blue-500 disabled:opacity-50 text-white text-xs font-medium transition-all flex items-center justify-center gap-1.5 shadow-[0_0_15px_rgba(37,99,235,0.4)]"
+            className="w-full py-2.5 px-3 min-h-[44px] rounded-lg bg-blue-600 hover:bg-blue-500 active:bg-blue-700 disabled:opacity-50 text-white text-xs font-semibold transition-all flex items-center justify-center gap-1.5 shadow-[0_0_15px_rgba(37,99,235,0.4)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 touch-manipulation"
           >
             <Sparkles className="w-3.5 h-3.5 text-sky-300" />
             <span>{aiTesting ? 'Executando Inferência...' : 'Disparar Teste de IA'}</span>
@@ -198,35 +198,35 @@ const Solutions: React.FC = () => {
           <div className="flex items-center justify-between pb-2 border-b border-white/[0.08]">
             <div className="flex items-center gap-2">
               <Zap className="w-4 h-4 text-amber-400" />
-              <span className="mono text-[11px] text-zinc-200">Pipeline de Execução em Tempo Real</span>
+              <span className="mono text-xs text-zinc-200">Pipeline de Execução em Tempo Real</span>
             </div>
-            <span className="mono text-[10px] text-emerald-400 flex items-center gap-1">
+            <span className="mono text-xs text-emerald-400 flex items-center gap-1">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
               Ao Vivo
             </span>
           </div>
 
           <div className="relative py-2">
-            <div className="grid grid-cols-3 gap-2 text-center text-[10px] mono relative z-10">
+            <div className="grid grid-cols-3 gap-2 text-center text-xs mono relative z-10">
               <div className="p-2.5 rounded-xl bg-white/[0.04] border border-white/[0.08] flex flex-col items-center gap-1">
                 <Database className="w-4 h-4 text-zinc-400" />
                 <span className="text-zinc-200 font-semibold">Gatilho</span>
-                <span className="text-zinc-400 text-[9px]">Webhook Pedido</span>
+                <span className="text-zinc-300 text-xs">Webhook Pedido</span>
               </div>
               <div className="p-2.5 rounded-xl bg-blue-600/30 border border-blue-500/50 flex flex-col items-center gap-1 shadow-[0_0_15px_rgba(37,99,235,0.4)]">
                 <Cpu className="w-4 h-4 text-blue-300 animate-spin" />
                 <span className="text-white font-semibold">Regra GEAR</span>
-                <span className="text-blue-300 text-[9px]">Validação Fiscal</span>
+                <span className="text-blue-200 text-xs">Validação Fiscal</span>
               </div>
               <div className="p-2.5 rounded-xl bg-emerald-500/20 border border-emerald-500/40 flex flex-col items-center gap-1">
                 <Send className="w-4 h-4 text-emerald-400" />
                 <span className="text-emerald-300 font-semibold">Entrega</span>
-                <span className="text-zinc-400 text-[9px]">WhatsApp / ERP</span>
+                <span className="text-zinc-300 text-xs">WhatsApp / ERP</span>
               </div>
             </div>
           </div>
 
-          <div className="p-2.5 rounded bg-white/[0.02] border border-white/[0.05] text-[11px] text-zinc-400 flex items-center justify-between">
+          <div className="p-2.5 rounded bg-white/[0.02] border border-white/[0.05] text-xs text-zinc-400 flex items-center justify-between">
             <span>Latência ponta-a-ponta:</span>
             <span className="text-emerald-400 font-mono font-medium">182ms (Sem erros)</span>
           </div>
@@ -247,26 +247,26 @@ const Solutions: React.FC = () => {
           <div className="flex items-center justify-between pb-2 border-b border-white/[0.08]">
             <div className="flex items-center gap-2">
               <BarChart3 className="w-4 h-4 text-blue-400" />
-              <span className="mono text-[11px] text-zinc-200">Painel Executivo — Faturamento</span>
+              <span className="mono text-xs text-zinc-200">Painel Executivo — Faturamento</span>
             </div>
-            <span className="flex items-center gap-1 text-[10px] text-emerald-400 mono">
+            <span className="flex items-center gap-1 text-xs text-emerald-400 mono">
               <TrendingUp className="w-3 h-3" /> +32.8% YoY
             </span>
           </div>
 
           <div className="flex justify-between items-baseline pt-1">
             <div>
-              <span className="text-[10px] mono text-zinc-400 uppercase tracking-wider block">Receita Líquida</span>
+              <span className="text-xs mono text-zinc-400 uppercase tracking-wider block">Receita Líquida</span>
               <span className="text-2xl font-bold text-white tracking-tight">R$ 482.350</span>
             </div>
             <div className="text-right">
-              <span className="text-[10px] mono text-blue-400 block">
+              <span className="text-xs mono text-blue-400 block">
                 {dashboardHoverDay !== null ? `${chartData[dashboardHoverDay].day}: ${chartData[dashboardHoverDay].revenue}` : 'Passe o mouse nas barras'}
               </span>
             </div>
           </div>
 
-          <div className="h-24 flex items-stretch gap-0.5 pt-2">
+          <div className="h-28 flex items-stretch gap-1 pt-2">
             {chartData.map((item, idx) => (
               <button
                 key={idx}
@@ -274,7 +274,7 @@ const Solutions: React.FC = () => {
                 onMouseEnter={() => setDashboardHoverDay(idx)}
                 onFocus={() => setDashboardHoverDay(idx)}
                 onClick={() => setDashboardHoverDay(idx)}
-                className="flex-1 h-full flex flex-col items-center justify-end gap-1 group focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-blue-400 rounded"
+                className="flex-1 h-full min-h-[44px] flex flex-col items-center justify-end gap-1 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 rounded touch-manipulation"
                 aria-label={`${item.day}: ${item.revenue}`}
               >
                 <div className="w-full flex-1 flex flex-col justify-end min-h-0">
@@ -287,7 +287,7 @@ const Solutions: React.FC = () => {
                     style={{ height: `${item.val}%` }}
                   />
                 </div>
-                <span className={`text-[9px] mono transition-colors ${dashboardHoverDay === idx ? 'text-white font-bold' : 'text-zinc-400'}`}>
+                <span className={`text-xs mono transition-colors ${dashboardHoverDay === idx ? 'text-white font-bold' : 'text-zinc-400'}`}>
                   {item.day}
                 </span>
               </button>
@@ -314,18 +314,18 @@ const Solutions: React.FC = () => {
               <div className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
             </div>
 
-            <div className="flex items-center gap-1 p-0.5 rounded bg-black/40 mono text-[10px]">
+            <div className="flex items-center gap-1.5 p-1 rounded-xl bg-black/40 mono text-xs">
               <button
                 type="button"
                 onClick={() => setSiteMode('gear')}
-                className={`px-2 py-1 min-h-[24px] rounded transition-all ${siteMode === 'gear' ? 'bg-blue-600 text-white font-bold' : 'text-zinc-400'}`}
+                className={`px-3 py-2 min-h-[44px] rounded-lg font-semibold transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 touch-manipulation ${siteMode === 'gear' ? 'bg-blue-600 text-white shadow-md' : 'text-zinc-400 hover:text-white'}`}
               >
                 Com GEAR
               </button>
               <button
                 type="button"
                 onClick={() => setSiteMode('antigo')}
-                className={`px-2 py-1 min-h-[24px] rounded transition-all ${siteMode === 'antigo' ? 'bg-rose-600 text-white font-bold' : 'text-zinc-400'}`}
+                className={`px-3 py-2 min-h-[44px] rounded-lg font-semibold transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-400 touch-manipulation ${siteMode === 'antigo' ? 'bg-rose-600 text-white shadow-md' : 'text-zinc-400 hover:text-white'}`}
               >
                 Antes
               </button>
@@ -336,14 +336,14 @@ const Solutions: React.FC = () => {
             {siteMode === 'gear' ? (
               <>
                 <div className="flex items-center justify-between">
-                  <span className="mono text-[10px] text-zinc-400">Auditoria Google Lighthouse:</span>
+                  <span className="mono text-xs text-zinc-300">Auditoria Google Lighthouse:</span>
                   <div className="flex items-center gap-1.5">
                     <span className="w-2 h-2 rounded-full bg-emerald-400" />
                     <span className="text-xs font-mono font-bold text-emerald-400">99 / 100 Excelente</span>
                   </div>
                 </div>
 
-                <div className="grid grid-cols-3 gap-2 text-center text-[10px] mono">
+                <div className="grid grid-cols-3 gap-2 text-center text-xs mono">
                   <div className="p-2 rounded bg-white/[0.03] border border-white/[0.05]">
                     <span className="text-zinc-400 block">LCP</span>
                     <span className="text-emerald-400 font-bold">0.72s</span>

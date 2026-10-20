@@ -221,7 +221,7 @@ const Hero: React.FC = () => {
           {/* Metadata Top Bar */}
           <div className="meta mono flex flex-wrap items-center justify-between gap-3 text-xs md:text-sm text-zinc-400 mb-8 md:mb-12 pb-3 border-b border-white/[0.08]">
             <div className="flex items-center gap-2.5">
-              <span className="text-zinc-300 font-medium tracking-wide">SOFTWARE SOB MEDIDA · IA APLICADA · AUTOMAÇÃO</span>
+              <span className="text-zinc-300 font-medium tracking-wide">DADOS &amp; BI · SITES &amp; LANDINGS · SAAS SOB MEDIDA</span>
             </div>
             <div className="flex items-center gap-3">
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-[11px] tracking-wider uppercase text-zinc-300 font-mono">
@@ -302,13 +302,13 @@ const Hero: React.FC = () => {
               aria-label={ordered ? 'Desorganizar fluxo (simular caos)' : 'Calibrar fluxo (organizar precisão)'}
             >
               <Sliders className="w-3.5 h-3.5 text-blue-400 transition-transform duration-300 group-hover:scale-110" />
-              <span className="text-[11px] uppercase tracking-wider font-medium">
+              <span className="text-xs uppercase tracking-wider font-medium">
                 {ordered ? 'Simular entropia manual' : 'Calibrar fluxo contínuo'}
               </span>
               <span className={`w-1.5 h-1.5 rounded-full ${ordered ? 'bg-emerald-400' : 'bg-amber-400 animate-ping'}`} />
             </button>
 
-            <span className="mono text-[11px] text-zinc-400">
+            <span className="mono text-xs text-zinc-400">
               {ordered ? '● Matriz sincronizada: sem gargalos humanos' : '○ Entropia operacional: planilhas e retrabalho manual'}
             </span>
           </div>
@@ -320,12 +320,12 @@ const Hero: React.FC = () => {
         <div className="hero-foot border-t border-white/[0.08]">
           <div className="lead-col">
             <p className="text-base sm:text-lg md:text-xl text-zinc-200 font-medium leading-relaxed max-w-2xl">
-              Projetamos software sob medida, modelos de IA aplicada e arquiteturas de automação para empresas que buscam ritmo operacional.
+              A planilha que só uma pessoa entende vira dashboard. A página comum vira uma landing que converte.
             </p>
             <p className="text-sm sm:text-base text-zinc-400 font-normal leading-relaxed max-w-xl">
               Substitua remendos manuais por{' '}
               <span className="text-blue-300 font-medium">
-                sistemas autônomos, precisos e escaláveis.
+                painéis de BI, páginas de alta performance e sistemas sob medida.
               </span>
             </p>
 

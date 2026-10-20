@@ -110,7 +110,7 @@ const CTAContact: React.FC = () => {
                   key={scope}
                   type="button"
                   onClick={() => toggleScope(scope)}
-                  className={`inline-flex items-center gap-2 px-4 py-2 min-h-[44px] rounded-full text-xs mono transition-all ${
+                  className={`inline-flex items-center gap-2 px-4 py-2 min-h-[44px] rounded-full text-xs mono transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 touch-manipulation ${
                     isSelected
                       ? 'bg-blue-600 text-white border border-blue-400 shadow-[0_0_15px_rgba(37,99,235,0.4)]'
                       : 'bg-white/[0.04] text-zinc-300 hover:text-white border border-white/[0.08] hover:bg-white/[0.08]'
@@ -151,9 +151,9 @@ const CTAContact: React.FC = () => {
           </div>
 
           {/* Magnetic Interactive Primary Button with Custom WhatsApp Message */}
-          <div className="flex justify-start lg:justify-end">
+          <div className="flex justify-start lg:justify-end w-full sm:w-auto">
             <a
-              className="mag group relative w-44 sm:w-52 md:w-60 aspect-square rounded-full bg-gradient-to-br from-blue-600 via-blue-500 to-indigo-700 text-white flex flex-col items-center justify-center text-center font-medium shadow-[0_0_50px_rgba(37,99,235,0.5)] hover:shadow-[0_0_80px_rgba(37,99,235,0.8)] border border-blue-300/40 transition-all duration-300 hover:scale-105 active:scale-95"
+              className="mag group relative w-full sm:w-52 md:w-60 min-h-[56px] sm:min-h-0 sm:aspect-square rounded-2xl sm:rounded-full bg-gradient-to-br from-blue-600 via-blue-500 to-indigo-700 text-white flex flex-row sm:flex-col items-center justify-between sm:justify-center text-left sm:text-center font-medium shadow-[0_0_35px_rgba(37,99,235,0.45)] sm:shadow-[0_0_50px_rgba(37,99,235,0.5)] hover:shadow-[0_0_80px_rgba(37,99,235,0.8)] border border-blue-300/40 transition-all duration-300 hover:scale-[1.02] sm:hover:scale-105 active:scale-95 py-4 px-6 sm:p-4 touch-manipulation focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
               id="mag"
               data-cursor
               href={dynamicWhatsAppUrl}
@@ -165,14 +165,16 @@ const CTAContact: React.FC = () => {
               onMouseLeave={handleMouseLeave}
               aria-label="Abrir conversa no WhatsApp com escopo selecionado"
             >
-              <span className="text-base sm:text-lg md:text-xl tracking-tight leading-snug font-semibold">
-                Falar no<br />
-                WhatsApp
-              </span>
-              <ArrowUpRight className="w-6 h-6 mt-1 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
-              <span className="mono text-[9px] uppercase tracking-wider text-blue-200 mt-1 block">
-                Canal Direto ↗
-              </span>
+              <div className="flex flex-col sm:items-center">
+                <span className="text-base sm:text-lg md:text-xl tracking-tight leading-snug font-semibold text-white">
+                  <span className="sm:hidden">Falar no WhatsApp</span>
+                  <span className="hidden sm:inline">Falar no<br />WhatsApp</span>
+                </span>
+                <span className="mono text-xs uppercase tracking-wider text-blue-200 mt-0.5 sm:mt-1 block">
+                  Canal Direto ↗
+                </span>
+              </div>
+              <ArrowUpRight className="w-5 h-5 sm:w-6 sm:h-6 sm:mt-1 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 shrink-0" />
             </a>
           </div>
         </div>

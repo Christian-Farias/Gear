@@ -65,7 +65,7 @@ const Differentials: React.FC = () => {
         </div>
 
         {/* Asymmetric Comparison Matrix */}
-        <div className="rounded-3xl p-6 sm:p-8 md:p-10 bg-[#0A0E17]/90 border border-white/[0.1] shadow-2xl overflow-x-auto" tabIndex={0} role="region" aria-label="Tabela comparativa: GEAR versus SaaS de prateleira e agências">
+        <div className="rounded-3xl p-6 sm:p-8 md:p-10 bg-[#0A0E17]/90 border border-white/[0.1] shadow-2xl overflow-x-auto focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400" style={{ touchAction: 'pan-y' }} tabIndex={0} role="region" aria-label="Tabela comparativa: GEAR versus SaaS de prateleira e agências">
           <div className="min-w-[640px]">
             <div className="grid grid-cols-12 pb-4 border-b border-white/[0.08] text-xs mono uppercase tracking-wider text-zinc-400 font-semibold">
               <div className="col-span-4">Critério de Engenharia</div>

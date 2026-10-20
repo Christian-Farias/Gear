@@ -51,18 +51,18 @@ const Projects: React.FC = () => {
               <span className="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse shrink-0" />
               <span className="mono text-xs text-white font-medium truncate">Clínica Vida — Painel Consolidado</span>
             </div>
-            <div className="flex items-center gap-1.5 p-1 rounded-lg bg-white/[0.04] border border-white/[0.06] mono text-[10px]">
+            <div className="flex items-center gap-1.5 p-1 rounded-xl bg-white/[0.04] border border-white/[0.06] mono text-xs">
               <button
                 type="button"
                 onClick={() => setActiveTabCase1('depois')}
-                className={`px-2 py-1 min-h-[24px] rounded transition-all ${activeTabCase1 === 'depois' ? 'bg-blue-600 text-white font-semibold' : 'text-zinc-400'}`}
+                className={`px-3 py-2 min-h-[44px] rounded-lg transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 touch-manipulation ${activeTabCase1 === 'depois' ? 'bg-blue-600 text-white font-semibold shadow-md' : 'text-zinc-400 hover:text-white'}`}
               >
                 Automatizado
               </button>
               <button
                 type="button"
                 onClick={() => setActiveTabCase1('antes')}
-                className={`px-2 py-1 min-h-[24px] rounded transition-all ${activeTabCase1 === 'antes' ? 'bg-rose-600 text-white font-semibold' : 'text-zinc-400'}`}
+                className={`px-3 py-2 min-h-[44px] rounded-lg transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-400 touch-manipulation ${activeTabCase1 === 'antes' ? 'bg-rose-600 text-white font-semibold shadow-md' : 'text-zinc-400 hover:text-white'}`}
               >
                 Antes (Manual)
               </button>
@@ -73,20 +73,20 @@ const Projects: React.FC = () => {
             <div className="space-y-4 animate-fade-in">
               <div className="grid grid-cols-2 gap-3">
                 <div className="p-3 rounded-xl bg-white/[0.03] border border-white/[0.05]">
-                  <span className="mono text-[10px] text-zinc-400 block">Tempo de Consolidação</span>
+                  <span className="mono text-xs text-zinc-400 block">Tempo de Consolidação</span>
                   <span className="text-xl font-bold text-emerald-400 font-mono">20 min</span>
-                  <span className="text-[10px] text-zinc-400 block mt-0.5">Sincronizado às 06:00 diárias</span>
+                  <span className="text-xs text-zinc-400 block mt-0.5">Sincronizado às 06:00 diárias</span>
                 </div>
                 <div className="p-3 rounded-xl bg-white/[0.03] border border-white/[0.05]">
-                  <span className="mono text-[10px] text-zinc-400 block">Faturamento Auditado</span>
+                  <span className="mono text-xs text-zinc-400 block">Faturamento Auditado</span>
                   <span className="text-xl font-bold text-white font-mono">R$ 1.42M</span>
-                  <span className="text-[10px] text-cyan-400 block mt-0.5">100% conciliado</span>
+                  <span className="text-xs text-cyan-400 block mt-0.5">100% conciliado</span>
                 </div>
               </div>
 
               {/* Graphical simulation bars */}
               <div className="space-y-1.5">
-                <span className="mono text-[10px] text-zinc-400">Eficiência por Unidade:</span>
+                <span className="mono text-xs text-zinc-300">Eficiência por Unidade:</span>
                 <div className="space-y-2">
                   {[
                     { unit: 'Unidade Jardins', pct: 98, val: 'R$ 620k' },
@@ -94,14 +94,14 @@ const Projects: React.FC = () => {
                     { unit: 'Unidade Moema', pct: 91, val: 'R$ 310k' },
                   ].map((row, i) => (
                     <div key={i} className="flex items-center gap-3 text-xs">
-                      <span className="text-zinc-300 w-28 truncate text-[11px]">{row.unit}</span>
+                      <span className="text-zinc-300 w-28 truncate text-xs">{row.unit}</span>
                       <div className="flex-1 h-2 rounded-full bg-white/10 overflow-hidden">
                         <div
                           className="h-full bg-gradient-to-r from-blue-600 to-cyan-400 rounded-full"
                           style={{ width: `${row.pct}%` }}
                         />
                       </div>
-                      <span className="mono text-[11px] text-zinc-400 w-16 text-right">{row.val}</span>
+                      <span className="mono text-xs text-zinc-400 w-16 text-right">{row.val}</span>
                     </div>
                   ))}
                 </div>
@@ -121,7 +121,7 @@ const Projects: React.FC = () => {
             </div>
           )}
 
-          <div className="flex items-center justify-between text-[11px] mono text-zinc-400 pt-2 border-t border-white/[0.06]">
+          <div className="flex items-center justify-between text-xs mono text-zinc-400 pt-2 border-t border-white/[0.06]">
             <span>Status: Em Produção há 14 meses</span>
             <span className="text-emerald-400">Disponibilidade: 99.98%</span>
           </div>
@@ -147,30 +147,30 @@ const Projects: React.FC = () => {
       renderVisual: () => (
         <div className="w-full h-full flex items-center justify-center p-3">
           <div className="w-full max-w-64 rounded-3xl bg-[#080C14] border-2 border-white/[0.12] p-4 shadow-2xl flex flex-col gap-3 font-sans relative">
-            <div className="flex justify-between items-center text-[10px] mono text-zinc-400 border-b border-white/[0.08] pb-2">
+            <div className="flex justify-between items-center text-xs mono text-zinc-400 border-b border-white/[0.08] pb-2">
               <span className="font-semibold text-white">GEAR Pay &amp; Caixa</span>
-              <span className="text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded font-mono">Online</span>
+              <span className="text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded font-mono text-xs">Online</span>
             </div>
 
             <div className="p-3 rounded-2xl bg-gradient-to-br from-emerald-950/40 via-blue-950/20 to-transparent border border-emerald-500/30">
-              <span className="text-[10px] mono text-emerald-300 block">Saldo em Caixa Hoje</span>
+              <span className="text-xs mono text-emerald-300 block">Saldo em Caixa Hoje</span>
               <span className="text-2xl font-bold text-white font-mono tracking-tight">R$ 14.890,50</span>
-              <div className="flex items-center gap-1.5 mt-1 text-[10px] text-emerald-400 mono">
-                <TrendingUp className="w-3 h-3" />
+              <div className="flex items-center gap-1.5 mt-1 text-xs text-emerald-400 mono">
+                <TrendingUp className="w-3.5 h-3.5" />
                 <span>+18.4% vs semana anterior</span>
               </div>
             </div>
 
             <div className="space-y-1.5">
-              <span className="text-[10px] mono text-zinc-400 block px-1">Últimos lançamentos (balcão):</span>
+              <span className="text-xs mono text-zinc-400 block px-1">Últimos lançamentos (balcão):</span>
               {[
                 { desc: 'Venda Débito #810', val: '+R$ 240,00', pos: true },
                 { desc: 'Fornecedor Hortifruti', val: '-R$ 680,00', pos: false },
                 { desc: 'Venda Pix #811', val: '+R$ 155,00', pos: true },
               ].map((t, idx) => (
                 <div key={idx} className="flex justify-between items-center p-2 rounded-lg bg-white/[0.03] border border-white/[0.05] text-xs">
-                  <span className="text-zinc-300 text-[11px]">{t.desc}</span>
-                  <span className={`mono font-semibold text-[11px] ${t.pos ? 'text-emerald-400' : 'text-zinc-400'}`}>
+                  <span className="text-zinc-300 text-xs">{t.desc}</span>
+                  <span className={`mono font-semibold text-xs ${t.pos ? 'text-emerald-400' : 'text-zinc-400'}`}>
                     {t.val}
                   </span>
                 </div>
@@ -178,7 +178,7 @@ const Projects: React.FC = () => {
             </div>
 
             <div className="pt-2 text-center">
-              <span className="mono text-[9px] text-zinc-400">Zero treinamento necessário &bull; 2 toques</span>
+              <span className="mono text-xs text-zinc-400">Zero treinamento &bull; 2 toques no balcão</span>
             </div>
           </div>
         </div>
@@ -207,7 +207,7 @@ const Projects: React.FC = () => {
               <Gauge className="w-4 h-4 text-emerald-400" />
               <span className="mono text-xs text-white font-medium">Auditoria Google Lighthouse Oficial</span>
             </div>
-            <span className="mono text-[10px] text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20 font-semibold">
+            <span className="mono text-xs text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20 font-semibold">
               Classe A+
             </span>
           </div>
@@ -224,23 +224,23 @@ const Projects: React.FC = () => {
                 <div className="w-10 h-10 rounded-full border-2 border-emerald-400 flex items-center justify-center font-mono font-bold text-sm text-emerald-300 shadow-[0_0_12px_rgba(52,211,153,0.3)]">
                   {p.score}
                 </div>
-                <span className="mono text-[9px] text-zinc-400 mt-1">{p.label}</span>
+                <span className="mono text-xs text-zinc-300 mt-1">{p.label}</span>
               </div>
             ))}
           </div>
 
           <div className="p-3 rounded-xl bg-white/[0.02] border border-white/[0.05] space-y-2 text-xs">
             <div className="flex justify-between items-center text-zinc-300">
-              <span className="text-[11px]">Tempo de Carregamento (LCP):</span>
+              <span className="text-xs">Tempo de Carregamento (LCP):</span>
               <span className="mono font-semibold text-emerald-400">0.82 segundos</span>
             </div>
             <div className="flex justify-between items-center text-zinc-300">
-              <span className="text-[11px]">Taxa de Conversão Inbound:</span>
+              <span className="text-xs">Taxa de Conversão Inbound:</span>
               <span className="mono font-semibold text-blue-400">4.8% (Média do setor: 1.2%)</span>
             </div>
           </div>
 
-          <div className="flex items-center justify-between text-[11px] mono text-zinc-400 pt-2 border-t border-white/[0.06]">
+          <div className="flex items-center justify-between text-xs mono text-zinc-400 pt-2 border-t border-white/[0.06]">
             <span>Hospedagem: Edge Global CDN</span>
             <span className="text-zinc-300">SSL Automático A+</span>
           </div>
@@ -351,7 +351,7 @@ const Projects: React.FC = () => {
                         {c.techs.map((tech) => (
                           <span
                             key={tech}
-                            className="mono text-[10px] text-zinc-400 bg-white/[0.04] px-2 py-0.5 rounded"
+                            className="mono text-xs text-zinc-400 bg-white/[0.04] px-2.5 py-1 rounded"
                           >
                             {tech}
                           </span>

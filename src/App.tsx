@@ -113,7 +113,7 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <div className="relative min-h-screen bg-[#05070B] text-[#ECEAE4] selection:bg-blue-600 selection:text-white antialiased font-sans">
+    <div className="relative min-h-[100vh] min-h-[100dvh] bg-[#05070B] text-[#ECEAE4] selection:bg-blue-600 selection:text-white antialiased font-sans">
       {/* Top Reading Progress Bar */}
       <div 
         ref={progRef} 

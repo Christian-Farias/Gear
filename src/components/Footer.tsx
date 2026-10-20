@@ -112,7 +112,7 @@ const Footer: React.FC = () => {
               </li>
               {/* Social links — to be added when official profiles are confirmed */}
               <li>
-                <span className="mono text-[10px] text-zinc-500 italic">
+                <span className="mono text-xs text-zinc-400 italic">
                   Redes sociais em configuração
                 </span>
               </li>
