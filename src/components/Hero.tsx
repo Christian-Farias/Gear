@@ -331,11 +331,11 @@ const Hero: React.FC = () => {
       </div>
 
       {/* Hero Foot — Architectural Positioning & Seamless Transition */}
-      <div className="wrap relative z-10 mt-10 md:mt-14">
-        <div className="hero-foot pt-8 border-t border-white/[0.08]">
-          <div className="space-y-4">
-            <p className="text-base sm:text-lg text-zinc-200 font-medium leading-relaxed max-w-xl">
-              Projetamos software sob medida, modelos de IA aplicada e arquiteturas de automação para empresas que cansaram da lentidão operacional.
+      <div className="wrap relative z-10 mt-8 md:mt-12">
+        <div className="hero-foot border-t border-white/[0.08]">
+          <div className="lead-col">
+            <p className="text-base sm:text-lg md:text-xl text-zinc-200 font-medium leading-relaxed max-w-2xl">
+              Projetamos software sob medida, modelos de IA aplicada e arquiteturas de automação para empresas que buscam ritmo operacional.
             </p>
             <p className="text-sm sm:text-base text-zinc-400 font-normal leading-relaxed max-w-xl">
               Substitua remendos manuais por{' '}
@@ -344,48 +344,55 @@ const Hero: React.FC = () => {
               </span>
             </p>
 
-            {/* Technical Proof Badges */}
-            <div className="flex flex-wrap items-center gap-2 pt-2">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-white/[0.03] border border-white/[0.07] text-[11px] mono text-zinc-300">
-                <CheckCircle2 className="w-3 h-3 text-blue-400" />
+            {/* Technical Proof Badges — horizontal, elegant, un-squished */}
+            <div className="flex flex-wrap items-center gap-2.5 pt-1">
+              <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/[0.03] border border-white/[0.08] text-xs mono text-zinc-300">
+                <CheckCircle2 className="w-3.5 h-3.5 text-blue-400" />
                 Propriedade 100% da sua empresa
               </span>
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-white/[0.03] border border-white/[0.07] text-[11px] mono text-zinc-300">
-                <CheckCircle2 className="w-3 h-3 text-blue-400" />
+              <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/[0.03] border border-white/[0.08] text-xs mono text-zinc-300">
+                <CheckCircle2 className="w-3.5 h-3.5 text-blue-400" />
                 Sem mensalidades de prateleira
               </span>
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-white/[0.03] border border-white/[0.07] text-[11px] mono text-zinc-300">
-                <CheckCircle2 className="w-3 h-3 text-blue-400" />
+              <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/[0.03] border border-white/[0.08] text-xs mono text-zinc-300">
+                <CheckCircle2 className="w-3.5 h-3.5 text-blue-400" />
                 Entrega contínua em sprints
               </span>
             </div>
           </div>
 
-          <div className="ctas flex flex-wrap items-center gap-5 mt-6 lg:mt-0">
-            <a
-              className="ghost mono inline-flex items-center gap-2 py-3 px-4 text-xs tracking-wider text-zinc-400 hover:text-white transition-colors border-b border-zinc-700 hover:border-white"
-              href="#problema"
-              data-cursor
-            >
-              <span>Investigar o caos</span>
-              <ArrowDown className="w-3.5 h-3.5 animate-bounce" />
-            </a>
+          <div className="action-col">
+            <div className="flex flex-wrap items-center justify-start lg:justify-end gap-4 w-full">
+              <a
+                className="ghost mono inline-flex items-center gap-2 py-3 px-4 text-xs tracking-wider text-zinc-400 hover:text-white transition-colors border-b border-zinc-700 hover:border-white"
+                href="#problema"
+                data-cursor
+              >
+                <span>Investigar o caos</span>
+                <ArrowDown className="w-3.5 h-3.5 animate-bounce" />
+              </a>
 
-            <a
-              className="group relative inline-flex items-center gap-3 px-7 py-4 rounded-full bg-blue-600 hover:bg-blue-500 text-white font-medium text-sm md:text-base transition-all duration-300 shadow-[0_0_35px_rgba(37,99,235,0.45)] hover:shadow-[0_0_50px_rgba(37,99,235,0.7)] hover:scale-[1.02] active:scale-[0.98] border border-blue-400/40"
-              data-cursor
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <span>Expor meu gargalo operacional</span>
-              <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
-            </a>
+              <a
+                className="group relative inline-flex items-center gap-3 px-7 py-4 rounded-full bg-blue-600 hover:bg-blue-500 text-white font-medium text-sm md:text-base transition-all duration-300 shadow-[0_0_35px_rgba(37,99,235,0.45)] hover:shadow-[0_0_50px_rgba(37,99,235,0.7)] hover:scale-[1.02] active:scale-[0.98] border border-blue-400/40"
+                data-cursor
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span>Expor meu gargalo operacional</span>
+                <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+              </a>
+            </div>
+
+            <div className="mono text-[11px] text-zinc-400 flex items-center justify-start lg:justify-end gap-2 w-full">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+              <span>DIAGNÓSTICO TÉCNICO INICIAL SEM COMPROMISSO</span>
+            </div>
           </div>
         </div>
 
         {/* Seamless Section Transition Conduit */}
-        <div className="pt-8 flex items-center justify-between text-zinc-500 mono text-[10px] border-t border-white/[0.04] mt-6">
+        <div className="pt-6 pb-2 flex items-center justify-between text-zinc-500 mono text-[10px] border-t border-white/[0.04] mt-4">
           <div className="flex items-center gap-2">
             <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-ping" />
             <span>TRANSIÇÃO // CENA 01 → CENA 02</span>
