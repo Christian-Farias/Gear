@@ -140,7 +140,7 @@ const Header: React.FC = () => {
             {/* Status indicator: Studio availability */}
             <div className="hidden xl:flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[10px] mono">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-              <span>Agenda aberta 2025</span>
+              <span>Disponível para novos projetos</span>
             </div>
 
             {/* Live Clock */}

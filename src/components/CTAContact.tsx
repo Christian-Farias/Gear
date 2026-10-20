@@ -59,7 +59,7 @@ const CTAContact: React.FC = () => {
   };
 
   return (
-    <section className="cta relative py-28 md:py-44 overflow-hidden bg-gradient-to-b from-[#090D18] via-[#0D1528] to-[#070A11] border-t border-white/[0.1]" id="contato">
+    <section className="relative py-28 md:py-40 overflow-hidden bg-gradient-to-b from-[#080C16] via-[#0D152A] to-[#06080E] border-t border-white/[0.08]" id="contato">
       {/* Orbital glow rings */}
       <div 
         className="absolute -right-20 -top-32 w-[55vw] max-w-[700px] aspect-square rounded-full border border-blue-500/20 pointer-events-none animate-pulse-slow"
@@ -82,22 +82,27 @@ const CTAContact: React.FC = () => {
           </span>
           <div className="flex items-center gap-2 text-xs mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-3 py-1 rounded-full">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-            <span>Resposta técnica em até 1 dia útil</span>
+            <span>Atendimento técnico ativo &bull; Resposta em até 24h</span>
           </div>
         </div>
 
-        {/* Mega Title with Editorial Serif */}
-        <h2 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-semibold text-white tracking-tight leading-[0.95] max-w-5xl">
-          <span>Vamos tirar</span><br />
-          <span>isso da <em className="serif italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-white">planilha?</em></span>
+        {/* Mega Title with Editorial Serif and unclipped italic descenders */}
+        <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-semibold text-white tracking-tight leading-[1.04] max-w-4xl">
+          <span className="block">Vamos tirar</span>
+          <span className="block mt-1">
+            isso da{' '}
+            <em className="serif italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-200 to-white pr-3 inline-block">
+              planilha?
+            </em>
+          </span>
         </h2>
 
         {/* Interactive Scope Customizer Pills */}
-        <div className="mt-10 pt-6 border-t border-white/[0.08] space-y-3">
-          <span className="mono text-xs text-zinc-400 block uppercase tracking-wider">
-            1. Selecione o foco do seu projeto (opcional):
+        <div className="mt-8 pt-6 border-t border-white/[0.08] space-y-3">
+          <span className="mono text-xs text-zinc-400 block uppercase tracking-wider font-medium">
+            Selecione o foco do seu projeto:
           </span>
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-2.5">
             {availableScopes.map((scope) => {
               const isSelected = selectedScopes.includes(scope);
               return (
@@ -105,7 +110,7 @@ const CTAContact: React.FC = () => {
                   key={scope}
                   type="button"
                   onClick={() => toggleScope(scope)}
-                  className={`inline-flex items-center gap-2 px-3.5 py-2 rounded-full text-xs mono transition-all ${
+                  className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs mono transition-all ${
                     isSelected
                       ? 'bg-blue-600 text-white border border-blue-400 shadow-[0_0_15px_rgba(37,99,235,0.4)]'
                       : 'bg-white/[0.04] text-zinc-300 hover:text-white border border-white/[0.08] hover:bg-white/[0.08]'
@@ -120,18 +125,18 @@ const CTAContact: React.FC = () => {
         </div>
 
         {/* Action Row */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-12 mt-10 pt-6 border-t border-white/[0.08]">
-          <div className="space-y-6 max-w-lg">
-            <p className="text-lg sm:text-xl text-zinc-300 font-normal leading-relaxed">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-10 mt-8 pt-6 border-t border-white/[0.08]">
+          <div className="space-y-5 max-w-lg">
+            <p className="text-base sm:text-lg md:text-xl text-zinc-300 font-normal leading-relaxed">
               Conte o que está travando a sua operação hoje. Nossa equipe técnica analisa seu fluxo e apresenta uma proposta de solução sob medida, sem compromisso e sem enrolação.
             </p>
 
             {/* Direct Contact Alternative Links */}
-            <div className="flex flex-wrap items-center gap-4 pt-2">
+            <div className="flex flex-wrap items-center gap-4 pt-1">
               <button
                 type="button"
                 onClick={copyEmail}
-                className="group inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.1] text-xs mono text-zinc-300 hover:text-white transition-all"
+                className="group inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.1] text-xs mono text-zinc-300 hover:text-white transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
                 title="Copiar e-mail de contato"
               >
                 <Mail className="w-3.5 h-3.5 text-blue-400" />

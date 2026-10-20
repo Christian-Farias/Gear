@@ -212,8 +212,8 @@ const Hero: React.FC = () => {
               <span>— Estúdio de software, IA &amp; automação</span>
             </div>
             <div className="flex items-center gap-3">
-              <span className="hidden sm:inline-block px-2.5 py-0.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-[10px]">
-                ED. 2025/2026
+              <span className="hidden sm:inline-block px-2.5 py-0.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-[10px] tracking-wider uppercase text-zinc-300">
+                SOB MEDIDA
               </span>
               <span className="text-zinc-500">Fig. 01 — o caos, organizado</span>
             </div>
@@ -268,8 +268,8 @@ const Hero: React.FC = () => {
             </span>
           </h1>
 
-          {/* Poetic Editorial Counterpoint */}
-          <div className="mega2 text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-sky-200 to-white drop-shadow-[0_4px_24px_rgba(59,130,246,0.3)]">
+          {/* Hero subheadline — light-weight sans, reads as quiet counterpoint to the h1 */}
+          <div className="mega2">
             Mais inteligência<br />
             para crescer.
           </div>
@@ -300,10 +300,17 @@ const Hero: React.FC = () => {
       {/* Hero Foot with Narrative & High-Converting CTAs */}
       <div className="wrap relative z-10 mt-8 md:mt-12">
         <div className="hero-foot pt-6 border-t border-white/[0.08]">
-          <div className="space-y-4">
-            <p className="text-base sm:text-lg md:text-xl text-zinc-300 font-normal leading-relaxed max-w-xl">
-              Software sob medida, IA e automações que substituem planilhas frágeis por{' '}
-              <strong className="text-white font-medium">processos autônomos, precisos e escaláveis</strong>.
+          <div className="space-y-3">
+            {/* Line 1 — main value proposition */}
+            <p className="text-base sm:text-lg text-zinc-200 font-medium leading-snug max-w-lg">
+              Software sob medida, IA e automações.
+            </p>
+            {/* Line 2 — complement */}
+            <p className="text-sm sm:text-base text-zinc-400 font-normal leading-relaxed max-w-lg">
+              Substitua planilhas frágeis por{' '}
+              <span className="text-blue-300 font-medium">
+                processos autônomos, precisos e escaláveis.
+              </span>
             </p>
 
             {/* Technical Proof Pills */}

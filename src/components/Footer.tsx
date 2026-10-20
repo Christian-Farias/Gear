@@ -4,17 +4,17 @@ import { ArrowUpRight, Github, Linkedin, Instagram, Mail } from 'lucide-react';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="relative bg-[#05070B] pt-20 pb-12 overflow-hidden border-t border-white/[0.08]" role="contentinfo">
+    <footer className="relative bg-[#05070B] pt-20 pb-10 overflow-hidden border-t border-white/[0.08]" role="contentinfo">
       {/* Background illumination */}
       <div 
-        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[60vw] max-w-[800px] h-[300px] bg-gradient-to-t from-blue-600/10 to-transparent blur-[120px] pointer-events-none -z-10" 
+        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[60vw] max-w-[750px] h-[250px] bg-gradient-to-t from-blue-600/10 to-transparent blur-[120px] pointer-events-none -z-10" 
         aria-hidden="true" 
       />
 
       <div className="wrap relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-16 border-b border-white/[0.08]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-14 border-b border-white/[0.08]">
           {/* Col 1: Logo & Mission */}
-          <div className="lg:col-span-5 space-y-4">
+          <div className="lg:col-span-4 space-y-4">
             <a href="#top" className="inline-flex items-center gap-3 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded p-1" aria-label="Voltar ao topo da página">
               <div className="w-8 h-8 transition-transform duration-300 group-hover:scale-110">
                 <svg viewBox="0 0 500 540" className="w-full h-full drop-shadow-[0_0_10px_rgba(45,99,255,0.4)]">
@@ -37,7 +37,7 @@ const Footer: React.FC = () => {
           </div>
 
           {/* Col 2: Navigation Links */}
-          <div className="lg:col-span-2 space-y-3">
+          <div className="lg:col-span-3 space-y-3">
             <h4 className="mono text-xs text-zinc-400 uppercase tracking-widest font-semibold">
               Navegar
             </h4>
@@ -78,7 +78,7 @@ const Footer: React.FC = () => {
                 >
                   <Linkedin className="w-3.5 h-3.5" />
                   <span>LinkedIn</span>
-                  <ArrowUpRight className="w-3 h-3 text-zinc-400" />
+                  <ArrowUpRight className="w-3 h-3 text-zinc-500" />
                 </a>
               </li>
               <li>
@@ -90,7 +90,7 @@ const Footer: React.FC = () => {
                 >
                   <Instagram className="w-3.5 h-3.5" />
                   <span>Instagram</span>
-                  <ArrowUpRight className="w-3 h-3 text-zinc-400" />
+                  <ArrowUpRight className="w-3 h-3 text-zinc-500" />
                 </a>
               </li>
               <li>
@@ -102,7 +102,7 @@ const Footer: React.FC = () => {
                 >
                   <Github className="w-3.5 h-3.5" />
                   <span>GitHub</span>
-                  <ArrowUpRight className="w-3 h-3 text-zinc-400" />
+                  <ArrowUpRight className="w-3 h-3 text-zinc-500" />
                 </a>
               </li>
             </ul>
@@ -122,7 +122,7 @@ const Footer: React.FC = () => {
                   className="inline-flex items-center gap-1.5 hover:text-emerald-400 transition-colors"
                 >
                   <span>WhatsApp Oficial</span>
-                  <ArrowUpRight className="w-3 h-3 text-zinc-400" />
+                  <ArrowUpRight className="w-3 h-3 text-zinc-500" />
                 </a>
               </li>
               <li>
@@ -134,7 +134,7 @@ const Footer: React.FC = () => {
                   <span>contato@gear.com.br</span>
                 </a>
               </li>
-              <li className="pt-2 text-xs text-zinc-400 mono">
+              <li className="pt-2 text-xs text-zinc-400 mono leading-relaxed">
                 São Paulo, SP &bull; Atendimento Remoto Nacional
               </li>
             </ul>
@@ -142,7 +142,7 @@ const Footer: React.FC = () => {
         </div>
 
         {/* Legal & Credits Row */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 mono text-xs text-zinc-400">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 mono text-xs text-zinc-400">
           <span>&copy; {new Date().getFullYear()} GEAR Tecnologia Ltda. Todos os direitos reservados.</span>
           <div className="flex items-center gap-2">
             <span>Desenvolvido com excelência no Brasil</span>
@@ -152,9 +152,9 @@ const Footer: React.FC = () => {
         </div>
       </div>
 
-      {/* Monumental Architectural Watermark Typography */}
+      {/* Monumental Watermark Typography (Calibrated scale & opacity so it never dominates) */}
       <div 
-        className="text-[26vw] font-bold tracking-tighter text-center leading-[0.72] text-white/[0.02] select-none mt-10 -mb-6 pointer-events-none transition-colors"
+        className="text-[17vw] sm:text-[18vw] font-bold tracking-tighter text-center leading-none text-transparent bg-clip-text bg-gradient-to-b from-white/[0.03] to-transparent select-none mt-8 -mb-4 pointer-events-none"
         aria-hidden="true"
       >
         GEAR
